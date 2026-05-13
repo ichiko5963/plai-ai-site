@@ -2488,11 +2488,17 @@ ul, ol {
   color: #16a34a;
   font-weight: 600;
 }
-@media screen and (max-width: 1024px) {
-  .x-accounts-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media screen and (max-width: 600px) {
-  .x-accounts-grid { grid-template-columns: 1fr; }
+/* 4列固定。狭い画面でもパディングを縮めて維持する */
+.x-accounts-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media screen and (max-width: 900px) {
+  .x-accounts-grid { gap: 10px; }
+  .x-account-card { padding: 16px 8px 14px; }
+  .x-account-card__avatar { width: 48px; height: 48px; margin-bottom: 10px; }
+  .x-account-card__name { font-size: 1rem; min-height: 2.4em; }
+  .x-account-card__handle { font-size: 0.85rem; margin-bottom: 10px; }
+  .x-account-card__followers { font-size: 1.6rem; }
+  .x-account-card__followers span { display: block; margin-left: 0; font-size: 0.7rem; }
+  .x-account-card__growth { font-size: 0.85rem; }
 }
 .tweet-carousel__item:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(0,0,0,0.12); border-color: #ccd6dd; }
 .tweet-carousel__item-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
