@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>無料プレゼント｜PLaiが運用する Obsidian Vault テンプレート｜株式会社PLai</title>
+<meta name="description" content="PLaiが実際に運用しているObsidian Vaultの階層構造・_RULE.md/CLAUDE.md/SKILL.mdパターン・AI部署設計を約30枚で公開する無料テンプレート資料。">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="canonical" href="https://plai-ai.com/decks/obsidian-vault-template.html">
+<meta property="og:url" content="https://plai-ai.com/decks/obsidian-vault-template.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PLaiが運用する Obsidian Vault テンプレート">
+<meta property="og:description" content="会社・部署・案件・スキル・記憶の階層をそのまま使えるVaultテンプレ。CLAUDE.md/SKILL.md/_RULE.mdパターン全公開。">
+<meta property="og:image" content="https://plai-ai.com/assets/img/knowledge_graph_viz.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=20260514a">
+<style>
+  .tree { font-family: 'SF Mono', Menlo, monospace; font-size: 17px; line-height: 1.85; color: #1a1a2e; background: rgba(155,140,255,0.06); padding: 28px 32px; border-radius: 12px; border: 1px solid rgba(26,26,46,0.08); }
+  .slide--bg-dark .tree { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.92); border-color: rgba(255,255,255,0.1); }
+  .tree__line { display: block; }
+  .tree__comment { color: #9999a8; font-size: 14px; margin-left: 12px; }
+  .slide--bg-dark .tree__comment { color: rgba(255,255,255,0.5); }
+  .tree b { color: #6b46c1; font-weight: 600; }
+  .slide--bg-dark .tree b { color: #c4b5fd; }
+  .code-snippet { font-family: 'SF Mono', Menlo, monospace; background: #1a1a2e; color: #e6e6f0; padding: 24px 28px; border-radius: 12px; font-size: 14px; line-height: 1.7; overflow-x: auto; margin-top: 24px; }
+  .code-snippet .code-snippet__comment { color: #8a8ba8; }
+  .code-snippet .code-snippet__h { color: #f7a85a; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<a class="deck-home" href="../index.html">← PLai TOP</a>
+
+<div class="deck-shell">
+  <div class="deck-canvas">
+
+    <!-- 01 Cover -->
+    <section class="slide slide--cover is-active">
+      <p class="slide__brand">PLAI / FREE GIFT — VAULT TEMPLATE</p>
+      <span class="slide__tag">2026 EDITION</span>
+      <h1 class="slide__title">Obsidian Vault<br>テンプレート。</h1>
+      <p class="slide__subtitle">PLaiが実際に運用している、会社×AI×案件×記憶の階層構造を、<br>そのまま使える形でお渡しします。</p>
+      <div class="slide__footer"><span>plai-ai.com / Free Gift</span><span>01 / 32</span></div>
+    </section>
+
+    <!-- 02 Statement -->
+    <section class="slide slide--statement">
+      <p class="slide__statement-label">WHY VAULT</p>
+      <h2 class="slide__statement">AIの差は、<br>モデルではなく<em>構造</em>で決まる。</h2>
+      <p class="slide__statement-sub">どのモデルを使うかより、AIが参照できる「構造化された記憶」をどう設計するか。それが、AIを「使う側」と「使われる側」を分ける。</p>
+    </section>
+
+    <!-- 03 About -->
+    <section class="slide slide--bg-soft">
+      <p class="slide__label">ABOUT THIS TEMPLATE</p>
+      <h2 class="slide__h1">プロンプトは一時的。構造は永続的。</h2>
+      <div class="slide__visual-split">
+        <div class="slide__visual"><img src="../assets/img/illust_knowledge_flow.png" alt="知識フロー"></div>
+        <div class="slide__visual-text">
+          <h3>本テンプレが提供するもの。</h3>
+          <p>PLaiが日々運用している Obsidian Vault のディレクトリ構造、各層に置く <code>_RULE.md</code> / <code>CLAUDE.md</code> / <code>SKILL.md</code> のパターン、そしてAIエージェントが迷わず動くためのナビゲーション設計を、約30枚のスライドで体系的に公開しています。</p>
+          <p>そのまま自社のVaultとして再構築できます。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Top-level overview -->
+    <section class="slide">
+      <p class="slide__label">TOP LEVEL</p>
+      <h2 class="slide__h1">ルート直下、たった6つのディレクトリ。</h2>
+      <p class="slide__lead">ルートを「層」で分け、それぞれが独立した責務を持つように設計します。</p>
+      <div class="tree">
+        <span class="tree__line"><b>OpenClaw-Workspace/</b></span>
+        <span class="tree__line">├── 00-rules/             <span class="tree__comment"># メタルール層（全体運用方針）</span></span>
+        <span class="tree__line">├── 01-private/           <span class="tree__comment"># 個人領域（家族・経歴・健康など）</span></span>
+        <span class="tree__line">├── 02-company_knowledge/ <span class="tree__comment"># 会社情報・事業ナレッジ</span></span>
+        <span class="tree__line">├── 03-AI_departments/    <span class="tree__comment"># AI部署別スキル・ナレッジ</span></span>
+        <span class="tree__line">├── memory/               <span class="tree__comment"># AI記憶のハブ（MEMORY.md）</span></span>
+        <span class="tree__line">└── archive/              <span class="tree__comment"># 過去資料・廃止資源</span></span>
+      </div>
+    </section>
+
+    <!-- 05 Bridge -->
+    <section class="slide slide--bridge">
+      <p class="slide__bridge-num">SECTION 01</p>
+      <h2 class="slide__bridge-title">階層設計の<br>5つの層。</h2>
+      <p class="slide__bridge-sub">層ごとに役割を分ければ、AIが迷わない。</p>
+    </section>
+
+    <!-- 06 00-rules -->
+    <section class="slide">
+      <p class="slide__label">LAYER 01 — META RULES</p>
+      <h2 class="slide__h1">00-rules / メタルール層。</h2>
+      <div class="slide__visual-split">
+        <div class="slide__visual slide__visual--contain"><img src="../assets/img/diagram_two_step.png" alt="メタルール"></div>
+        <div class="slide__visual-text">
+          <h3>「全体の運用方針」をひとまとめに。</h3>
+          <p>すべての業務・スキル・プロジェクトに共通する「やり方の標準」をここに置く。役職別のRULE、プロジェクトのライフサイクル、メモリ管理、スキル作成ガイドなど、横断ルールが集まります。</p>
+          <ul>
+            <li>各C-suite役職のRULE</li>
+            <li>plai-knowledge-layout.md（会社構造ガイド）</li>
+            <li>project-lifecycle.md（案件の進め方）</li>
+            <li>deliverable-flow.md（成果物の保存ルール）</li>
+            <li>skill-creation.md（スキル新規作成手順）</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 01-private -->
+    <section class="slide slide--bg-soft">
+      <p class="slide__label">LAYER 02 — PRIVATE</p>
+      <h2 class="slide__h1">01-private / 個人領域。</h2>
+      <p class="slide__lead">家族・健康・経歴・住所・連絡先など、会社業務と分離したい情報を集約。AIがプライベートな文脈で動く時の参照先。</p>
+      <div class="tree">
+        <span class="tree__line"><b>01-private/</b></span>
+        <span class="tree__line">├── 02-people/        <span class="tree__comment"># プライベートな人間関係</span></span>
+        <span class="tree__line">├── 経歴書_市岡直人.md</span>
+        <span class="tree__line">├── 健康・ライフ.md</span>
+        <span class="tree__line">└── _RULE.md          <span class="tree__comment"># 個人領域の運用ルール</span></span>
+      </div>
+    </section>
+
+    <!-- 08 02-company_knowledge overview -->
+    <section class="slide">
+      <p class="slide__label">LAYER 03 — COMPANY KNOWLEDGE</p>
+      <h2 class="slide__h1">02-company_knowledge / 会社情報層。</h2>
+      <p class="slide__lead">会社の存在自体に紐づく情報を集約。プロダクト・事業内容・パートナー企業・進行中プロジェクトなど。</p>
+      <div class="tree">
+        <span class="tree__line"><b>02-company_knowledge/</b></span>
+        <span class="tree__line">├── 株式会社PLai/</span>
+        <span class="tree__line">│   ├── _RULE.md             <span class="tree__comment"># 会社ハブ（4層構造マップ）</span></span>
+        <span class="tree__line">│   ├── 00-Company HP/       <span class="tree__comment"># 公式サイト関連</span></span>
+        <span class="tree__line">│   ├── 01-Business content/ <span class="tree__comment"># 事業別コンテンツ</span></span>
+        <span class="tree__line">│   ├── 02-People/           <span class="tree__comment"># 社内人員情報</span></span>
+        <span class="tree__line">│   ├── 03-Project/          <span class="tree__comment"># 進行中案件</span></span>
+        <span class="tree__line">│   └── 04-Partner company/  <span class="tree__comment"># 協業先情報</span></span>
+        <span class="tree__line">└── 株式会社Va'lueQ/         <span class="tree__comment"># 姉妹会社</span></span>
+      </div>
+    </section>
+
+    <!-- 09 03-AI_departments overview -->
+    <section class="slide slide--bg-soft">
+      <p class="slide__label">LAYER 04 — AI DEPARTMENTS</p>
+      <h2 class="slide__h1">03-AI_departments / AI部署層。</h2>
+      <div class="slide__visual-split slide__visual-split--reverse">
+        <div class="slide__visual slide__visual--contain"><img src="../assets/img/agent_department_roles.png" alt="AI部署構成"></div>
+        <div class="slide__visual-text">
+          <h3>AIを「役職」として組織化する。</h3>
+          <p>業務を担うAIエージェントを、人間の組織と同じ役職構造で配置。CEO・CMO・CTO・CSO・CFO・CHRO の各層が、それぞれの責任範囲を持ちます。</p>
+          <p>各部署配下は <code>knowledge/</code> + <code>skills/</code> + <code>output/</code> の3点セットで統一。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 memory + USER.md -->
+    <section class="slide">
+      <p class="slide__label">LAYER 05 — MEMORY HUB</p>
+      <h2 class="slide__h1">memory/ と MEMORY.md / 中央ハブ。</h2>
+      <p class="slide__lead">AIが「どこに何があるか」を最初に確認するインデックス。会社・人・事業・スキル・最新の意思決定への入口。</p>
+      <div class="tree">
+        <span class="tree__line"><b>memory/</b></span>
+        <span class="tree__line">├── MEMORY.md          <span class="tree__comment"># 中央インデックス（会社・自分・役職マップ）</span></span>
+        <span class="tree__line">├── 2026-MM-DD.md      <span class="tree__comment"># 日次ジャーナル（任意）</span></span>
+        <span class="tree__line">└── decisions.md       <span class="tree__comment"># 重要決定のログ</span></span>
+        <span class="tree__line"> </span>
+        <span class="tree__line"><b>USER.md</b>                <span class="tree__comment"># 「私は誰か」の単一ファイル</span></span>
+        <span class="tree__line"><b>CLAUDE.md</b>              <span class="tree__comment"># ルート直下のAI動作定義</span></span>
+      </div>
+    </section>
+
+    <!-- 11 Bridge -->
+    <section class="slide slide--bridge">
+      <p class="slide__bridge-num">SECTION 02</p>
+      <h2 class="slide__bridge-title">_RULE.md パターン。</h2>
+      <p class="slide__bridge-sub">階層ごとに置く「迷子防止のハブファイル」。</p>
+    </section>
+
+    <!-- 12 _RULE.md role -->
+    <section class="slide">
+      <p class="slide__label">_RULE.md PATTERN</p>
+      <h2 class="slide__h1">各ディレクトリ直下に置く、迷子防止のハブ。</h2>
+      <div class="slide__visual-split">
+        <div class="slide__visual"><img src="../assets/img/knowledge_context_flow.png" alt="ナレッジフロー"></div>
+        <div class="slide__visual-text">
+          <h3>3つの役割。</h3>
+          <ul>
+            <li>このディレクトリで何が扱われているかの説明</li>
+            <li>サブディレクトリへの誘導（どこを見ればいいか）</li>
+            <li>命名規約・運用ルール</li>
+          </ul>
+          <p>AIエージェントは <code>_RULE.md</code> を辿ることで、奥のファイルにたどり着く設計です。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 _RULE.md example -->
+    <section class="slide slide--bg-dark">
+      <p class="slide__label">_RULE.md EXAMPLE</p>
+      <h2 class="slide__h1">記述例。</h2>
+      <pre class="code-snippet"><span class="code-snippet__comment"># 02-company_knowledge / 株式会社PLai 配下の使い方</span>
+
+<span class="code-snippet__h">## 何が入っているか</span>
+- 会社・事業・人員・案件・協業先の情報
+- 公式サイト関連の制作物
+
+<span class="code-snippet__h">## 探し方</span>
+1. AI業務 → `01-Business content/`
+2. 進行中案件 → `03-Project/&lt;slug&gt;/`
+3. パートナー企業 → `04-Partner company/&lt;company&gt;/`
+4. 会社の人 → `02-People/`
+
+<span class="code-snippet__h">## 命名規約</span>
+- ディレクトリ: 数字プレフィックス（00-, 01-, ...）
+- ファイル: 日本語OK、ただし `_RULE.md` だけは固定</pre>
+    </section>
+
+    <!-- 14 Bridge -->
+    <section class="slide slide--bridge">
+      <p class="slide__bridge-num">SECTION 03</p>
+      <h2 class="slide__bridge-title">CLAUDE.md パターン。</h2>
+      <p class="slide__bridge-sub">AIの動作を定義する、永続的な指示書。</p>
+    </section>
+
+    <!-- 15 CLAUDE.md role -->
+    <section class="slide">
+      <p class="slide__label">CLAUDE.md PATTERN</p>
+      <h2 class="slide__h1">「毎回同じ説明」をゼロにする。</h2>
+      <div class="slide__visual-split slide__visual-split--reverse">
+        <div class="slide__visual"><img src="../assets/img/diagram_brain_vs_ai.png" alt="AI記憶"></div>
+        <div class="slide__visual-text">
+          <h3>役割。</h3>
+          <p>AIが「このプロジェクトでどう振る舞うべきか」を最初に読み込むファイル。技術スタック・命名規約・トーン・避けるべき行動などを宣言型で書きます。</p>
+          <p>毎回のチャットで同じ前提を伝え直す必要がなくなる。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 16 CLAUDE.md example -->
+    <section class="slide slide--bg-dark">
+      <p class="slide__label">CLAUDE.md EXAMPLE</p>
+      <h2 class="slide__h1">記述例（PLai HP プロジェクト）。</h2>
+      <pre class="code-snippet"><span class="code-snippet__comment"># PLai 公式サイト 開発ルール</span>
+
+<span class="code-snippet__h">## スタック</span>
+- 静的HTML/CSS/JS、フレームワーク不要
+- Cloudflare Pages にmainブランチpushで自動デプロイ
+
+<span class="code-snippet__h">## 命名規約</span>
+- 業務ページ: `business-&lt;slug&gt;.html`
+- 記事: `articles/&lt;slug&gt;.html`
+
+<span class="code-snippet__h">## 避けること</span>
+- mp4をgit追加（GitHub 100MB制限）→ ffmpegで圧縮
+- 絵文字の多用（PLaiブランドは禁欲的）
+- スライドが16:9を超える縦オーバーフロー</pre>
+    </section>
+
+    <!-- 17 Bridge -->
+    <section class="slide slide--bridge">
+      <p class="slide__bridge-num">SECTION 04</p>
+      <h2 class="slide__bridge-title">部署 × スキル<br>の設計。</h2>
+      <p class="slide__bridge-sub">knowledge / skills / output の3点セット。</p>
+    </section>
+
+    <!-- 18 Department structure -->
+    <section class="slide">
+      <p class="slide__label">DEPARTMENT STRUCTURE</p>
+      <h2 class="slide__h1">部署配下を統一すれば、再利用が走る。</h2>
+      <div class="tree">
+        <span class="tree__line"><b>03-AI_departments/Marketing Department/cmo/</b></span>
+        <span class="tree__line">├── _RULE.md</span>
+        <span class="tree__line">├── strategy.md             <span class="tree__comment"># 戦略・方針</span></span>
+        <span class="tree__line">├── knowledge/              <span class="tree__comment"># 蓄積されたナレッジ</span></span>
+        <span class="tree__line">│   ├── CMO業務タスク台帳.md</span>
+        <span class="tree__line">│   ├── バズ投稿構文ライブラリ.md</span>
+        <span class="tree__line">│   └── バズ投稿再現戦略.md</span>
+        <span class="tree__line">└── skills/                 <span class="tree__comment"># 実行可能なスキル群</span></span>
+        <span class="tree__line">    ├── 01-x-bazu-prompt/</span>
+        <span class="tree__line">    │   ├── SKILL.md</span>
+        <span class="tree__line">    │   └── output/archive/</span>
+        <span class="tree__line">    ├── 02-x-post-workflow/</span>
+        <span class="tree__line">    └── 12-peatix-event/</span>
+      </div>
+    </section>
+
+    <!-- 19 AI Role Map -->
+    <section class="slide slide--bg-soft">
+      <p class="slide__label">AI ROLE MAP</p>
+      <h2 class="slide__h1">人間の組織図、そのままAIに。</h2>
+      <div class="slide__grid-3">
+        <div class="slide__card"><p class="slide__card-num">CEO</p><p class="slide__card-title">代表取締役</p><p class="slide__card-body">事業ポートフォリオ、GO/NO-GO判断、AI従業員間の調整、重要決定の記録。</p></div>
+        <div class="slide__card"><p class="slide__card-num">CMO</p><p class="slide__card-title">最高マーケティング責任者</p><p class="slide__card-body">マーケ全チャネル整合、X運用方針、コンテンツ・キャンペーン設計。</p></div>
+        <div class="slide__card"><p class="slide__card-num">CTO</p><p class="slide__card-title">最高技術責任者</p><p class="slide__card-body">実装・コード・デプロイ・技術選定・バグ修正・LP決済まで技術全般。</p></div>
+        <div class="slide__card"><p class="slide__card-num">CSO</p><p class="slide__card-title">最高営業責任者</p><p class="slide__card-body">新規提案・既存顧客・提携・パイプライン管理・受注後の引き渡し。</p></div>
+        <div class="slide__card"><p class="slide__card-num">CFO</p><p class="slide__card-title">最高財務責任者</p><p class="slide__card-body">経費・売上整理、Gmail起点の取引、請求書作成、確定申告準備。</p></div>
+        <div class="slide__card"><p class="slide__card-num">CHRO</p><p class="slide__card-title">最高人事責任者</p><p class="slide__card-body">人員一覧・役割・特性、組織図、採用基準、オンボーディング。</p></div>
+      </div>
+    </section>
+
+    <!-- 20 SKILL.md pattern -->
+    <section class="slide">
+      <p class="slide__label">SKILL.md PATTERN</p>
+      <h2 class="slide__h1">「動く手順書」を、AIが読める形に。</h2>
+      <div class="slide__visual-split">
+        <div class="slide__visual"><img src="../assets/img/agent_workflow_xpost.png" alt="ワークフロー"></div>
+        <div class="slide__visual-text">
+          <h3>スキルの単位とは。</h3>
+          <p>1つのスキルは「自己完結した手順」です。実行に必要な入力・出力・参照ファイル・成果物の保存先までを <code>SKILL.md</code> に書きます。AIはこの1ファイルから全工程を再現できます。</p>
+          <ul>
+            <li>用途（いつ起動するか）</li>
+            <li>必要な入力</li>
+            <li>実行ステップ</li>
+            <li>出力先（output/archive/）</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 21 output/archive -->
+    <section class="slide slide--bg-soft">
+      <p class="slide__label">OUTPUT MANAGEMENT</p>
+      <h2 class="slide__h1">成果物は、スキル内 output/archive/ に。</h2>
+      <p class="slide__lead">「どこに何を保存したか分からなくなる」を防ぐ最重要ルール。すべての成果物は、それを生成したスキル直下の <code>output/archive/</code> に置きます。</p>
+      <div class="tree">
+        <span class="tree__line"><b>skills/01-invoice-creation/</b></span>
+        <span class="tree__line">├── SKILL.md</span>
+        <span class="tree__line">├── prompts/</span>
+        <span class="tree__line">├── templates/</span>
+        <span class="tree__line">└── output/</span>
+        <span class="tree__line">    ├── archive/         <span class="tree__comment"># 全自動保存</span></span>
+        <span class="tree__line">    │   ├── 2026-04/</span>
+        <span class="tree__line">    │   └── 2026-05/</span>
+        <span class="tree__line">    └── reusable/        <span class="tree__comment"># 昇格時のみ</span></span>
+      </div>
+    </section>
+
+    <!-- 22 Bridge -->
+    <section class="slide slide--bridge">
+      <p class="slide__bridge-num">SECTION 05</p>
+      <h2 class="slide__bridge-title">MEMORY.md<br>の設計。</h2>
+      <p class="slide__bridge-sub">「最初に開くべき1ファイル」をどう書くか。</p>
+    </section>
+
+    <!-- 23 MEMORY.md content -->
+    <section class="slide">
+      <p class="slide__label">MEMORY.md</p>
+      <h2 class="slide__h1">中央インデックスの構造。</h2>
+      <div class="slide__visual-split slide__visual-split--reverse">
+        <div class="slide__visual"><img src="../assets/img/knowledge_graph_viz.png" alt="MEMORY graph"></div>
+        <div class="slide__visual-text">
+          <h3>含めるもの。</h3>
+          <ul>
+            <li>「自分」のプロフィール（連絡先・所属など）</li>
+            <li>所属会社一覧と各社のハブパス</li>
+            <li>AI従業員（役職）マップ</li>
+            <li>OpenClawチャットで言いそうな語 → 事業マップ</li>
+            <li>探索の型（短く）</li>
+            <li>姉妹会社・関連プロジェクト</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 24 Mapping table example -->
+    <section class="slide slide--bg-dark">
+      <p class="slide__label">MEMORY.md EXAMPLE</p>
+      <h2 class="slide__h1">「言いそうな語 → 事業」対応表。</h2>
+      <pre class="code-snippet"><span class="code-snippet__comment"># OpenClawで市岡が話している話題 → どの事業か当てる</span>
+
+| 事業 | 言いそうな語 | 最初に読む |
+|---|---|---|
+| X運用・AirCle | AirCle / @aircle_ai / 学生AI団体 | …/X運用/AirCle/_RULE.md |
+| X運用・個人  | いち / @ichiaimarketer | …/X運用/いち-OpenClawガチ勢/_RULE.md |
+| OpenClawローンチ | 5DAYS / 8週間WS / 有料講座 | …/OpenClawローンチ/_RULE.md |
+| Genspark協業 | Genspark / AI検索 | …/04-Partner company/Genspark/_RULE.md |</pre>
+    </section>
+
+    <!-- 25 Bridge -->
+    <section class="slide slide--bridge">
+      <p class="slide__bridge-num">SECTION 06</p>
+      <h2 class="slide__bridge-title">AIへの<br>渡し方。</h2>
+      <p class="slide__bridge-sub">構造があれば、AIは迷わず動く。</p>
+    </section>
+
+    <!-- 26 Navigation pattern -->
+    <section class="slide">
+      <p class="slide__label">NAVIGATION PATTERN</p>
+      <h2 class="slide__h1">AIが「正解のファイル」に辿り着くまで。</h2>
+      <div class="slide__steps">
+        <div class="slide__step"><span class="slide__step-num">01</span><div><p class="slide__step-title">MEMORY.md を読む</p><p class="slide__step-body">中央ハブで全体像と「何の話か」の当たりをつける。</p></div></div>
+        <div class="slide__step"><span class="slide__step-num">02</span><div><p class="slide__step-title">事業マップから _RULE.md を開く</p><p class="slide__step-body">該当事業/会社のハブファイルへジャンプ。階層を1段降りる。</p></div></div>
+        <div class="slide__step"><span class="slide__step-num">03</span><div><p class="slide__step-title">_RULE.md の指示に従って実体に到達</p><p class="slide__step-body">投稿フォルダ・skills・knowledgeなど、目的のファイルに到達。</p></div></div>
+        <div class="slide__step"><span class="slide__step-num">04</span><div><p class="slide__step-title">SKILL.md を起動して成果物を output/archive/ に保存</p><p class="slide__step-body">スキル単位で完結。成果物は必ずスキル直下に残る。</p></div></div>
+      </div>
+    </section>
+
+    <!-- 27 Bridge -->
+    <section class="slide slide--bridge">
+      <p class="slide__bridge-num">SECTION 07</p>
+      <h2 class="slide__bridge-title">運用例。</h2>
+      <p class="slide__bridge-sub">「実際にこう動かしている」3例。</p>
+    </section>
+
+    <!-- 28 Example 1: invoice -->
+    <section class="slide slide--bg-soft">
+      <p class="slide__label">EXAMPLE 01 — INVOICE</p>
+      <h2 class="slide__h1">請求書作成の動かし方。</h2>
+      <div class="slide__visual-split">
+        <div class="slide__visual"><img src="../assets/img/agent_workflow_invoice.png" alt="請求書ワークフロー"></div>
+        <div class="slide__visual-text">
+          <h3>5分で完成。</h3>
+          <p>「○月分の請求書を作って」と指示すると、CFOロールが起動。`contacts-master.md` から振込先を引き、`skills/01-invoice-creation/SKILL.md` のテンプレに従ってPDFを生成→ output/archive/2026-05/ に保存→メール送付ドラフトまで完成。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 29 Example 2: X post -->
+    <section class="slide">
+      <p class="slide__label">EXAMPLE 02 — X POST</p>
+      <h2 class="slide__h1">X投稿バズ生成の動かし方。</h2>
+      <div class="slide__visual-split slide__visual-split--reverse">
+        <div class="slide__visual"><img src="../assets/img/agent_workflow_xpost.png" alt="X投稿ワークフロー"></div>
+        <div class="slide__visual-text">
+          <h3>1パイプラインで8アカウント並列。</h3>
+          <p>各アカウントのCLAUDE.md（人格設定）+ knowledge/ のバズ構文ライブラリ + 最新のバズソース収集結果から、AIが自動で投稿を生成。output/archive/ に保管。担当者は最終チェックのみ。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 30 Example 3: slide -->
+    <section class="slide slide--bg-soft">
+      <p class="slide__label">EXAMPLE 03 — SLIDE DECK</p>
+      <h2 class="slide__h1">会社紹介スライド生成の動かし方。</h2>
+      <div class="slide__visual-split">
+        <div class="slide__visual"><img src="../assets/img/agent_step_01.png" alt="スライド生成"></div>
+        <div class="slide__visual-text">
+          <h3>本資料もこの仕組みで作っています。</h3>
+          <p>slide-creator スキル直下の `06-plai-web-deck/SKILL.md` を起動し、サイト画像・X API・MEMORY.md から最新値を取得。output/archive/ にHTMLが保存され、plai-new-site/decks/ にコピーすればそのまま公開可能。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 31 How to start -->
+    <section class="slide">
+      <p class="slide__label">GET STARTED</p>
+      <h2 class="slide__h1">自社で再現する、4ステップ。</h2>
+      <div class="slide__steps slide__steps--tight">
+        <div class="slide__step"><span class="slide__step-num">01</span><div><p class="slide__step-title">Obsidian Vault を新規作成</p><p class="slide__step-body">プロジェクトフォルダをVaultとして開き、Markdownのみで運用開始。</p></div></div>
+        <div class="slide__step"><span class="slide__step-num">02</span><div><p class="slide__step-title">本資料のディレクトリ構造をコピー</p><p class="slide__step-body">00-rules / 01-private / 02-company_knowledge / 03-AI_departments / memory / archive の6層を用意。</p></div></div>
+        <div class="slide__step"><span class="slide__step-num">03</span><div><p class="slide__step-title">各層に _RULE.md と CLAUDE.md を配置</p><p class="slide__step-body">最初は最小限の内容でOK。AI運用しながら追記していく。</p></div></div>
+        <div class="slide__step"><span class="slide__step-num">04</span><div><p class="slide__step-title">MEMORY.md にハブを作る</p><p class="slide__step-body">「自分」「会社」「事業マップ」「探索の型」をMEMORY.mdに書けば、AIが迷わず動く。</p></div></div>
+      </div>
+    </section>
+
+    <!-- 32 CTA -->
+    <section class="slide slide--cta">
+      <p class="slide__cta-label">NEXT STEP</p>
+      <h2 class="slide__cta-title">Vaultを「自社のOS」にしませんか。</h2>
+      <p class="slide__cta-text">PLai では、このVault構造の構築代行・運用伴走を「組織ナレッジ構築代行事業」として提供しています。<br>30分の無料相談で、貴社にとっての最小成功スコープから一緒に決めましょう。</p>
+      <a class="slide__cta-btn" href="../contact.html#contact-form">無料相談を申し込む →</a>
+    </section>
+
+  </div><!-- /.deck-canvas -->
+</div><!-- /.deck-shell -->
+
+<nav class="deck-nav">
+  <button class="deck-nav__prev" aria-label="前のスライド">‹</button>
+  <span class="deck-nav__count">01 / 32</span>
+  <div class="deck-nav__progress"><span style="width:3.13%"></span></div>
+  <button class="deck-nav__next" aria-label="次のスライド">›</button>
+</nav>
+
+<script src="deck.js?v=20260514"></script>
+</body>
+</html>

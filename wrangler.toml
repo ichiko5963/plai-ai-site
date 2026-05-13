@@ -1,0 +1,14 @@
+name = "plai-ai-site"
+compatibility_date = "2026-05-01"
+pages_build_output_dir = "."
+
+# D1 database binding for /functions/api/subscribe.js & /functions/api/export.js
+[[d1_databases]]
+binding = "DB"
+database_name = "plai-submissions"
+database_id = "REPLACE_WITH_D1_DATABASE_ID_FROM_DASHBOARD"
+migrations_dir = "migrations"
+
+# Admin token for CSV export endpoint (also set in dashboard → Settings → Environment variables)
+# [vars]
+# EXPORT_TOKEN = "your-secret-token-here"
