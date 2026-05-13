@@ -159,10 +159,9 @@
     </section>
 
     <section class="sub-section" id="contact-form">
-      <h2 class="sub-section__title">お問い合わせフォーム</h2>
-      <p class="sub-section__text" style="margin-bottom:32px;">以下のフォームからお気軽にご相談ください。通常1-2営業日以内にご返信いたします。</p>
+      <p class="sub-section__label">CONTACT FORM</p>
+      <h2 class="sub-section__title">お問い合わせ</h2>
       <form action="https://formsubmit.co/jiuhuot10@gmail.com" method="POST" class="contact-form">
-        <!-- Formsubmit設定 -->
         <input type="hidden" name="_subject" value="【PLai HP】新規お問い合わせ">
         <input type="hidden" name="_captcha" value="true">
         <input type="hidden" name="_template" value="table">
@@ -170,27 +169,29 @@
         <input type="text" name="_honey" style="display:none">
 
         <div class="contact-form__group">
-          <label class="contact-form__label" for="name">お名前 <span class="contact-form__required">必須</span></label>
-          <input class="contact-form__input" type="text" id="name" name="お名前" required placeholder="例：山田 太郎">
+          <label class="contact-form__label" for="name">お名前 <span class="contact-form__required">REQUIRED</span></label>
+          <input class="contact-form__input" type="text" id="name" name="お名前" required placeholder="山田 太郎">
         </div>
 
         <div class="contact-form__group">
-          <label class="contact-form__label" for="company">会社名</label>
-          <input class="contact-form__input" type="text" id="company" name="会社名" placeholder="例：株式会社○○">
+          <label class="contact-form__label" for="company">会社名・団体名</label>
+          <input class="contact-form__input" type="text" id="company" name="会社名" placeholder="株式会社○○">
         </div>
 
         <div class="contact-form__group">
-          <label class="contact-form__label" for="email">メールアドレス <span class="contact-form__required">必須</span></label>
-          <input class="contact-form__input" type="email" id="email" name="メールアドレス" required placeholder="例：info@example.com">
+          <label class="contact-form__label" for="email">メールアドレス <span class="contact-form__required">REQUIRED</span></label>
+          <input class="contact-form__input" type="email" id="email" name="メールアドレス" required placeholder="info@example.com">
         </div>
 
         <div class="contact-form__group">
           <label class="contact-form__label" for="phone">電話番号</label>
-          <input class="contact-form__input" type="tel" id="phone" name="電話番号" placeholder="例：080-1234-5678">
+          <input class="contact-form__input" type="tel" id="phone" name="電話番号" placeholder="080-1234-5678">
         </div>
 
+        <div class="contact-form__divider"></div>
+
         <div class="contact-form__group">
-          <label class="contact-form__label">ご相談内容（事業） <span class="contact-form__required">必須</span></label>
+          <label class="contact-form__label">ご相談の事業 <span class="contact-form__required">REQUIRED</span></label>
           <div class="contact-form__checkboxes">
             <label class="contact-form__checkbox">
               <input type="checkbox" name="ご相談事業" value="AI社員構築代行">
@@ -224,17 +225,20 @@
         </div>
 
         <div class="contact-form__group">
-          <label class="contact-form__label" for="message">お問い合わせ内容 <span class="contact-form__required">必須</span></label>
-          <textarea class="contact-form__textarea" id="message" name="お問い合わせ内容" required rows="6" placeholder="ご相談内容をご記入ください"></textarea>
+          <label class="contact-form__label" for="message">お問い合わせ内容 <span class="contact-form__required">REQUIRED</span></label>
+          <textarea class="contact-form__textarea" id="message" name="お問い合わせ内容" required rows="6" placeholder="ご相談内容、現在の課題、ご希望のスケジュールなどをご記入ください"></textarea>
         </div>
 
-        <div class="contact-form__group" style="text-align:center; margin-top:32px;">
+        <div class="contact-form__group" style="text-align:center; margin-top:40px;">
           <button type="submit" class="contact-form__submit">送信する</button>
         </div>
       </form>
-      <div id="sent-message" style="display:none; text-align:center; padding:40px; background:linear-gradient(135deg,#f3f0ff,#fff8f2); border-radius:16px; margin-top:24px;">
-        <p style="font-size:2rem; font-weight:600; color:#333; margin-bottom:12px;">送信完了しました</p>
-        <p style="font-size:1.5rem; color:#666;">お問い合わせありがとうございます。1-2営業日以内にご返信いたします。</p>
+      <div id="sent-message" style="display:none; text-align:center; padding:56px 40px; background:var(--white); border:1px solid rgba(155,140,255,0.12); border-radius:24px; box-shadow:0 4px 40px rgba(0,0,0,0.03); max-width:720px; margin:0 auto;">
+        <div style="width:64px; height:64px; margin:0 auto 20px; background:var(--purple-light); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9b8cff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <p style="font-family:'Shippori Mincho',serif; font-size:2.2rem; font-weight:500; color:var(--ink); margin-bottom:12px;">送信が完了しました</p>
+        <p style="font-size:1.5rem; color:var(--ink-light); line-height:1.8;">お問い合わせありがとうございます。<br>1〜2営業日以内にご返信いたします。</p>
       </div>
     </section>
 
