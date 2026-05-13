@@ -2415,6 +2415,85 @@ ul, ol {
 .tweet-carousel__track { display: flex; gap: 14px; animation: tweetScroll 50s linear infinite; width: max-content; }
 .tweet-carousel__track:hover { animation-play-state: paused; }
 .tweet-carousel__item { flex-shrink: 0; width: 230px; background: #fff; border-radius: 12px; padding: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border: 1px solid #e1e8ed; text-decoration: none; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
+
+/* X Accounts Live Roster (business-x-ops) */
+.x-accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 32px;
+}
+.x-account-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 16px 22px;
+  background: #fff;
+  border: 1px solid rgba(26,26,46,0.08);
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.x-account-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(26,26,46,0.10);
+  border-color: rgba(155,140,255,0.3);
+}
+.x-account-card__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 14px;
+  background: #f5f3ff;
+}
+.x-account-card__name {
+  font-family: 'IBM Plex Sans JP', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+  line-height: 1.4;
+  min-height: 2.8em;
+  display: flex;
+  align-items: center;
+}
+.x-account-card__handle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  color: #6b6b78;
+  margin-bottom: 14px;
+  letter-spacing: 0.01em;
+}
+.x-account-card__followers {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.x-account-card__followers span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #9999a8;
+  margin-left: 4px;
+  letter-spacing: 0.04em;
+}
+.x-account-card__growth {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  color: #16a34a;
+  font-weight: 600;
+}
+@media screen and (max-width: 1024px) {
+  .x-accounts-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media screen and (max-width: 600px) {
+  .x-accounts-grid { grid-template-columns: 1fr; }
+}
 .tweet-carousel__item:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(0,0,0,0.12); border-color: #ccd6dd; }
 .tweet-carousel__item-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
 .tweet-carousel__avatar { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }

@@ -583,6 +583,111 @@ html, body {
 .slide__image-grid--compact .slide__image-card__title { font-size: 15px; line-height: 1.4; margin-bottom: 4px; }
 .slide__image-grid--compact .slide__image-card__text { font-size: 12px; line-height: 1.6; }
 
+/* X Accounts roster grid for deck (8 accounts in slide) */
+.slide__accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 28px;
+}
+.slide__account-card {
+  background: #fff;
+  border: 1px solid var(--c-line);
+  border-radius: 14px;
+  padding: 20px 16px 18px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.slide__account-card__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  background: #f5f3ff;
+}
+.slide__account-card__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a2e;
+  line-height: 1.35;
+  margin-bottom: 4px;
+  min-height: 2.7em;
+  display: flex;
+  align-items: center;
+}
+.slide__account-card__handle {
+  font-family: var(--font-en);
+  font-size: 11px;
+  color: var(--c-mute);
+  margin-bottom: 10px;
+}
+.slide__account-card__followers {
+  font-family: var(--font-en);
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a1a2e;
+  line-height: 1;
+}
+.slide__account-card__growth {
+  font-family: var(--font-en);
+  font-size: 12px;
+  font-weight: 600;
+  color: #16a34a;
+  margin-top: 4px;
+}
+
+/* Automation flow pills (横並びパイプライン) */
+.slide__autoflow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-top: 36px;
+  align-items: stretch;
+}
+.slide__autoflow-step {
+  background: #fff;
+  border: 1px solid var(--c-line);
+  border-radius: 12px;
+  padding: 22px 18px 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.slide__autoflow-step__num {
+  font-family: var(--font-en);
+  font-size: 11px;
+  color: var(--c-accent);
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+}
+.slide__autoflow-step__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  line-height: 1.45;
+  margin-bottom: 6px;
+}
+.slide__autoflow-step__body {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #6b6b78;
+}
+.slide__autoflow-step__badge {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: var(--font-en);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: #16a34a;
+  background: rgba(22,163,74,0.08);
+  padding: 4px 10px;
+  border-radius: 100px;
+  align-self: flex-start;
+}
+
 /* Visual steps — image + text horizontally, stacked vertically */
 .slide__steps--visual {
   display: flex;
