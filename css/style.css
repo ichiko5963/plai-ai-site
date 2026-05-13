@@ -398,6 +398,15 @@ ul, ol {
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
   z-index: 2;
 }
+/* Hover bridge filling the visual gap between SERVICES text and flyout */
+.p-menu__services::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  width: 56px;
+}
 .p-menu__services-toggle.is-open .p-menu__services {
   opacity: 1;
   visibility: visible;

@@ -162,15 +162,28 @@
 
     // Services dropdown: hover on pointer devices, tap-toggle on touch
     var $servicesToggle = $('.p-menu__services-toggle');
+    var $servicesFlyout = $('.p-menu__services');
     var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
     if (canHover) {
-      $servicesToggle.on('mouseenter', function () {
-        $(this).addClass('is-open');
-      });
-      $servicesToggle.on('mouseleave', function () {
-        $(this).removeClass('is-open');
-      });
+      // Hover bridge: keep flyout open while pointer is on toggle OR flyout,
+      // with 300ms grace period for the visual gap between them.
+      var closeTimer = null;
+      function openServices() {
+        if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+        $servicesToggle.addClass('is-open');
+      }
+      function closeServicesDelayed() {
+        if (closeTimer) clearTimeout(closeTimer);
+        closeTimer = setTimeout(function () {
+          $servicesToggle.removeClass('is-open');
+          closeTimer = null;
+        }, 300);
+      }
+      $servicesToggle.on('mouseenter', openServices);
+      $servicesToggle.on('mouseleave', closeServicesDelayed);
+      $servicesFlyout.on('mouseenter', openServices);
+      $servicesFlyout.on('mouseleave', closeServicesDelayed);
       $('.js-services-toggle').on('click', function (e) {
         e.preventDefault();
       });
