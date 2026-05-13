@@ -18,7 +18,7 @@
     const vw = window.innerWidth;
     const vh = window.innerHeight;
     const scale = Math.min(vw / 1920, vh / 1080);
-    canvas.style.transform = `scale(${scale})`;
+    canvas.style.setProperty('--deck-scale', scale);
   }
   scaleCanvas();
   window.addEventListener('resize', scaleCanvas);

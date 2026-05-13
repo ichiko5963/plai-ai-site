@@ -32,18 +32,19 @@ html, body {
 }
 
 .deck-shell {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: fixed;
+  inset: 0;
+  background: #1a1a2e;
+  overflow: hidden;
 }
 
 .deck-canvas {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 1920px;
   height: 1080px;
+  transform: translate(-50%, -50%) scale(var(--deck-scale, 1));
   transform-origin: center center;
   background: var(--c-bg);
   overflow: hidden;
@@ -351,17 +352,18 @@ html, body {
 }
 .slide--cta .slide__cta-title {
   font-family: var(--font-serif);
-  font-size: 72px;
-  line-height: 1.35;
+  font-size: 64px;
+  line-height: 1.4;
   font-weight: 500;
   margin-bottom: 32px;
-  max-width: 1400px;
+  max-width: 1640px;
+  letter-spacing: 0.02em;
 }
 .slide--cta .slide__cta-text {
   font-size: 24px;
   line-height: 1.9;
   margin-bottom: 64px;
-  max-width: 1100px;
+  max-width: 1200px;
   opacity: 0.9;
 }
 .slide--cta .slide__cta-btn {
@@ -445,6 +447,221 @@ html, body {
   height: 100%;
   background: var(--c-warm-soft);
   transition: width 0.3s ease;
+}
+
+/* ============================================================
+   CORP (white-bg) variant — used by company-intro deck
+   ============================================================ */
+.slide--corp {
+  background: #ffffff;
+  padding: 120px 130px 110px;
+  color: #1a1a2e;
+}
+.slide--corp .slide__corp-mark {
+  position: absolute;
+  top: 64px;
+  left: 64px;
+  width: 6px;
+  height: 36px;
+  background: #1a1a2e;
+  border-radius: 1px;
+}
+.slide--corp .slide__corp-copy {
+  position: absolute;
+  bottom: 48px;
+  left: 64px;
+  font-family: var(--font-jp);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: #1a1a2e;
+  font-weight: 400;
+}
+.slide--corp .slide__corp-logo {
+  position: absolute;
+  bottom: 44px;
+  right: 64px;
+  height: 56px;
+  width: auto;
+  opacity: 1;
+}
+
+/* corp-cover (slide 1 of company-intro) */
+.slide--corp-cover {
+  background: #ffffff;
+  padding: 0;
+  color: #1a1a2e;
+  overflow: hidden;
+}
+.slide--corp-cover .slide__corp-decor {
+  position: absolute;
+  right: -120px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-en);
+  font-size: 880px;
+  font-weight: 200;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(26, 26, 46, 0.18);
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+}
+.slide--corp-cover .slide__corp-mark {
+  position: absolute;
+  top: 90px;
+  left: 90px;
+  width: 6px;
+  height: 60px;
+  background: #1a1a2e;
+  border-radius: 1px;
+  z-index: 2;
+}
+.slide--corp-cover .slide__corp-label {
+  position: absolute;
+  top: 90px;
+  left: 120px;
+  font-family: var(--font-en);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.35;
+  color: #1a1a2e;
+  z-index: 2;
+}
+.slide--corp-cover .slide__corp-title-block {
+  position: absolute;
+  left: 130px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  z-index: 2;
+}
+.slide--corp-cover .slide__corp-title-row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 80px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: #1a1a2e;
+}
+.slide--corp-cover .slide__corp-title-row img {
+  height: 92px;
+  width: auto;
+}
+.slide--corp-cover .slide__corp-subtitle {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 44px;
+  font-weight: 800;
+  color: #1a1a2e;
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+.slide--corp-cover .slide__corp-copy {
+  position: absolute;
+  bottom: 56px;
+  left: 90px;
+  font-family: var(--font-jp);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: #1a1a2e;
+  z-index: 2;
+}
+
+/* Corp slide content sizing (smaller / cleaner than colored decks) */
+.slide--corp .slide__label {
+  color: #1a1a2e;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  margin-bottom: 18px;
+  padding-left: 0;
+}
+.slide--corp .slide__label::before { display: none; }
+.slide--corp .slide__h1 {
+  font-family: var(--font-jp);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #1a1a2e;
+  margin-bottom: 28px;
+  max-width: 1500px;
+}
+.slide--corp .slide__lead {
+  font-size: 19px;
+  line-height: 1.95;
+  color: #4a4a55;
+  margin-bottom: 32px;
+  max-width: 1400px;
+}
+.slide--corp .slide__card {
+  background: #fafafa;
+  border: 1px solid rgba(26,26,46,0.08);
+}
+.slide--corp .slide__step {
+  background: #fafafa;
+  border: 1px solid rgba(26,26,46,0.08);
+}
+.slide--corp .slide__split-right {
+  background: #fafafa;
+  border: 1px solid rgba(26,26,46,0.08);
+}
+.slide--corp .slide__stat {
+  background: #fafafa;
+  border: 1px solid rgba(26,26,46,0.08);
+}
+
+/* Corp CTA — keep light but accent the button */
+.slide--corp.slide--corp-cta {
+  background: #ffffff;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.slide--corp-cta .slide__cta-label {
+  font-family: var(--font-en);
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  color: #6b46c1;
+  margin-bottom: 24px;
+}
+.slide--corp-cta .slide__cta-title {
+  font-family: var(--font-jp);
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #1a1a2e;
+  margin-bottom: 28px;
+  max-width: 1500px;
+  letter-spacing: 0.02em;
+}
+.slide--corp-cta .slide__cta-text {
+  font-size: 22px;
+  line-height: 1.95;
+  color: #4a4a55;
+  margin-bottom: 56px;
+  max-width: 1100px;
+}
+.slide--corp-cta .slide__cta-btn {
+  display: inline-block;
+  background: #1a1a2e;
+  color: #fff;
+  font-weight: 600;
+  font-size: 22px;
+  padding: 24px 64px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.slide--corp-cta .slide__cta-btn:hover {
+  background: #6b46c1;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(107, 70, 193, 0.3);
 }
 
 /* Home link */
