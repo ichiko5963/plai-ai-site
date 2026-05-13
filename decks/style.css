@@ -572,16 +572,199 @@ html, body {
   color: #6b6b78;
 }
 
-/* Compact variant for 6-card grids (3x2 layout) */
+/* Compact variant for 6-card grids (3x2 layout) — TIGHT to fit 16:9 */
 .slide__image-grid--compact {
-  gap: 24px;
-  margin-top: 28px;
+  gap: 18px;
+  margin-top: 20px;
 }
-.slide__image-grid--compact .slide__image-card__img { aspect-ratio: 16 / 8; }
-.slide__image-grid--compact .slide__image-card__body { padding: 16px 20px 20px; }
-.slide__image-grid--compact .slide__image-card__num { font-size: 11px; margin-bottom: 8px; }
-.slide__image-grid--compact .slide__image-card__title { font-size: 17px; line-height: 1.5; margin-bottom: 6px; }
-.slide__image-grid--compact .slide__image-card__text { font-size: 13px; line-height: 1.75; }
+.slide__image-grid--compact .slide__image-card__img { aspect-ratio: 16 / 7; }
+.slide__image-grid--compact .slide__image-card__body { padding: 12px 16px 16px; }
+.slide__image-grid--compact .slide__image-card__num { font-size: 10px; margin-bottom: 4px; }
+.slide__image-grid--compact .slide__image-card__title { font-size: 15px; line-height: 1.4; margin-bottom: 4px; }
+.slide__image-grid--compact .slide__image-card__text { font-size: 12px; line-height: 1.6; }
+
+/* Tight step list for 4-5 step slides (avoid 16:9 overflow) */
+.slide__steps--tight {
+  gap: 18px;
+  margin-top: 24px;
+}
+.slide__steps--tight .slide__step {
+  padding: 24px 32px;
+}
+.slide__steps--tight .slide__step-num {
+  font-size: 38px;
+  min-width: 64px;
+}
+.slide__steps--tight .slide__step-title {
+  font-size: 21px;
+  margin-bottom: 6px;
+}
+.slide__steps--tight .slide__step-body {
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* Larger toolkit items for AI Stack slide */
+.slide__toolkit--lg {
+  margin-top: 56px;
+  gap: 28px;
+}
+.slide__toolkit--lg .slide__toolkit-item {
+  padding: 52px 24px 36px;
+}
+.slide__toolkit--lg .slide__toolkit-item img {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 22px;
+}
+.slide__toolkit--lg .slide__toolkit-item__name {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+.slide__toolkit-item__role {
+  font-family: var(--font-jp);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: rgba(26, 26, 46, 0.6);
+  line-height: 1.6;
+}
+.slide--bg-dark .slide__toolkit-item__role {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Banner image — fills empty space below stats etc */
+.slide__banner-image {
+  margin-top: 32px;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 180px;
+}
+.slide__banner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Video grid (HTML5 video cards) */
+.slide__video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 32px;
+}
+.slide__video-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+  display: flex;
+  flex-direction: column;
+}
+.slide__video-card video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
+.slide__video-card__body { padding: 20px 24px 24px; }
+.slide__video-card__label {
+  font-family: var(--font-en);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--c-accent);
+  margin-bottom: 8px;
+}
+.slide__video-card__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a2e;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+.slide__video-card__text {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #6b6b78;
+}
+
+/* Inline video inside image-card (used in slide 26) */
+.slide__image-card__video {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #000;
+}
+.slide__image-card__video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* SlideBox hero (slide 24) */
+.slide__product-hero {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 64px;
+  margin-top: 32px;
+  flex: 1;
+  align-items: center;
+}
+.slide__product-hero__logo {
+  background: linear-gradient(135deg, rgba(155,140,255,0.10), rgba(247,168,90,0.10));
+  border-radius: 20px;
+  padding: 88px 64px;
+  text-align: center;
+  border: 1px solid rgba(26,26,46,0.06);
+}
+.slide__product-hero__logo img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.slide__product-hero__logo-tagline {
+  margin-top: 28px;
+  font-size: 16px;
+  color: #6b6b78;
+  letter-spacing: 0.04em;
+}
+.slide__product-hero__text h3 {
+  font-family: var(--font-serif);
+  font-size: 36px;
+  font-weight: 500;
+  color: #1a1a2e;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+.slide__product-hero__text p {
+  font-size: 18px;
+  line-height: 1.95;
+  color: #4a4a55;
+  margin-bottom: 24px;
+}
+.slide__product-hero__text ul {
+  list-style: none;
+}
+.slide__product-hero__text li {
+  font-size: 17px;
+  line-height: 1.85;
+  color: #1a1a2e;
+  padding-left: 26px;
+  position: relative;
+  margin-bottom: 8px;
+}
+.slide__product-hero__text li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 8px;
+  height: 8px;
+  background: var(--c-accent);
+  border-radius: 50%;
+}
 
 /* CEO Quote layout */
 .slide__quote-block {
