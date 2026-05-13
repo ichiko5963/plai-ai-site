@@ -385,20 +385,27 @@ ul, ol {
   transform: rotate(-135deg);
 }
 .p-menu__services {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, opacity 0.3s ease;
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 56px);
+  transform: translateY(-50%) translateX(-8px);
+  min-width: 280px;
+  padding: 12px 0 12px 24px;
+  border-left: 1px solid rgba(255,255,255,0.25);
   opacity: 0;
-  margin: 0;
-  padding: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+  z-index: 2;
 }
 .p-menu__services-toggle.is-open .p-menu__services {
-  max-height: 400px;
   opacity: 1;
-  margin-top: 12px;
-  padding-left: 16px;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(-50%) translateX(0);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s;
 }
-.p-menu__services ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.p-menu__services ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .p-menu__services li { opacity: 0; transform: translateY(8px); transition: opacity 0.25s ease, transform 0.25s ease; }
 .p-menu__services-toggle.is-open .p-menu__services li { opacity: 1; transform: translateY(0); }
 .p-menu__services-toggle.is-open .p-menu__services li:nth-child(1) { transition-delay: 0.05s; }
@@ -2168,6 +2175,29 @@ ul, ol {
   .p-header__menu { margin-left: 40px; }
   .p-menu { padding: 80px 20px 80px; }
   .p-menu__copyright { left: 20px; }
+
+  /* Services flyout → inline accordion on mobile (no horizontal room) */
+  .p-menu__services {
+    position: static;
+    transform: none;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    min-width: 0;
+    padding: 0;
+    border-left: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease, visibility 0s linear 0.3s;
+  }
+  .p-menu__services-toggle.is-open .p-menu__services {
+    transform: none;
+    max-height: 400px;
+    opacity: 1;
+    visibility: visible;
+    padding-left: 16px;
+    margin-top: 8px;
+    transition: max-height 0.4s ease, opacity 0.3s ease, visibility 0s;
+  }
 
   /* KV SP */
   .l-kv { padding: 0 20px; }

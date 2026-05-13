@@ -42,9 +42,9 @@
     tl.to(openingLogo, {
       opacity: 1,
       scale: 1,
-      duration: 0.8,
+      duration: 0.45,
       ease: 'power2.out'
-    }, 0.3);
+    }, 0.2);
 
     // Phase 2: Logo flies to header position
     tl.call(function () {
@@ -66,53 +66,53 @@
         x: deltaX,
         y: deltaY,
         scale: scaleRatio,
-        duration: 0.9,
+        duration: 0.55,
         ease: 'power3.inOut'
       });
-    }, null, null, 1.6);
+    }, null, null, 0.8);
 
     // Phase 3: Overlay fades out, header appears
     tl.to($opening[0], {
       opacity: 0,
-      duration: 0.6,
+      duration: 0.45,
       ease: 'power2.inOut',
       onComplete: function () {
         $opening.css('display', 'none');
         document.body.classList.add('is-load-end');
       }
-    }, 2.3);
+    }, 1.3);
 
     tl.to($header[0], {
       opacity: 1,
-      duration: 0.5,
+      duration: 0.4,
       ease: 'power2.out'
-    }, 2.3);
+    }, 1.3);
 
     // Phase 4: KV text and visual animate in
     if (document.querySelector('.p-kv__text')) {
       tl.to('.p-kv__text', {
         opacity: 1,
         y: 0,
-        duration: 1.0,
+        duration: 0.7,
         ease: 'power2.out'
-      }, 2.8);
+      }, 1.4);
     }
     if (document.querySelector('.p-kv__visual')) {
       tl.to('.p-kv__visual', {
         opacity: 1,
         scale: 1,
-        duration: 1.2,
+        duration: 0.8,
         ease: 'power2.out'
-      }, 3.0);
+      }, 1.5);
     }
 
     // Phase 5: MENU button
     tl.to('.p-header__menu', {
       opacity: 1,
       y: 0,
-      duration: 0.4,
+      duration: 0.35,
       ease: 'power2.out'
-    }, 2.8);
+    }, 1.5);
   }
 
 
@@ -160,11 +160,26 @@
       document.body.classList.remove('is-menu-open');
     });
 
-    // Services accordion toggle
-    $('.js-services-toggle').on('click', function (e) {
-      e.preventDefault();
-      $(this).closest('.p-menu__services-toggle').toggleClass('is-open');
-    });
+    // Services dropdown: hover on pointer devices, tap-toggle on touch
+    var $servicesToggle = $('.p-menu__services-toggle');
+    var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    if (canHover) {
+      $servicesToggle.on('mouseenter', function () {
+        $(this).addClass('is-open');
+      });
+      $servicesToggle.on('mouseleave', function () {
+        $(this).removeClass('is-open');
+      });
+      $('.js-services-toggle').on('click', function (e) {
+        e.preventDefault();
+      });
+    } else {
+      $('.js-services-toggle').on('click', function (e) {
+        e.preventDefault();
+        $(this).closest('.p-menu__services-toggle').toggleClass('is-open');
+      });
+    }
   }
 
 
