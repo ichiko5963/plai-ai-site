@@ -370,6 +370,8 @@ ul, ol {
 /* ── Menu Services Accordion ── */
 .p-menu__services-toggle { position: relative; }
 .p-menu__services-toggle > a { cursor: pointer; }
+/* SERVICES toggle: chevron arrowが視覚フィードバック担当。hoverの下線アニメ::beforeは不要なため無効化 */
+.p-menu__services-toggle > a::before { display: none; }
 .p-menu__services-toggle > a::after {
   content: '';
   display: inline-block;

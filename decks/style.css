@@ -1123,6 +1123,61 @@ html, body {
   box-shadow: 0 16px 40px rgba(107, 70, 193, 0.3);
 }
 
+/* Download button (top-right) */
+.deck-download {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 100;
+  text-decoration: none;
+  background: rgba(26, 26, 46, 0.85);
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 100px;
+  font-family: var(--font-en);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.deck-download:hover { background: rgba(26, 26, 46, 1); color: #fff; }
+.deck-download svg { width: 14px; height: 14px; }
+
+/* PRINT mode — show all slides each on its own page (1920x1080) */
+@media print {
+  @page { size: 1920px 1080px; margin: 0; }
+  html, body { background: #fff !important; overflow: visible !important; }
+  .deck-shell { position: static !important; inset: auto; width: auto; height: auto; display: block; background: none; overflow: visible; }
+  .deck-canvas {
+    position: static !important;
+    top: auto;
+    left: auto;
+    transform: none !important;
+    width: 1920px;
+    height: auto;
+    display: block;
+    background: none;
+    overflow: visible;
+  }
+  .slide {
+    display: flex !important;
+    position: relative !important;
+    inset: auto;
+    width: 1920px !important;
+    height: 1080px !important;
+    page-break-after: always;
+    break-after: page;
+    overflow: hidden;
+  }
+  .slide:last-of-type { page-break-after: auto; break-after: auto; }
+  .deck-nav, .deck-home, .deck-download { display: none !important; }
+}
+
 /* Home link */
 .deck-home {
   position: fixed;
