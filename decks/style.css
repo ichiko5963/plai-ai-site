@@ -450,6 +450,258 @@ html, body {
 }
 
 /* ============================================================
+   IMAGE-RICH LAYOUTS (used by company-intro & lead magnets)
+   ============================================================ */
+
+/* F5 visual-split — image one side, content the other */
+.slide__visual-split {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 72px;
+  margin-top: 32px;
+  flex: 1;
+  align-items: center;
+}
+.slide__visual-split--reverse {
+  grid-template-columns: 1fr 1.05fr;
+}
+.slide__visual-split--reverse .slide__visual { order: 2; }
+.slide__visual-split--reverse .slide__visual-text { order: 1; }
+.slide__visual {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(26, 26, 46, 0.12);
+  background: linear-gradient(135deg, #f5f3ff, #fff5ec);
+}
+.slide__visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.slide__visual--contain {
+  background: linear-gradient(135deg, rgba(155,140,255,0.12), rgba(247,168,90,0.12));
+  padding: 56px;
+}
+.slide__visual--contain img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.slide__visual-text h3 {
+  font-family: var(--font-serif);
+  font-size: 40px;
+  font-weight: 500;
+  color: #1a1a2e;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+.slide__visual-text p {
+  font-size: 20px;
+  line-height: 1.95;
+  color: #4a4a55;
+  margin-bottom: 18px;
+}
+.slide__visual-text ul {
+  list-style: none;
+  margin-top: 24px;
+}
+.slide__visual-text li {
+  font-size: 19px;
+  line-height: 1.9;
+  color: #1a1a2e;
+  padding-left: 28px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.slide__visual-text li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 8px;
+  height: 8px;
+  background: var(--c-accent);
+  border-radius: 50%;
+}
+
+/* Image-card grid (thumbnails) */
+.slide__image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+}
+.slide__image-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+  display: flex;
+  flex-direction: column;
+}
+.slide__image-card__img {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5f3ff, #fff5ec);
+}
+.slide__image-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.slide__image-card__body { padding: 24px 28px 28px; }
+.slide__image-card__num {
+  font-family: var(--font-en);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: var(--c-accent);
+  margin-bottom: 12px;
+}
+.slide__image-card__title {
+  font-size: 21px;
+  font-weight: 600;
+  color: #1a1a2e;
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+.slide__image-card__text {
+  font-size: 15px;
+  line-height: 1.85;
+  color: #6b6b78;
+}
+
+/* CEO Quote layout */
+.slide__quote-block {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 72px;
+  margin-top: 32px;
+  flex: 1;
+  align-items: center;
+}
+.slide__quote-portrait {
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  box-shadow: 0 24px 64px rgba(26, 26, 46, 0.2);
+}
+.slide__quote-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.slide__quote-text {
+  font-family: var(--font-serif);
+  font-size: 38px;
+  line-height: 1.7;
+  color: #1a1a2e;
+  margin-bottom: 28px;
+  letter-spacing: 0.02em;
+}
+.slide__quote-text::before {
+  content: '"';
+  font-size: 80px;
+  color: var(--c-accent);
+  vertical-align: -16px;
+  margin-right: 12px;
+  font-family: var(--font-serif);
+}
+.slide__quote-byline {
+  font-family: var(--font-en);
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  color: var(--c-mute);
+  margin-bottom: 6px;
+}
+.slide__quote-name {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+/* Bridge / section divider slide */
+.slide--bridge {
+  background: var(--grad-cover);
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 100px 140px;
+}
+.slide--bridge .slide__bridge-num {
+  font-family: var(--font-en);
+  font-size: 18px;
+  letter-spacing: 0.2em;
+  margin-bottom: 32px;
+  opacity: 0.7;
+}
+.slide--bridge .slide__bridge-title {
+  font-family: var(--font-serif);
+  font-size: 96px;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-bottom: 28px;
+}
+.slide--bridge .slide__bridge-sub {
+  font-size: 24px;
+  line-height: 1.85;
+  opacity: 0.9;
+  max-width: 1000px;
+}
+
+/* Background variants */
+.slide--bg-soft {
+  background: linear-gradient(135deg, #faf8ff 0%, #fff5ec 100%);
+}
+.slide--bg-dark {
+  background: #1a1a2e;
+  color: #fff;
+}
+.slide--bg-dark .slide__h1 { color: #fff; }
+.slide--bg-dark .slide__lead { color: rgba(255, 255, 255, 0.85); }
+.slide--bg-dark .slide__label { color: #f7a85a; }
+.slide--bg-dark .slide__label::before { background: #f7a85a; }
+.slide--bg-dark .slide__card {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.slide--bg-dark .slide__card-num { color: #f7a85a; }
+.slide--bg-dark .slide__card-title { color: #fff; }
+.slide--bg-dark .slide__card-body { color: rgba(255, 255, 255, 0.7); }
+
+/* Toolkit row (AI tool logos) */
+.slide__toolkit {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+.slide__toolkit-item {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid var(--c-line);
+  padding: 36px 24px;
+  text-align: center;
+}
+.slide__toolkit-item img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin: 0 auto 16px;
+  display: block;
+}
+.slide__toolkit-item__name {
+  font-family: var(--font-en);
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+/* ============================================================
    CORP (white-bg image) variant — used by company-intro deck
    Backgrounds are baked-in screenshot images (logo + © included)
    ============================================================ */
