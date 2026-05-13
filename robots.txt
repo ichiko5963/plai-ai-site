@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+
+Disallow: /*.py$
+
+Sitemap: https://plai-ai.com/sitemap.xml
