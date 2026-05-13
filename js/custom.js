@@ -156,8 +156,14 @@
       document.body.classList.toggle('is-menu-open', !isOpen);
     });
 
-    $('.p-menu__nav a').on('click', function () {
+    $('.p-menu__nav a').not('.js-services-toggle').on('click', function () {
       document.body.classList.remove('is-menu-open');
+    });
+
+    // Services accordion toggle
+    $('.js-services-toggle').on('click', function (e) {
+      e.preventDefault();
+      $(this).closest('.p-menu__services-toggle').toggleClass('is-open');
     });
   }
 
