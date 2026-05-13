@@ -225,6 +225,27 @@
         </div>
 
         <div class="contact-form__group">
+          <label class="contact-form__label">ご予算（月額）</label>
+          <div class="budget-slider">
+            <div class="budget-slider__display">
+              <span class="budget-slider__value" id="budgetDisplay">10万円 〜 100万円</span>
+            </div>
+            <div class="budget-slider__track" id="budgetTrack">
+              <div class="budget-slider__range" id="budgetRange"></div>
+              <input type="range" class="budget-slider__input budget-slider__input--min" id="budgetMin" min="0" max="10" value="1" step="1">
+              <input type="range" class="budget-slider__input budget-slider__input--max" id="budgetMax" min="0" max="10" value="7" step="1">
+            </div>
+            <div class="budget-slider__labels">
+              <span>相談して決めたい</span>
+              <span>上限なし</span>
+            </div>
+          </div>
+          <input type="hidden" name="ご予算" id="budgetHidden" value="10万円 〜 100万円">
+        </div>
+
+        <div class="contact-form__divider"></div>
+
+        <div class="contact-form__group">
           <label class="contact-form__label" for="message">お問い合わせ内容 <span class="contact-form__required">REQUIRED</span></label>
           <textarea class="contact-form__textarea" id="message" name="お問い合わせ内容" required rows="6" placeholder="ご相談内容、現在の課題、ご希望のスケジュールなどをご記入ください"></textarea>
         </div>
@@ -314,6 +335,32 @@
 <script src="js/gsap.min.js"></script>
 <script src="js/custom.js"></script>
 <script>
+(function(){
+  var steps=['相談して決めたい','5万円','10万円','20万円','30万円','50万円','80万円','100万円','150万円','200万円','上限なし'];
+  var minEl=document.getElementById('budgetMin');
+  var maxEl=document.getElementById('budgetMax');
+  var rangeEl=document.getElementById('budgetRange');
+  var displayEl=document.getElementById('budgetDisplay');
+  var hiddenEl=document.getElementById('budgetHidden');
+  function update(){
+    var lo=parseInt(minEl.value), hi=parseInt(maxEl.value);
+    if(lo>hi){var t=lo;lo=hi;hi=t;minEl.value=lo;maxEl.value=hi;}
+    var pct=100/10;
+    rangeEl.style.left=(lo*pct)+'%';
+    rangeEl.style.width=((hi-lo)*pct)+'%';
+    var label;
+    if(lo===0&&hi===10) label='相談して決めたい 〜 上限なし';
+    else if(lo===0) label='相談して決めたい 〜 '+steps[hi];
+    else if(hi===10) label=steps[lo]+' 〜 上限なし';
+    else if(lo===hi) label=steps[lo]+'程度';
+    else label=steps[lo]+' 〜 '+steps[hi];
+    displayEl.textContent=label;
+    hiddenEl.value=label;
+  }
+  minEl.addEventListener('input',update);
+  maxEl.addEventListener('input',update);
+  update();
+})();
 if(window.location.search.includes('sent=1')){
   document.querySelector('.contact-form').style.display='none';
   document.getElementById('sent-message').style.display='block';

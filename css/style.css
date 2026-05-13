@@ -2598,6 +2598,84 @@ ul, ol {
   background-position: 100% 50%;
 }
 .contact-form__submit:hover::after { transform: translateX(4px); }
+/* ---- Budget Range Slider ---- */
+.budget-slider { padding: 8px 0 0; }
+.budget-slider__display {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 14px 24px;
+  background: var(--purple-light);
+  border-radius: 12px;
+}
+.budget-slider__value {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+}
+.budget-slider__track {
+  position: relative;
+  height: 6px;
+  background: #e8e8e8;
+  border-radius: 3px;
+  margin: 0 8px;
+}
+.budget-slider__range {
+  position: absolute;
+  height: 100%;
+  background: var(--grad-brand);
+  border-radius: 3px;
+  pointer-events: none;
+}
+.budget-slider__input {
+  position: absolute;
+  top: -8px;
+  left: 0;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  pointer-events: none;
+  margin: 0;
+  height: 22px;
+}
+.budget-slider__input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--purple);
+  box-shadow: 0 2px 8px rgba(155,140,255,0.3);
+  cursor: pointer;
+  pointer-events: all;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.budget-slider__input::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 3px 14px rgba(155,140,255,0.4);
+}
+.budget-slider__input::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--purple);
+  box-shadow: 0 2px 8px rgba(155,140,255,0.3);
+  cursor: pointer;
+  pointer-events: all;
+}
+.budget-slider__labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 0 4px;
+  font-size: 1.2rem;
+  color: var(--ink-muted);
+  font-family: 'IBM Plex Sans JP', sans-serif;
+}
+
 .contact-form__divider {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(155,140,255,0.2), transparent);
