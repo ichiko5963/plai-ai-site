@@ -158,11 +158,91 @@
       </div>
     </section>
 
+    <section class="sub-section" id="contact-form">
+      <h2 class="sub-section__title">お問い合わせフォーム</h2>
+      <p class="sub-section__text" style="margin-bottom:32px;">以下のフォームからお気軽にご相談ください。通常1-2営業日以内にご返信いたします。</p>
+      <form action="https://formsubmit.co/jiuhuot10@gmail.com" method="POST" class="contact-form">
+        <!-- Formsubmit設定 -->
+        <input type="hidden" name="_subject" value="【PLai HP】新規お問い合わせ">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://plai-ai.com/contact.html?sent=1">
+        <input type="text" name="_honey" style="display:none">
+
+        <div class="contact-form__group">
+          <label class="contact-form__label" for="name">お名前 <span class="contact-form__required">必須</span></label>
+          <input class="contact-form__input" type="text" id="name" name="お名前" required placeholder="例：山田 太郎">
+        </div>
+
+        <div class="contact-form__group">
+          <label class="contact-form__label" for="company">会社名</label>
+          <input class="contact-form__input" type="text" id="company" name="会社名" placeholder="例：株式会社○○">
+        </div>
+
+        <div class="contact-form__group">
+          <label class="contact-form__label" for="email">メールアドレス <span class="contact-form__required">必須</span></label>
+          <input class="contact-form__input" type="email" id="email" name="メールアドレス" required placeholder="例：info@example.com">
+        </div>
+
+        <div class="contact-form__group">
+          <label class="contact-form__label" for="phone">電話番号</label>
+          <input class="contact-form__input" type="tel" id="phone" name="電話番号" placeholder="例：080-1234-5678">
+        </div>
+
+        <div class="contact-form__group">
+          <label class="contact-form__label">ご相談内容（事業） <span class="contact-form__required">必須</span></label>
+          <div class="contact-form__checkboxes">
+            <label class="contact-form__checkbox">
+              <input type="checkbox" name="ご相談事業" value="AI社員構築代行">
+              <span>AI社員構築代行</span>
+            </label>
+            <label class="contact-form__checkbox">
+              <input type="checkbox" name="ご相談事業" value="ナレッジ管理・セカンドブレイン構築">
+              <span>ナレッジ管理・セカンドブレイン構築</span>
+            </label>
+            <label class="contact-form__checkbox">
+              <input type="checkbox" name="ご相談事業" value="SNS自動化支援">
+              <span>SNS自動化支援</span>
+            </label>
+            <label class="contact-form__checkbox">
+              <input type="checkbox" name="ご相談事業" value="AIマーケティング支援">
+              <span>AIマーケティング支援</span>
+            </label>
+            <label class="contact-form__checkbox">
+              <input type="checkbox" name="ご相談事業" value="AIイベント（AirCle）">
+              <span>AIイベント（AirCle）</span>
+            </label>
+            <label class="contact-form__checkbox">
+              <input type="checkbox" name="ご相談事業" value="教育事業（OpenClaw）">
+              <span>教育事業（OpenClaw）</span>
+            </label>
+            <label class="contact-form__checkbox">
+              <input type="checkbox" name="ご相談事業" value="その他">
+              <span>その他</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="contact-form__group">
+          <label class="contact-form__label" for="message">お問い合わせ内容 <span class="contact-form__required">必須</span></label>
+          <textarea class="contact-form__textarea" id="message" name="お問い合わせ内容" required rows="6" placeholder="ご相談内容をご記入ください"></textarea>
+        </div>
+
+        <div class="contact-form__group" style="text-align:center; margin-top:32px;">
+          <button type="submit" class="contact-form__submit">送信する</button>
+        </div>
+      </form>
+      <div id="sent-message" style="display:none; text-align:center; padding:40px; background:linear-gradient(135deg,#f3f0ff,#fff8f2); border-radius:16px; margin-top:24px;">
+        <p style="font-size:2rem; font-weight:600; color:#333; margin-bottom:12px;">送信完了しました</p>
+        <p style="font-size:1.5rem; color:#666;">お問い合わせありがとうございます。1-2営業日以内にご返信いたします。</p>
+      </div>
+    </section>
+
     <div class="sub-cta" style="margin-top:32px;">
       <h3 class="sub-cta__title">AI時代の事業OSを、ここから作る。</h3>
       <p class="sub-cta__text">Memory Management / AI Education / Marketing Automation / Product Studio</p>
       <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:24px;">
-        <a href="mailto:jiuhuot10@gmail.com?subject=無料相談のお申し込み" class="sub-cta__btn">無料相談を申し込む</a>
+        <a href="#contact-form" class="sub-cta__btn">フォームからお問い合わせ</a>
         <a href="mailto:jiuhuot10@gmail.com?subject=資料ダウンロード希望" class="sub-cta__btn" style="background:#c87941;">資料ダウンロード</a>
       </div>
     </div>
@@ -229,5 +309,12 @@
 <script src="js/jquery-3.7.1.min.js"></script>
 <script src="js/gsap.min.js"></script>
 <script src="js/custom.js"></script>
+<script>
+if(window.location.search.includes('sent=1')){
+  document.querySelector('.contact-form').style.display='none';
+  document.getElementById('sent-message').style.display='block';
+  window.scrollTo({top:document.getElementById('contact-form').offsetTop-80,behavior:'smooth'});
+}
+</script>
 </body>
 </html>
