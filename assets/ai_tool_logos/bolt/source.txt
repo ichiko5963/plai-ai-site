@@ -1,0 +1,1 @@
+bolt	bolt.new	https://www.google.com/s2/favicons?domain=bolt.new&sz=256

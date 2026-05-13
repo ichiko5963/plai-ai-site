@@ -1,0 +1,1 @@
+grok	x.ai	https://www.google.com/s2/favicons?domain=x.ai&sz=256

@@ -1,0 +1,1 @@
+gpt_5	openai.com	https://www.google.com/s2/favicons?domain=openai.com&sz=256

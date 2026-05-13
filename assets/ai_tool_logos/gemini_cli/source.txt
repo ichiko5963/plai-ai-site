@@ -1,0 +1,1 @@
+gemini_cli	github.com	https://www.google.com/s2/favicons?domain=github.com&sz=256

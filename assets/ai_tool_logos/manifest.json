@@ -1,0 +1,269 @@
+{
+  "version": 1,
+  "purpose": "Central AI tool logo/reference image library for X buzz-system diagram generation.",
+  "selection_policy": {
+    "max_reference_images": 4,
+    "prefer_exact_tool_match": true,
+    "use_as_generation_reference": true,
+    "do_not_postprocess_overlay": true
+  },
+  "tools": {
+    "claude_code": {
+      "display_name": "Claude Code",
+      "aliases": ["Claude Code", "ClaudeCode", "claude-code", "クロードコード"],
+      "files": ["claude_code/logo.png"],
+      "fallback_tool": "anthropic",
+      "source_url": "https://docs.anthropic.com/"
+    },
+    "claude": {
+      "display_name": "Claude",
+      "aliases": ["Claude", "Claude AI", "クロード"],
+      "files": ["claude/logo.png"],
+      "fallback_tool": "anthropic",
+      "source_url": "https://claude.ai/"
+    },
+    "anthropic": {
+      "display_name": "Anthropic",
+      "aliases": ["Anthropic"],
+      "files": ["anthropic/logo.png"],
+      "source_url": "https://www.anthropic.com/"
+    },
+    "gemini_cli": {
+      "display_name": "Gemini CLI",
+      "aliases": ["Gemini CLI", "gemini-cli"],
+      "files": ["gemini/logo.png"],
+      "fallback_tool": "gemini",
+      "source_url": "https://github.com/google-gemini/gemini-cli"
+    },
+    "gemini": {
+      "display_name": "Gemini",
+      "aliases": ["Gemini", "Google Gemini", "GoogleGemini", "ジェミニ"],
+      "files": ["gemini/logo.png"],
+      "source_url": "https://gemini.google.com/"
+    },
+    "nano_banana": {
+      "display_name": "Nano Banana",
+      "aliases": ["Nano Banana", "Nanobanana", "nano-banana", "ナノバナナ"],
+      "files": ["nano_banana/logo.png"],
+      "fallback_tool": "gemini",
+      "source_url": "https://gemini.google.com/"
+    },
+    "gpt_55": {
+      "display_name": "GPT-5.5",
+      "aliases": ["GPT-5.5", "GPT5.5", "gpt-5.5", "gpt5.5"],
+      "files": ["gpt_55/logo.png"],
+      "fallback_tool": "openai",
+      "source_url": "https://openai.com/"
+    },
+    "gpt_5": {
+      "display_name": "GPT-5",
+      "aliases": ["GPT-5", "GPT5", "gpt-5", "gpt5"],
+      "files": ["gpt_5/logo.png"],
+      "fallback_tool": "openai",
+      "source_url": "https://openai.com/"
+    },
+    "chatgpt": {
+      "display_name": "ChatGPT",
+      "aliases": ["ChatGPT", "チャットGPT"],
+      "files": ["chatgpt/logo.png"],
+      "fallback_tool": "openai",
+      "source_url": "https://chatgpt.com/"
+    },
+    "openai": {
+      "display_name": "OpenAI",
+      "aliases": ["OpenAI"],
+      "files": ["openai/logo.png"],
+      "source_url": "https://openai.com/"
+    },
+    "codex": {
+      "display_name": "Codex",
+      "aliases": ["Codex", "OpenAI Codex", "Codex CLI"],
+      "files": ["codex/logo.png"],
+      "fallback_tool": "openai",
+      "source_url": "https://openai.com/codex/"
+    },
+    "cursor": {
+      "display_name": "Cursor",
+      "aliases": ["Cursor"],
+      "files": ["cursor/logo.png"],
+      "source_url": "https://cursor.com/"
+    },
+    "windsurf": {
+      "display_name": "Windsurf",
+      "aliases": ["Windsurf", "Codeium"],
+      "files": ["windsurf/logo.png"],
+      "source_url": "https://windsurf.com/"
+    },
+    "github_copilot": {
+      "display_name": "GitHub Copilot",
+      "aliases": ["GitHub Copilot", "Copilot"],
+      "files": ["github_copilot/logo.png"],
+      "source_url": "https://github.com/features/copilot"
+    },
+    "perplexity": {
+      "display_name": "Perplexity",
+      "aliases": ["Perplexity"],
+      "files": ["perplexity/logo.png"],
+      "source_url": "https://www.perplexity.ai/"
+    },
+    "manus": {
+      "display_name": "Manus",
+      "aliases": ["Manus"],
+      "files": ["manus/logo.png"],
+      "source_url": "https://manus.im/"
+    },
+    "hermes_agent": {
+      "display_name": "Hermes Agent",
+      "aliases": ["Hermes Agent", "HermesAgent", "Hermes", "FlyHermes", "ヘルメスエージェント"],
+      "files": ["hermes_agent/logo.png"],
+      "source_url": "https://hermes-agent.ai/"
+    },
+    "openclaw": {
+      "display_name": "OpenClaw",
+      "aliases": ["OpenClaw", "Open Claw", "openclaw", "オープンクロー"],
+      "files": ["openclaw/logo.png"],
+      "source_url": "local:skills/いち＠OpenClawガチ勢用/openclaw-buzz-system/assets/openclaw_mascot.png"
+    },
+    "devin": {
+      "display_name": "Devin",
+      "aliases": ["Devin", "Cognition Devin"],
+      "files": ["devin/logo.png"],
+      "source_url": "https://devin.ai/"
+    },
+    "grok": {
+      "display_name": "Grok",
+      "aliases": ["Grok", "xAI", "x.ai"],
+      "files": ["grok/logo.png"],
+      "source_url": "https://x.ai/"
+    },
+    "deepseek": {
+      "display_name": "DeepSeek",
+      "aliases": ["DeepSeek"],
+      "files": ["deepseek/logo.png"],
+      "source_url": "https://www.deepseek.com/"
+    },
+    "qwen": {
+      "display_name": "Qwen",
+      "aliases": ["Qwen", "通義千問"],
+      "files": ["qwen/logo.png"],
+      "source_url": "https://chat.qwen.ai/"
+    },
+    "mistral": {
+      "display_name": "Mistral AI",
+      "aliases": ["Mistral", "Mistral AI"],
+      "files": ["mistral/logo.png"],
+      "source_url": "https://mistral.ai/"
+    },
+    "sora": {
+      "display_name": "Sora",
+      "aliases": ["Sora", "Sora2", "Sora 2"],
+      "files": ["sora/logo.png"],
+      "fallback_tool": "openai",
+      "source_url": "https://sora.com/"
+    },
+    "veo": {
+      "display_name": "Veo",
+      "aliases": ["Veo", "Google Veo"],
+      "files": ["veo/logo.png"],
+      "fallback_tool": "gemini",
+      "source_url": "https://deepmind.google/models/veo/"
+    },
+    "runway": {
+      "display_name": "Runway",
+      "aliases": ["Runway", "RunwayML"],
+      "files": ["runway/logo.png"],
+      "source_url": "https://runwayml.com/"
+    },
+    "midjourney": {
+      "display_name": "Midjourney",
+      "aliases": ["Midjourney"],
+      "files": ["midjourney/logo.png"],
+      "source_url": "https://www.midjourney.com/"
+    },
+    "kling": {
+      "display_name": "Kling",
+      "aliases": ["Kling", "Kling AI"],
+      "files": ["kling/logo.png"],
+      "source_url": "https://klingai.com/"
+    },
+    "elevenlabs": {
+      "display_name": "ElevenLabs",
+      "aliases": ["ElevenLabs", "Eleven Labs"],
+      "files": ["elevenlabs/logo.png"],
+      "source_url": "https://elevenlabs.io/"
+    },
+    "notebooklm": {
+      "display_name": "NotebookLM",
+      "aliases": ["NotebookLM", "Notebook LM"],
+      "files": ["notebooklm/logo.png"],
+      "source_url": "https://notebooklm.google.com/"
+    },
+    "lovable": {
+      "display_name": "Lovable",
+      "aliases": ["Lovable"],
+      "files": ["lovable/logo.png"],
+      "source_url": "https://lovable.dev/"
+    },
+    "bolt": {
+      "display_name": "Bolt",
+      "aliases": ["Bolt", "Bolt.new", "bolt.new"],
+      "files": ["bolt/logo.png"],
+      "source_url": "https://bolt.new/"
+    },
+    "replit": {
+      "display_name": "Replit",
+      "aliases": ["Replit"],
+      "files": ["replit/logo.png"],
+      "source_url": "https://replit.com/"
+    },
+    "v0": {
+      "display_name": "v0",
+      "aliases": ["v0", "Vercel v0"],
+      "files": ["v0/logo.png"],
+      "source_url": "https://v0.dev/"
+    },
+    "obsidian": {
+      "display_name": "Obsidian",
+      "aliases": ["Obsidian"],
+      "files": ["obsidian/logo.png"],
+      "source_url": "https://obsidian.md/"
+    },
+    "notion": {
+      "display_name": "Notion",
+      "aliases": ["Notion"],
+      "files": ["notion/logo.png"],
+      "source_url": "https://www.notion.so/"
+    },
+    "figma": {
+      "display_name": "Figma",
+      "aliases": ["Figma"],
+      "files": ["figma/logo.png"],
+      "source_url": "https://www.figma.com/"
+    },
+    "canva": {
+      "display_name": "Canva",
+      "aliases": ["Canva", "Canva Magic Studio"],
+      "files": ["canva/logo.png"],
+      "source_url": "https://www.canva.com/"
+    },
+    "supabase": {
+      "display_name": "Supabase",
+      "aliases": ["Supabase"],
+      "files": ["supabase/logo.png"],
+      "source_url": "https://supabase.com/"
+    },
+    "firebase": {
+      "display_name": "Firebase",
+      "aliases": ["Firebase"],
+      "files": ["firebase/logo.png"],
+      "source_url": "https://firebase.google.com/"
+    },
+    "mcp": {
+      "display_name": "MCP",
+      "aliases": ["MCP", "Model Context Protocol"],
+      "files": ["mcp/logo.png"],
+      "fallback_tool": "anthropic",
+      "source_url": "https://modelcontextprotocol.io/"
+    }
+  }
+}
