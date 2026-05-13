@@ -2676,10 +2676,67 @@ ul, ol {
   font-family: 'IBM Plex Sans JP', sans-serif;
 }
 
+.contact-form__note {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: var(--ink-muted);
+  margin-bottom: 20px;
+  padding: 14px 18px;
+  background: #fef9f5;
+  border-left: 3px solid var(--orange);
+  border-radius: 0 8px 8px 0;
+}
 .contact-form__divider {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(155,140,255,0.2), transparent);
   margin: 8px 0 32px;
+}
+/* ---- Datetime Picker ---- */
+.datetime-picker { display: flex; flex-direction: column; gap: 12px; }
+.datetime-picker__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.datetime-picker__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  background: var(--purple-light);
+  color: var(--purple);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.datetime-picker__date,
+.datetime-picker__time {
+  padding: 12px 14px;
+  font-size: 1.4rem;
+  font-family: 'IBM Plex Sans JP', sans-serif;
+  color: var(--ink);
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  background: var(--bg);
+  transition: border-color 0.3s;
+  cursor: pointer;
+}
+.datetime-picker__date { flex: 1; }
+.datetime-picker__time { width: 120px; }
+.datetime-picker__date:focus,
+.datetime-picker__time:focus {
+  outline: none;
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(155,140,255,0.08);
+  background: var(--white);
+}
+@media (max-width: 768px) {
+  .datetime-picker__row { flex-wrap: wrap; }
+  .datetime-picker__date { flex: 1 1 100%; }
+  .datetime-picker__time { flex: 1; }
 }
 @media (max-width: 768px) {
   .contact-form { padding: 36px 24px; border-radius: 16px; }

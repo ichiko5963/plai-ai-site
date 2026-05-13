@@ -225,22 +225,23 @@
         </div>
 
         <div class="contact-form__group">
-          <label class="contact-form__label">ご予算（月額）</label>
+          <label class="contact-form__label">ご予算 <span class="contact-form__required">REQUIRED</span></label>
+          <p class="contact-form__note">ご予算を踏まえた上で、どこまで構築するかをお話しさせていただきます。<br>お問い合わせが非常に多くなっておりますため、ご予算によってはお手伝いできかねる場合がございます。あらかじめご了承ください。</p>
           <div class="budget-slider">
             <div class="budget-slider__display">
-              <span class="budget-slider__value" id="budgetDisplay">10万円 〜 100万円</span>
+              <span class="budget-slider__value" id="budgetDisplay">100万円 〜 500万円</span>
             </div>
             <div class="budget-slider__track" id="budgetTrack">
               <div class="budget-slider__range" id="budgetRange"></div>
-              <input type="range" class="budget-slider__input budget-slider__input--min" id="budgetMin" min="0" max="10" value="1" step="1">
-              <input type="range" class="budget-slider__input budget-slider__input--max" id="budgetMax" min="0" max="10" value="7" step="1">
+              <input type="range" class="budget-slider__input budget-slider__input--min" id="budgetMin" min="0" max="6" value="0" step="1">
+              <input type="range" class="budget-slider__input budget-slider__input--max" id="budgetMax" min="0" max="6" value="4" step="1">
             </div>
             <div class="budget-slider__labels">
-              <span>相談して決めたい</span>
-              <span>上限なし</span>
+              <span>100万円</span>
+              <span>1,000万円〜</span>
             </div>
           </div>
-          <input type="hidden" name="ご予算" id="budgetHidden" value="10万円 〜 100万円">
+          <input type="hidden" name="ご予算" id="budgetHidden" value="100万円 〜 500万円">
         </div>
 
         <div class="contact-form__divider"></div>
@@ -248,6 +249,75 @@
         <div class="contact-form__group">
           <label class="contact-form__label" for="message">お問い合わせ内容 <span class="contact-form__required">REQUIRED</span></label>
           <textarea class="contact-form__textarea" id="message" name="お問い合わせ内容" required rows="6" placeholder="ご相談内容、現在の課題、ご希望のスケジュールなどをご記入ください"></textarea>
+        </div>
+
+        <div class="contact-form__divider"></div>
+
+        <div class="contact-form__group">
+          <label class="contact-form__label">初回面談の候補日時 <span class="contact-form__required">REQUIRED</span></label>
+          <p class="contact-form__note">1週間後〜2週間後の範囲で、ご都合のよい日時を5つほどお選びください。</p>
+          <div class="datetime-picker" id="datetimePicker">
+            <div class="datetime-picker__row">
+              <span class="datetime-picker__num">1</span>
+              <input type="date" class="datetime-picker__date" name="候補日時1_日付" required>
+              <select class="datetime-picker__time" name="候補日時1_時間" required>
+                <option value="" disabled selected>時間</option>
+                <option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option>
+                <option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option>
+                <option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option>
+                <option>16:00</option><option>16:30</option><option>17:00</option><option>17:30</option>
+                <option>18:00</option><option>18:30</option><option>19:00</option>
+              </select>
+            </div>
+            <div class="datetime-picker__row">
+              <span class="datetime-picker__num">2</span>
+              <input type="date" class="datetime-picker__date" name="候補日時2_日付" required>
+              <select class="datetime-picker__time" name="候補日時2_時間" required>
+                <option value="" disabled selected>時間</option>
+                <option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option>
+                <option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option>
+                <option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option>
+                <option>16:00</option><option>16:30</option><option>17:00</option><option>17:30</option>
+                <option>18:00</option><option>18:30</option><option>19:00</option>
+              </select>
+            </div>
+            <div class="datetime-picker__row">
+              <span class="datetime-picker__num">3</span>
+              <input type="date" class="datetime-picker__date" name="候補日時3_日付" required>
+              <select class="datetime-picker__time" name="候補日時3_時間" required>
+                <option value="" disabled selected>時間</option>
+                <option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option>
+                <option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option>
+                <option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option>
+                <option>16:00</option><option>16:30</option><option>17:00</option><option>17:30</option>
+                <option>18:00</option><option>18:30</option><option>19:00</option>
+              </select>
+            </div>
+            <div class="datetime-picker__row">
+              <span class="datetime-picker__num">4</span>
+              <input type="date" class="datetime-picker__date" name="候補日時4_日付">
+              <select class="datetime-picker__time" name="候補日時4_時間">
+                <option value="" disabled selected>時間</option>
+                <option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option>
+                <option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option>
+                <option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option>
+                <option>16:00</option><option>16:30</option><option>17:00</option><option>17:30</option>
+                <option>18:00</option><option>18:30</option><option>19:00</option>
+              </select>
+            </div>
+            <div class="datetime-picker__row">
+              <span class="datetime-picker__num">5</span>
+              <input type="date" class="datetime-picker__date" name="候補日時5_日付">
+              <select class="datetime-picker__time" name="候補日時5_時間">
+                <option value="" disabled selected>時間</option>
+                <option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option>
+                <option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option>
+                <option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option>
+                <option>16:00</option><option>16:30</option><option>17:00</option><option>17:30</option>
+                <option>18:00</option><option>18:30</option><option>19:00</option>
+              </select>
+            </div>
+          </div>
         </div>
 
         <div class="contact-form__group" style="text-align:center; margin-top:40px;">
@@ -336,23 +406,21 @@
 <script src="js/custom.js"></script>
 <script>
 (function(){
-  var steps=['相談して決めたい','5万円','10万円','20万円','30万円','50万円','80万円','100万円','150万円','200万円','上限なし'];
+  var steps=['100万円','150万円','200万円','300万円','500万円','800万円','1,000万円〜'];
+  var max=steps.length-1;
   var minEl=document.getElementById('budgetMin');
   var maxEl=document.getElementById('budgetMax');
   var rangeEl=document.getElementById('budgetRange');
   var displayEl=document.getElementById('budgetDisplay');
   var hiddenEl=document.getElementById('budgetHidden');
   function update(){
-    var lo=parseInt(minEl.value), hi=parseInt(maxEl.value);
+    var lo=parseInt(minEl.value),hi=parseInt(maxEl.value);
     if(lo>hi){var t=lo;lo=hi;hi=t;minEl.value=lo;maxEl.value=hi;}
-    var pct=100/10;
+    var pct=100/max;
     rangeEl.style.left=(lo*pct)+'%';
     rangeEl.style.width=((hi-lo)*pct)+'%';
     var label;
-    if(lo===0&&hi===10) label='相談して決めたい 〜 上限なし';
-    else if(lo===0) label='相談して決めたい 〜 '+steps[hi];
-    else if(hi===10) label=steps[lo]+' 〜 上限なし';
-    else if(lo===hi) label=steps[lo]+'程度';
+    if(lo===hi) label=steps[lo]+'程度';
     else label=steps[lo]+' 〜 '+steps[hi];
     displayEl.textContent=label;
     hiddenEl.value=label;
@@ -360,6 +428,13 @@
   minEl.addEventListener('input',update);
   maxEl.addEventListener('input',update);
   update();
+  // 日付制限: 1週間後〜2週間後
+  var today=new Date();
+  var minDate=new Date(today);minDate.setDate(today.getDate()+7);
+  var maxDate=new Date(today);maxDate.setDate(today.getDate()+14);
+  var fmt=function(d){return d.toISOString().split('T')[0];};
+  var dates=document.querySelectorAll('.datetime-picker__date');
+  dates.forEach(function(el){el.min=fmt(minDate);el.max=fmt(maxDate);});
 })();
 if(window.location.search.includes('sent=1')){
   document.querySelector('.contact-form').style.display='none';
