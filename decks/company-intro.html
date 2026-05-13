@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <title>会社紹介スライド｜株式会社PLai</title>
-<meta name="description" content="株式会社PLaiの会社紹介スライド。Mission・Vision・Values、6事業の詳細、実績データ、思想までを21枚で完全網羅。">
+<meta name="description" content="株式会社PLaiの会社紹介スライド。Mission・Vision・Values、6事業詳細、技術スタック、実績、CEO、ロードマップを40枚で完全網羅。">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <link rel="canonical" href="https://plai-ai.com/decks/company-intro.html">
 <meta property="og:url" content="https://plai-ai.com/decks/company-intro.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="会社紹介スライド｜株式会社PLai">
-<meta property="og:description" content="AI社員と共に、ビジネスをつくる。PLaiの全事業を21枚のスライドで紹介。">
+<meta property="og:description" content="AI社員と共に、ビジネスをつくる。PLaiの全事業を40枚のスライドで紹介。">
 <meta property="og:image" content="https://plai-ai.com/assets/img/plai-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260514d">
+<link rel="stylesheet" href="style.css?v=20260514e">
 </head>
 <body>
 
@@ -23,16 +23,15 @@
 <div class="deck-shell">
   <div class="deck-canvas">
 
+    <!-- ========== TIER 1: INTRO ========== -->
+
     <!-- 01 Cover -->
     <section class="slide slide--cover is-active">
       <p class="slide__brand">PLAI INC. — COMPANY INTRODUCTION</p>
       <span class="slide__tag">2026 EDITION</span>
       <h1 class="slide__title">AI社員と共に、<br>ビジネスをつくる。</h1>
       <p class="slide__subtitle">PLaiは、AI社員と人間が協働する新しい時代のパートナー。<br>企業の成長を、共にデザインします。</p>
-      <div class="slide__footer">
-        <span>plai-ai.com</span>
-        <span>01 / 21</span>
-      </div>
+      <div class="slide__footer"><span>plai-ai.com</span><span>01 / 40</span></div>
     </section>
 
     <!-- 02 Statement -->
@@ -42,14 +41,12 @@
       <p class="slide__statement-sub">毎日生まれる議論・判断・知見。<br>その大半が、誰の頭の中にも残らないまま消えています。</p>
     </section>
 
-    <!-- 03 About — visual-split with knowledge flow -->
+    <!-- 03 About -->
     <section class="slide slide--bg-soft">
       <p class="slide__label">ABOUT</p>
       <h2 class="slide__h1">PLaiは、企業の「知的資産」を構造化する会社。</h2>
       <div class="slide__visual-split">
-        <div class="slide__visual slide__visual--contain">
-          <img src="../assets/img/illust_knowledge_flow.png" alt="知識のフロー">
-        </div>
+        <div class="slide__visual slide__visual--contain"><img src="../assets/img/illust_knowledge_flow.png" alt="知識フロー"></div>
         <div class="slide__visual-text">
           <h3>会話・判断・成果物を、AIで再利用できる資産に。</h3>
           <p>会議・顧客対応・SNS運用・営業活動の中で生まれる膨大な情報を、属人化のまま失わせない。AIと組み合わせて、企業の知的資産を蓄積・活用できる仕組みをつくります。</p>
@@ -58,7 +55,7 @@
       </div>
     </section>
 
-    <!-- 04 3 Principles -->
+    <!-- 04 3 Principles overview -->
     <section class="slide">
       <p class="slide__label">PRINCIPLES</p>
       <h2 class="slide__h1">PLaiを動かしている、3つの原則。</h2>
@@ -69,21 +66,77 @@
       </div>
     </section>
 
-    <!-- 05 Bridge — Mission & Vision -->
+    <!-- ========== TIER 2: PRINCIPLES DEEP ========== -->
+
+    <!-- 05 Memory First detail -->
+    <section class="slide slide--bg-soft">
+      <p class="slide__label">PRINCIPLE 01 — MEMORY FIRST</p>
+      <h2 class="slide__h1">AIに「記憶」を持たせる。<br>毎回ゼロから始めない。</h2>
+      <div class="slide__visual-split">
+        <div class="slide__visual"><img src="../assets/img/diagram_brain_vs_ai.png" alt="人とAIの記憶"></div>
+        <div class="slide__visual-text">
+          <h3>蓄積型のAIに変える。</h3>
+          <p>ChatGPTを開いて質問→閉じる、では昨日のやりとりは何も残らない。PLaiが構築するAIは、過去の会話・成果物・判断履歴を全て参照しながら動きます。</p>
+          <ul>
+            <li>Obsidian Vaultによる永続記憶</li>
+            <li>CLAUDE.mdでの永続指示書</li>
+            <li>過去の意思決定の出典付き提示</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Context Native detail -->
+    <section class="slide">
+      <p class="slide__label">PRINCIPLE 02 — CONTEXT NATIVE</p>
+      <h2 class="slide__h1">プロンプトではなく、構造で動かす。</h2>
+      <div class="slide__visual-split slide__visual-split--reverse">
+        <div class="slide__visual"><img src="../assets/img/diagram_two_step.png" alt="構造ファースト"></div>
+        <div class="slide__visual-text">
+          <h3>AIが迷わない設計を、先に置く。</h3>
+          <p>毎回「TypeScriptで書いて」「日本語でコメント」と説明する必要がない世界へ。AIの動き方を構造で先取りすれば、出力精度は一気に上がります。</p>
+          <ul>
+            <li>CLAUDE.md による役割・スタック定義</li>
+            <li>SKILL.md による作業手順の標準化</li>
+            <li>Plan Mode による事前設計</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 Open Learning detail -->
+    <section class="slide slide--bg-soft">
+      <p class="slide__label">PRINCIPLE 03 — OPEN LEARNING</p>
+      <h2 class="slide__h1">学びの入口を、無料で広げる。</h2>
+      <div class="slide__visual-split">
+        <div class="slide__visual"><img src="../assets/img/diagram_daily_workflow.png" alt="学習フロー"></div>
+        <div class="slide__visual-text">
+          <h3>AIの恩恵を、誰でも受けられる世界に。</h3>
+          <p>環境がない、お金がないから始められない人がいなくなるように。無料セミナー、学生コミュニティ、オープンな学習コンテンツを通じて、知識の格差を埋め続けます。</p>
+          <ul>
+            <li>AirCle — 累計9,000名のAIコミュニティ</li>
+            <li>OpenClaw — 実践型AI学習プログラム</li>
+            <li>無料イベント・記事の継続発信</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TIER 3: MISSION / VISION / VALUES ========== -->
+
+    <!-- 08 Bridge - Mission & Vision -->
     <section class="slide slide--bridge">
       <p class="slide__bridge-num">SECTION 01</p>
       <h2 class="slide__bridge-title">Mission &<br>Vision.</h2>
       <p class="slide__bridge-sub">私たちが、何のために存在しているか。</p>
     </section>
 
-    <!-- 06 Mission -->
+    <!-- 09 Mission -->
     <section class="slide">
       <p class="slide__label">MISSION</p>
       <h2 class="slide__h1">人生を夢中でplayする人を、1人でも増やす。</h2>
       <div class="slide__visual-split slide__visual-split--reverse">
-        <div class="slide__visual">
-          <img src="../assets/img/mission-play.png" alt="Mission Play">
-        </div>
+        <div class="slide__visual"><img src="../assets/img/mission-play.png" alt="Mission"></div>
         <div class="slide__visual-text">
           <h3>AIで「やりたいこと」に集中できる世界へ。</h3>
           <p>AIが当たり前になった時代に、テクノロジーは夢を叶える道具になる。事業を前に進めたい人、学びたい人、発信したい人が、自分の可能性を最大化できる環境をつくります。</p>
@@ -92,14 +145,12 @@
       </div>
     </section>
 
-    <!-- 07 Vision -->
+    <!-- 10 Vision -->
     <section class="slide slide--bg-soft">
       <p class="slide__label">VISION</p>
       <h2 class="slide__h1">AIを学びたい人が、無料で学べる世界をつくる。</h2>
       <div class="slide__visual-split">
-        <div class="slide__visual">
-          <img src="../assets/img/vision-place.png" alt="Vision Place">
-        </div>
+        <div class="slide__visual"><img src="../assets/img/vision-place.png" alt="Vision"></div>
         <div class="slide__visual-text">
           <h3>「お金がないから学べない」をなくす。</h3>
           <p>環境がないから始められない。そんな障壁をAIとコミュニティの力でなくす。無料セミナー、学生コミュニティ、オープンな学習コンテンツを通じて、誰もがAIの恩恵を受けられる世界を目指します。</p>
@@ -108,48 +159,72 @@
       </div>
     </section>
 
-    <!-- 08 3 Values -->
+    <!-- 11 Value 01 -->
     <section class="slide">
-      <p class="slide__label">CORE VALUES — THE PLAI WAY</p>
+      <p class="slide__label">CORE VALUE 01</p>
       <h2 class="slide__h1">関わるすべての人に「良かった」を。</h2>
-      <div class="slide__image-grid">
-        <div class="slide__image-card">
-          <div class="slide__image-card__img"><img src="../assets/img/value-good.png" alt="関わる人に良かったを"></div>
-          <div class="slide__image-card__body"><p class="slide__image-card__num">VALUE 01</p><p class="slide__image-card__title">関わるすべての人に「良かった」を。</p><p class="slide__image-card__text">妥協しない。品質が信頼をつくり、信頼が次の挑戦をつくる。</p></div>
-        </div>
-        <div class="slide__image-card">
-          <div class="slide__image-card__img"><img src="../assets/img/value-thanks.png" alt="ありがとうのために発信する"></div>
-          <div class="slide__image-card__body"><p class="slide__image-card__num">VALUE 02</p><p class="slide__image-card__title">たった一人の「ありがとう」のために発信する。</p><p class="slide__image-card__text">ビジネスの本質は「ありがとう」の交換。すべての接点で感謝を生む。</p></div>
-        </div>
-        <div class="slide__image-card">
-          <div class="slide__image-card__img"><img src="../assets/img/value-bet.png" alt="人生を賭ける価値に賭ける"></div>
-          <div class="slide__image-card__body"><p class="slide__image-card__num">VALUE 03</p><p class="slide__image-card__title">リスクに怯えるより、人生を賭ける価値に賭ける。</p><p class="slide__image-card__text">失敗を恐れず、挑戦し続ける。現状維持は後退と同じ。</p></div>
+      <div class="slide__visual-split">
+        <div class="slide__visual"><img src="../assets/img/value-good.png" alt="Value Good"></div>
+        <div class="slide__visual-text">
+          <h3>妥協しない。速さよりも、本当に良いものを。</h3>
+          <p>品質が信頼をつくり、信頼が次の挑戦をつくる。PLaiが生み出すすべてのプロダクト、すべてのコミュニケーションに、この基準を置く。</p>
+          <p>顧客・パートナー・コミュニティ・社員──関わるすべての人が「PLaiと組んでよかった」と言える瞬間を、毎日積み重ねます。</p>
         </div>
       </div>
     </section>
 
-    <!-- 09 Bridge — Services -->
+    <!-- 12 Value 02 -->
+    <section class="slide slide--bg-soft">
+      <p class="slide__label">CORE VALUE 02</p>
+      <h2 class="slide__h1">たった一人の「ありがとう」のために発信する。</h2>
+      <div class="slide__visual-split slide__visual-split--reverse">
+        <div class="slide__visual"><img src="../assets/img/value-thanks.png" alt="Value Thanks"></div>
+        <div class="slide__visual-text">
+          <h3>ビジネスの本質は「ありがとう」の交換。</h3>
+          <p>お客様、仲間、コミュニティ。すべての接点で感謝を生む仕事をする。テクノロジーの力で、一人ひとりの「ありがとう」を最大化する。</p>
+          <p>フォロワー数や売上の前に、「誰かのありがとうを引き出せたか」を毎日問い続けます。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 Value 03 -->
+    <section class="slide">
+      <p class="slide__label">CORE VALUE 03</p>
+      <h2 class="slide__h1">リスクに怯えるより、人生を賭ける価値に賭ける。</h2>
+      <div class="slide__visual-split">
+        <div class="slide__visual"><img src="../assets/img/value-bet.png" alt="Value Bet"></div>
+        <div class="slide__visual-text">
+          <h3>失敗を恐れず、挑戦し続ける文化を持つ。</h3>
+          <p>リスクを取らなければ、次のステージには行けない。現状維持は後退と同じ。AIという波に乗り、常に次の一手を打ち続ける。</p>
+          <p>新しい事業、新しい技術、新しい仕組み──毎月のように「初めて」をつくる組織でありたい。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TIER 4: SERVICES ========== -->
+
+    <!-- 14 Bridge — Services -->
     <section class="slide slide--bridge">
       <p class="slide__bridge-num">SECTION 02</p>
       <h2 class="slide__bridge-title">Our<br>Services.</h2>
       <p class="slide__bridge-sub">6つの事業で、AIを企業のOSにする。</p>
     </section>
 
-    <!-- 10 Services overview -->
+    <!-- 15 Services overview (FIXED: compact grid) -->
     <section class="slide">
       <p class="slide__label">SERVICES — 6 BUSINESSES</p>
       <h2 class="slide__h1">AI社員構築から教育まで、一気通貫。</h2>
-      <div class="slide__image-grid">
-        <div class="slide__image-card"><div class="slide__image-card__img"><img src="../assets/img/service_01_agent.png" alt="AI社員構築代行"></div><div class="slide__image-card__body"><p class="slide__image-card__num">SERVICE 01</p><p class="slide__image-card__title">AI社員構築代行事業</p><p class="slide__image-card__text">HP・動画・SNS・スライド、全てAIで制作。</p></div></div>
-        <div class="slide__image-card"><div class="slide__image-card__img"><img src="../assets/img/service_02_knowledge.png" alt="組織ナレッジ構築代行"></div><div class="slide__image-card__body"><p class="slide__image-card__num">SERVICE 02</p><p class="slide__image-card__title">組織ナレッジ構築代行事業</p><p class="slide__image-card__text">Obsidianで組織のセカンドブレインを構築。</p></div></div>
-        <div class="slide__image-card"><div class="slide__image-card__img"><img src="../assets/img/service_03_sns.png" alt="SNS自動化"></div><div class="slide__image-card__body"><p class="slide__image-card__num">SERVICE 03</p><p class="slide__image-card__title">SNS自動化支援</p><p class="slide__image-card__text">8アカウント46,000+フォロワーの運用ノウハウ。</p></div></div>
-        <div class="slide__image-card"><div class="slide__image-card__img"><img src="../assets/img/service_04_marketing.png" alt="AIマーケ支援"></div><div class="slide__image-card__body"><p class="slide__image-card__num">SERVICE 04</p><p class="slide__image-card__title">AIマーケティング支援</p><p class="slide__image-card__text">認知からサービス理解まで一気通貫で支援。</p></div></div>
-        <div class="slide__image-card"><div class="slide__image-card__img"><img src="../assets/img/service_05_event.png" alt="AIイベント"></div><div class="slide__image-card__body"><p class="slide__image-card__num">SERVICE 05</p><p class="slide__image-card__title">AIイベント事業 AirCle</p><p class="slide__image-card__text">AI活用事例を学び、事業に実装する場。</p></div></div>
-        <div class="slide__image-card"><div class="slide__image-card__img"><img src="../assets/img/service_06_education.png" alt="教育事業"></div><div class="slide__image-card__body"><p class="slide__image-card__num">SERVICE 06</p><p class="slide__image-card__title">toC向け教育事業 OpenClaw</p><p class="slide__image-card__text">実践型カリキュラムでAI活用を身につける。</p></div></div>
+      <div class="slide__image-grid slide__image-grid--compact">
+        <div class="slide__image-card"><div class="slide__image-card__img"><img src="../assets/img/service_01_agent.png" alt="AI社員"></div><div class="slide__image-card__body"><p class="slide__image-card__num">SERVICE 01</p><p class="slide__image-card__title">AI社員構築代行</p><p class="slide__image-card__text">HP・動画・SNS・スライド、全てAIで制作。</p></div></div>
+        <div class="slide__image-card"><div class="slide__image-card__img"><img src="../assets/img/service_02_knowledge.png" alt="ナレッジ"></div><div class="slide__image-card__body"><p class="slide__image-card__num">SERVICE 02</p><p class="slide__image-card__title">組織ナレッジ構築代行</p><p class="slide__image-card__text">Obsidianで組織のセカンドブレインを構築。</p></div></div>
+        <div class="slide__image-card"><div class="slide__image-card__img"><img src="../assets/img/service_03_sns.png" alt="SNS"></div><div class="slide__image-card__body"><p class="slide__image-card__num">SERVICE 03</p><p class="slide__image-card__title">SNS自動化支援</p><p class="slide__image-card__text">8アカウント46,000+フォロワーの運用ノウハウ。</p></div></div>
+        <div class="slide__image-card"><div class="slide__image-card__img"><img src="../assets/img/service_04_marketing.png" alt="マーケ"></div><div class="slide__image-card__body"><p class="slide__image-card__num">SERVICE 04</p><p class="slide__image-card__title">AIマーケティング支援</p><p class="slide__image-card__text">認知拡大からサービス理解まで一気通貫で支援。</p></div></div>
+        <div class="slide__image-card"><div class="slide__image-card__img"><img src="../assets/img/service_05_event.png" alt="AirCle"></div><div class="slide__image-card__body"><p class="slide__image-card__num">SERVICE 05</p><p class="slide__image-card__title">AIイベント事業 AirCle</p><p class="slide__image-card__text">AI活用事例を学び、事業に実装する場。</p></div></div>
+        <div class="slide__image-card"><div class="slide__image-card__img"><img src="../assets/img/service_06_education.png" alt="教育"></div><div class="slide__image-card__body"><p class="slide__image-card__num">SERVICE 06</p><p class="slide__image-card__title">toC向け教育事業 OpenClaw</p><p class="slide__image-card__text">実践型カリキュラムでAI活用を身につける。</p></div></div>
       </div>
     </section>
 
-    <!-- 11 Service 01 — visual split -->
+    <!-- 16 Service 01 hero -->
     <section class="slide slide--bg-soft">
       <p class="slide__label">SERVICE 01 — AI社員構築代行</p>
       <h2 class="slide__h1">人間が寝ている間も働く、AI社員。</h2>
@@ -161,7 +236,7 @@
           <ul>
             <li>HP・LP制作AI社員</li>
             <li>動画編集AI社員</li>
-            <li>SNS運用AI社員（複数アカウント並列）</li>
+            <li>SNS運用AI社員</li>
             <li>スライド・提案書AI社員</li>
             <li>事務処理・請求書AI社員</li>
           </ul>
@@ -169,12 +244,31 @@
       </div>
     </section>
 
-    <!-- 12 Service 02 -->
+    <!-- 17 Service 01 architecture -->
     <section class="slide">
+      <p class="slide__label">SERVICE 01 — ARCHITECTURE</p>
+      <h2 class="slide__h1">AI社員の組織図。</h2>
+      <div class="slide__visual-split slide__visual-split--reverse">
+        <div class="slide__visual"><img src="../assets/img/agent_department_roles.png" alt="AI部署構成"></div>
+        <div class="slide__visual-text">
+          <h3>「役割」と「記憶」と「スキル」の3層構造。</h3>
+          <p>中枢AI（Claude Code）が指揮し、Obsidian Vaultが組織記憶を保持。各専門エージェント（HP・動画・SNS・経理）が部署のように並列稼働する設計です。</p>
+          <ul>
+            <li>CORE: Claude Code（中枢AI）</li>
+            <li>MEMORY: Obsidian Vault（記憶層）</li>
+            <li>SKILLS: 専門エージェント（部署）</li>
+            <li>HOOKS: cronと自動実行</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 18 Service 02 hero -->
+    <section class="slide slide--bg-soft">
       <p class="slide__label">SERVICE 02 — 組織ナレッジ構築代行</p>
       <h2 class="slide__h1">Obsidian × Claude Codeで、組織のセカンドブレイン。</h2>
-      <div class="slide__visual-split slide__visual-split--reverse">
-        <div class="slide__visual"><img src="../assets/img/service_02_knowledge.png" alt="組織ナレッジ"></div>
+      <div class="slide__visual-split">
+        <div class="slide__visual"><img src="../assets/img/service_02_knowledge.png" alt="ナレッジ"></div>
         <div class="slide__visual-text">
           <h3>議事録・顧客対応・仕様を、ひとつのVaultに集約。</h3>
           <p>属人化していた知識を一箇所に。AIが横断的に参照することで、意思決定が早くなり、引き継ぎコストはゼロに。新人立ち上がりも一気に短縮されます。</p>
@@ -189,12 +283,23 @@
       </div>
     </section>
 
-    <!-- 13 Service 03 -->
+    <!-- 19 Service 02 case studies -->
+    <section class="slide">
+      <p class="slide__label">SERVICE 02 — CASE STUDIES</p>
+      <h2 class="slide__h1">実装事例から見える効果。</h2>
+      <div class="slide__image-grid">
+        <div class="slide__image-card"><div class="slide__image-card__img"><img src="../assets/img/knowledge_case_01.png" alt="ケース1"></div><div class="slide__image-card__body"><p class="slide__image-card__num">CASE 01</p><p class="slide__image-card__title">議事録の再利用率が10倍に</p><p class="slide__image-card__text">過去の判断材料をAIが即引用。会議の議論時間が削減。</p></div></div>
+        <div class="slide__image-card"><div class="slide__image-card__img"><img src="../assets/img/knowledge_case_02.png" alt="ケース2"></div><div class="slide__image-card__body"><p class="slide__image-card__num">CASE 02</p><p class="slide__image-card__title">引き継ぎコスト 80%減</p><p class="slide__image-card__text">担当者交代でも、新担当はVaultをAIに読ませるだけ。</p></div></div>
+        <div class="slide__image-card"><div class="slide__image-card__img"><img src="../assets/img/knowledge_case_03.png" alt="ケース3"></div><div class="slide__image-card__body"><p class="slide__image-card__num">CASE 03</p><p class="slide__image-card__title">新人立ち上がりが3週→3日に</p><p class="slide__image-card__text">「どうやるんですか」がAIへの質問でほぼ完結。</p></div></div>
+      </div>
+    </section>
+
+    <!-- 20 Service 03 hero -->
     <section class="slide slide--bg-soft">
       <p class="slide__label">SERVICE 03 — SNS自動化支援</p>
       <h2 class="slide__h1">運用ノウハウは、数字で語ります。</h2>
       <div class="slide__visual-split">
-        <div class="slide__visual"><img src="../assets/img/service_03_sns.png" alt="SNS自動化"></div>
+        <div class="slide__visual"><img src="../assets/img/service_03_sns.png" alt="SNS"></div>
         <div class="slide__visual-text">
           <h3>8アカウント・46,000+フォロワー並列運用。</h3>
           <p>バズリサーチ→投稿生成→図解作成→予約投稿まで、AIで自動化されたパイプラインを構築。担当者依存をなくし、再現性のある仕組みに変えます。</p>
@@ -209,18 +314,36 @@
       </div>
     </section>
 
-    <!-- 14 Service 04 -->
+    <!-- 21 Service 03 pipeline -->
     <section class="slide">
+      <p class="slide__label">SERVICE 03 — PIPELINE</p>
+      <h2 class="slide__h1">投稿パイプラインの全体像。</h2>
+      <div class="slide__visual-split slide__visual-split--reverse">
+        <div class="slide__visual"><img src="../assets/img/agent_workflow_xpost.png" alt="SNSパイプライン"></div>
+        <div class="slide__visual-text">
+          <h3>4段階で「人が書く」を全部置き換える。</h3>
+          <p>担当者は「方針承認」と「最終チェック」だけ。残りはAIが自動実行します。</p>
+          <ul>
+            <li>① バズソース収集（X API）</li>
+            <li>② アカウントごとに再構成</li>
+            <li>③ 図解・動画自動添付</li>
+            <li>④ Typefully予約投稿</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 22 Service 04 hero -->
+    <section class="slide slide--bg-soft">
       <p class="slide__label">SERVICE 04 — AIマーケティング支援</p>
       <h2 class="slide__h1">認知拡大からサービス理解まで、一気通貫。</h2>
-      <div class="slide__visual-split slide__visual-split--reverse">
-        <div class="slide__visual"><img src="../assets/img/service_04_marketing.png" alt="AIマーケ"></div>
+      <div class="slide__visual-split">
+        <div class="slide__visual"><img src="../assets/img/service_04_marketing.png" alt="マーケ"></div>
         <div class="slide__visual-text">
           <h3>SNS×動画×LP×メルマガを、AIで統合運用。</h3>
           <p>チャネルごとに分断されていた施策を統合運用に変えます。PLai自社でも本サイトを含めすべて実装・運用しています。</p>
           <ul>
             <li>ペルソナ・カスタマージャーニー設計</li>
-            <li>SNS × 動画 × LP × メルマガの統合運用</li>
             <li>LP制作・改善（CVR最適化）</li>
             <li>効果測定の自動レポート</li>
             <li>リード獲得→商談化までの仕組み</li>
@@ -229,7 +352,19 @@
       </div>
     </section>
 
-    <!-- 15 Service 05 -->
+    <!-- 23 Service 04 funnel -->
+    <section class="slide">
+      <p class="slide__label">SERVICE 04 — FUNNEL</p>
+      <h2 class="slide__h1">カスタマージャーニーで、必ず「次の一歩」を置く。</h2>
+      <div class="slide__steps">
+        <div class="slide__step"><span class="slide__step-num">01</span><div><p class="slide__step-title">認知 — SNS / 動画</p><p class="slide__step-body">バズ投稿・短尺動画でブランドと存在を知ってもらう。</p></div></div>
+        <div class="slide__step"><span class="slide__step-num">02</span><div><p class="slide__step-title">興味 — 記事 / LP</p><p class="slide__step-body">SEO記事と業種別LPでサービスへの理解を深める。</p></div></div>
+        <div class="slide__step"><span class="slide__step-num">03</span><div><p class="slide__step-title">検討 — リードマグネット / メルマガ</p><p class="slide__step-body">無料資料を起点にメアド獲得→検討段階の育成。</p></div></div>
+        <div class="slide__step"><span class="slide__step-num">04</span><div><p class="slide__step-title">行動 — 無料相談 / 商談</p><p class="slide__step-body">タイミングが合った見込み顧客から商談化。</p></div></div>
+      </div>
+    </section>
+
+    <!-- 24 Service 05 hero -->
     <section class="slide slide--bg-soft">
       <p class="slide__label">SERVICE 05 — AIイベント事業 AirCle</p>
       <h2 class="slide__h1">学生主体のAIコミュニティで、事業に直結する学びを。</h2>
@@ -249,11 +384,22 @@
       </div>
     </section>
 
-    <!-- 16 Service 06 -->
+    <!-- 25 Service 05 events -->
     <section class="slide">
+      <p class="slide__label">SERVICE 05 — EVENTS</p>
+      <h2 class="slide__h1">過去開催イベントの一部。</h2>
+      <div class="slide__image-grid">
+        <div class="slide__image-card"><div class="slide__image-card__img"><img src="../assets/img/aircle_event_01.png" alt="イベント1"></div><div class="slide__image-card__body"><p class="slide__image-card__num">EVENT 01</p><p class="slide__image-card__title">AI実装勉強会</p><p class="slide__image-card__text">毎月テーマを変えてAI実装事例を共有。</p></div></div>
+        <div class="slide__image-card"><div class="slide__image-card__img"><img src="../assets/img/aircle_event_02.png" alt="イベント2"></div><div class="slide__image-card__body"><p class="slide__image-card__num">EVENT 02</p><p class="slide__image-card__title">企業×学生マッチング会</p><p class="slide__image-card__text">AI採用企業と学生スキルホルダーを少人数で接続。</p></div></div>
+        <div class="slide__image-card"><div class="slide__image-card__img"><img src="../assets/img/aircle_event_03.png" alt="イベント3"></div><div class="slide__image-card__body"><p class="slide__image-card__num">EVENT 03</p><p class="slide__image-card__title">AIハッカソン</p><p class="slide__image-card__text">企業課題を学生がAIで48時間以内に解決する。</p></div></div>
+      </div>
+    </section>
+
+    <!-- 26 Service 06 hero -->
+    <section class="slide slide--bg-soft">
       <p class="slide__label">SERVICE 06 — toC向け教育事業 OpenClaw</p>
       <h2 class="slide__h1">「学んで終わり」を、終わらせる。</h2>
-      <div class="slide__visual-split slide__visual-split--reverse">
+      <div class="slide__visual-split">
         <div class="slide__visual"><img src="../assets/img/service_06_education.png" alt="OpenClaw"></div>
         <div class="slide__visual-text">
           <h3>教材＋演習＋コミュニティで、使える人になる。</h3>
@@ -269,11 +415,32 @@
       </div>
     </section>
 
-    <!-- 17 AI Stack — dark -->
+    <!-- 27 Service 06 curriculum -->
+    <section class="slide">
+      <p class="slide__label">SERVICE 06 — CURRICULUM</p>
+      <h2 class="slide__h1">1ヶ月で、AIを実務ツールに変える。</h2>
+      <div class="slide__steps">
+        <div class="slide__step"><span class="slide__step-num">W1</span><div><p class="slide__step-title">基本操作</p><p class="slide__step-body">Claude Codeのインストール、プロジェクト構造の理解、簡単な修正タスク。</p></div></div>
+        <div class="slide__step"><span class="slide__step-num">W2</span><div><p class="slide__step-title">CLAUDE.mdとPlan Mode</p><p class="slide__step-body">永続指示の設計、設計→実装のフロー、/compactの習慣化。</p></div></div>
+        <div class="slide__step"><span class="slide__step-num">W3</span><div><p class="slide__step-title">実務タスクに投入</p><p class="slide__step-body">バグ修正・機能追加・テスト作成・git操作までClaude Codeで完結。</p></div></div>
+        <div class="slide__step"><span class="slide__step-num">W4</span><div><p class="slide__step-title">MCPと高度な活用</p><p class="slide__step-body">外部ツール連携、サブエージェント、複数セッションの使い分け。</p></div></div>
+      </div>
+    </section>
+
+    <!-- ========== TIER 5: TECHNOLOGY ========== -->
+
+    <!-- 28 Bridge — Technology -->
+    <section class="slide slide--bridge">
+      <p class="slide__bridge-num">SECTION 03</p>
+      <h2 class="slide__bridge-title">Our<br>Technology.</h2>
+      <p class="slide__bridge-sub">PLaiを動かしている、AIスタックと設計思想。</p>
+    </section>
+
+    <!-- 29 AI Stack -->
     <section class="slide slide--bg-dark">
       <p class="slide__label">POWERED BY</p>
-      <h2 class="slide__h1">PLaiを動かしている、AIスタック。</h2>
-      <p class="slide__lead">「ひとつのモデルに依存しない」設計。タスクごとに最適なモデル/ツールを組み合わせます。</p>
+      <h2 class="slide__h1">ひとつのモデルに、依存しない。</h2>
+      <p class="slide__lead">タスクごとに最適なモデル/ツールを組み合わせる。これがPLaiのAIスタック設計です。</p>
       <div class="slide__toolkit">
         <div class="slide__toolkit-item"><img src="../assets/ai_tool_logos/claude_code/logo.png" alt="Claude Code"><p class="slide__toolkit-item__name">Claude Code</p></div>
         <div class="slide__toolkit-item"><img src="../assets/ai_tool_logos/obsidian/logo.png" alt="Obsidian"><p class="slide__toolkit-item__name">Obsidian</p></div>
@@ -283,17 +450,56 @@
       </div>
     </section>
 
-    <!-- 18 Bridge — Achievements -->
+    <!-- 30 Multi-model architecture -->
+    <section class="slide">
+      <p class="slide__label">ARCHITECTURE</p>
+      <h2 class="slide__h1">なぜマルチモデル戦略なのか。</h2>
+      <div class="slide__visual-split">
+        <div class="slide__visual"><img src="../assets/img/agent_multimodel_arch.png" alt="マルチモデル"></div>
+        <div class="slide__visual-text">
+          <h3>「Opusで全部」をやらない。</h3>
+          <p>深い思考はOpus、定型作業はSonnet/Haiku、画像生成はgpt-image、ローカル参照はClaude Code。タスクに応じて最適なモデルに切り替えることで、品質×速度×コストを同時に最適化します。</p>
+          <ul>
+            <li>Claude Opus / Sonnet / Haiku</li>
+            <li>GPT-4o / gpt-image</li>
+            <li>Gemini Pro</li>
+            <li>Local Models（必要時のみ）</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 31 Knowledge architecture -->
+    <section class="slide slide--bg-soft">
+      <p class="slide__label">KNOWLEDGE ARCHITECTURE</p>
+      <h2 class="slide__h1">「文脈」を構造で保持する。</h2>
+      <div class="slide__visual-split slide__visual-split--reverse">
+        <div class="slide__visual"><img src="../assets/img/knowledge_context_flow.png" alt="ナレッジアーキテクチャ"></div>
+        <div class="slide__visual-text">
+          <h3>Vault → Skill → Agent の3層。</h3>
+          <p>会社の全ナレッジをObsidian Vaultに、業務手順を SKILL.md に、自律エージェントを Agent として配置。AIが必要な文脈を必要なときに、自動で引き出せる構造です。</p>
+          <ul>
+            <li>Vault: 永続記憶層</li>
+            <li>Skill: 手順書層</li>
+            <li>Agent: 実行層</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TIER 6: ACHIEVEMENTS ========== -->
+
+    <!-- 32 Bridge — Achievements -->
     <section class="slide slide--bridge">
-      <p class="slide__bridge-num">SECTION 03</p>
+      <p class="slide__bridge-num">SECTION 04</p>
       <h2 class="slide__bridge-title">Our<br>Achievements.</h2>
       <p class="slide__bridge-sub">「AI×ナレッジで経営を変える」を、市場で実証してきました。</p>
     </section>
 
-    <!-- 19 Stats -->
+    <!-- 33 Stats -->
     <section class="slide slide--bg-soft">
       <p class="slide__label">ACHIEVEMENTS</p>
-      <h2 class="slide__h1">創業初年度、AI×ナレッジでこれを実現。</h2>
+      <h2 class="slide__h1">創業初年度の成果。</h2>
       <div class="slide__stats">
         <div class="slide__stat slide__stat--xl"><div class="slide__stat-value">6<span style="font-size:32px;">ヶ月</span></div><p class="slide__stat-label">自社事業を<br>上場企業にM&A</p></div>
         <div class="slide__stat slide__stat--xl"><div class="slide__stat-value">1億<span style="font-size:32px;">円+</span></div><p class="slide__stat-label">創業初年度<br>年商突破</p></div>
@@ -302,7 +508,41 @@
       </div>
     </section>
 
-    <!-- 20 Founder Quote -->
+    <!-- 34 M&A case -->
+    <section class="slide">
+      <p class="slide__label">CASE 01 — M&A</p>
+      <h2 class="slide__h1">創業6ヶ月で、自社事業を上場企業にM&A。</h2>
+      <div class="slide__visual-split">
+        <div class="slide__visual"><img src="../assets/img/agent_cost_optimization.png" alt="M&Aケース"></div>
+        <div class="slide__visual-text">
+          <h3>「個人開発レベルの仕組み」が、企業価値になった。</h3>
+          <p>AIで構築した自社プロダクトが、上場企業の事業ポートフォリオに組み込まれる規模に成長。AI×ナレッジ経営の事業価値を、最短期間で市場が評価した事例です。</p>
+          <p>「AIで作る」が「AIで売れる」に直結した、PLaiの初年度を象徴するケース。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 35 SNS Growth -->
+    <section class="slide slide--bg-soft">
+      <p class="slide__label">CASE 02 — SNS GROWTH</p>
+      <h2 class="slide__h1">SNS総フォロワー46,000人を、AIで運用。</h2>
+      <div class="slide__visual-split slide__visual-split--reverse">
+        <div class="slide__visual"><img src="../assets/img/agent_workflow_xpost.png" alt="SNS成長"></div>
+        <div class="slide__visual-text">
+          <h3>8アカウント並列で運用、95%がAI投稿。</h3>
+          <p>AirCle、いち@OpenClaw、Claude Code Love、すみか、Codex Studio、obsidianstudio9 など、テーマ・ペルソナの異なる8アカウントを並列でAI運用。長文記事25本＋、最高2,441いいねの記事もAIで生成。</p>
+          <ul>
+            <li>Claude Code Love：累計いいね 7,000+</li>
+            <li>AirCle：学生コミュニティ最大規模</li>
+            <li>すみか：個人開発の象徴アカウント</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TIER 7: FOUNDER & FUTURE ========== -->
+
+    <!-- 36 CEO Quote -->
     <section class="slide">
       <p class="slide__label">FOUNDER &amp; CEO</p>
       <h2 class="slide__h1" style="margin-bottom:24px;">CONTEXT IS THE NEW CODE.</h2>
@@ -316,7 +556,50 @@
       </div>
     </section>
 
-    <!-- 21 CTA -->
+    <!-- 37 Company info -->
+    <section class="slide slide--bg-soft">
+      <p class="slide__label">COMPANY INFORMATION</p>
+      <h2 class="slide__h1">会社概要。</h2>
+      <div class="slide__split">
+        <div class="slide__split-left">
+          <h3>株式会社PLai</h3>
+          <p><strong style="color:#1a1a2e;">設立</strong>　　2026年2月19日</p>
+          <p><strong style="color:#1a1a2e;">法人番号</strong>　6011101114789</p>
+          <p><strong style="color:#1a1a2e;">代表</strong>　　市岡直人（FOUNDER &amp; CEO）</p>
+          <p><strong style="color:#1a1a2e;">所在地</strong>　東京都台東区三筋2丁目3-3<br>　　　　ヴェラハイツ蔵前503</p>
+          <p><strong style="color:#1a1a2e;">サイト</strong>　https://plai-ai.com</p>
+        </div>
+        <div class="slide__split-right">
+          <ul>
+            <li>事業: AI社員構築代行 / 組織ナレッジ構築代行</li>
+            <li>事業: SNS自動化支援 / AIマーケティング支援</li>
+            <li>事業: AIイベント事業 AirCle</li>
+            <li>事業: toC向け教育事業 OpenClaw</li>
+            <li>姉妹会社: 株式会社Va'lueQ（ClimbBeyond）</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 38 Roadmap -->
+    <section class="slide">
+      <p class="slide__label">ROADMAP</p>
+      <h2 class="slide__h1">PLaiの次の3ステップ。</h2>
+      <div class="slide__steps">
+        <div class="slide__step"><span class="slide__step-num">01</span><div><p class="slide__step-title">企業向けAI社員導入の拡大（2026後半）</p><p class="slide__step-body">既存サービスを上場・中堅企業へ展開。AI社員パッケージの標準化。</p></div></div>
+        <div class="slide__step"><span class="slide__step-num">02</span><div><p class="slide__step-title">教育事業のスケール（2027前半）</p><p class="slide__step-body">OpenClaw受講者1,000人規模へ。toB向け企業研修プログラム新設。</p></div></div>
+        <div class="slide__step"><span class="slide__step-num">03</span><div><p class="slide__step-title">プロダクト化と国際展開（2027後半〜）</p><p class="slide__step-body">AI社員構築のSaaS化、海外コミュニティとの連携、グループ会社拡大。</p></div></div>
+      </div>
+    </section>
+
+    <!-- 39 Why Now -->
+    <section class="slide slide--statement">
+      <p class="slide__statement-label">WHY NOW</p>
+      <h2 class="slide__statement">AIが「ツール」から<br><em>「OS」</em>に変わる、その瞬間に。</h2>
+      <p class="slide__statement-sub">2025-2027は、企業の経営OSがAIに置き換わる過渡期。<br>「最初に組み立てた構造」が、5年後の競争優位を決めます。</p>
+    </section>
+
+    <!-- 40 CTA -->
     <section class="slide slide--cta">
       <p class="slide__cta-label">LET'S BUILD TOGETHER</p>
       <h2 class="slide__cta-title">AI社員と共に、<br>ビジネスをつくりませんか。</h2>
@@ -329,11 +612,11 @@
 
 <nav class="deck-nav">
   <button class="deck-nav__prev" aria-label="前のスライド">‹</button>
-  <span class="deck-nav__count">01 / 21</span>
-  <div class="deck-nav__progress"><span style="width:4.8%"></span></div>
+  <span class="deck-nav__count">01 / 40</span>
+  <div class="deck-nav__progress"><span style="width:2.5%"></span></div>
   <button class="deck-nav__next" aria-label="次のスライド">›</button>
 </nav>
 
-<script src="deck.js?v=20260514d"></script>
+<script src="deck.js?v=20260514e"></script>
 </body>
 </html>

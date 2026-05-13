@@ -530,7 +530,7 @@ html, body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
-  margin-top: 40px;
+  margin-top: 36px;
 }
 .slide__image-card {
   background: #fff;
@@ -551,26 +551,37 @@ html, body {
   object-fit: cover;
   display: block;
 }
-.slide__image-card__body { padding: 24px 28px 28px; }
+.slide__image-card__body { padding: 22px 26px 26px; }
 .slide__image-card__num {
   font-family: var(--font-en);
   font-size: 12px;
   letter-spacing: 0.15em;
   color: var(--c-accent);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 .slide__image-card__title {
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 600;
   color: #1a1a2e;
   line-height: 1.55;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 .slide__image-card__text {
-  font-size: 15px;
-  line-height: 1.85;
+  font-size: 14px;
+  line-height: 1.8;
   color: #6b6b78;
 }
+
+/* Compact variant for 6-card grids (3x2 layout) */
+.slide__image-grid--compact {
+  gap: 24px;
+  margin-top: 28px;
+}
+.slide__image-grid--compact .slide__image-card__img { aspect-ratio: 16 / 8; }
+.slide__image-grid--compact .slide__image-card__body { padding: 16px 20px 20px; }
+.slide__image-grid--compact .slide__image-card__num { font-size: 11px; margin-bottom: 8px; }
+.slide__image-grid--compact .slide__image-card__title { font-size: 17px; line-height: 1.5; margin-bottom: 6px; }
+.slide__image-grid--compact .slide__image-card__text { font-size: 13px; line-height: 1.75; }
 
 /* CEO Quote layout */
 .slide__quote-block {
