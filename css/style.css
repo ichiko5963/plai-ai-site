@@ -2813,6 +2813,9 @@ ul, ol {
 .sub-cta__text { font-size: 1.5rem; color: #666; margin-bottom: 24px; }
 .sub-cta__btn { display: inline-block; padding: 16px 40px; background: #9b8cff; color: #fff; border-radius: 8px; font-size: 1.6rem; font-weight: 500; text-decoration: none; transition: all 0.3s; }
 .sub-cta__btn:hover { background: #8a7aee; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(155,140,255,0.3); color: #fff; }
+.sub-cta__actions { display: inline-flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.sub-cta__btn--ghost { background: transparent; color: #6b46c1; border: 2px solid #9b8cff; }
+.sub-cta__btn--ghost:hover { background: #9b8cff; color: #fff; }
 
 .sub-footer { background: #1a1a2e; color: #999; padding: 48px 24px; text-align: center; }
 .sub-footer__logo img { height: 32px; width: auto; margin: 0 auto 16px; filter: brightness(2); }
