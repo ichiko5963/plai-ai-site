@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>組織ナレッジ構築代行事業｜株式会社PLai</title>
+<meta name="description" content="社内に眠る知識をObsidianで体系化し、AIが直接活用できるナレッジ基盤を構築。組織の知識資産を構造化する代行サービス。">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+<!-- Opening -->
+<div class="opening" id="opening">
+  <img src="assets/img/plai-logo.png" alt="PLai" class="opening__logo" id="openingLogo">
+</div>
+
+<!-- Header -->
+<header class="p-header" id="header">
+  <div class="p-header__inner">
+    <a class="p-header__logo" href="index.html"><img src="assets/img/plai-logo.png" alt="PLai" id="headerLogo"></a>
+    <div class="p-header__right">
+      <div class="p-header__clock js-clock"></div>
+      <a class="p-header__menu js-menu-open" href="#"><span>MENU</span><span>CLOSE</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- Menu -->
+<div class="p-menu js-menu">
+  <div class="p-menu__inner">
+    <nav class="p-menu__nav">
+      <ul>
+        <li><a href="index.html#about">ABOUT</a></li>
+        <li><a href="index.html#services">SERVICES</a></li>
+        <li><a href="mvv.html">MVV</a></li>
+        <li><a href="index.html#message">MESSAGE</a></li>
+        <li><a href="index.html#company">COMPANY</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+      <div class="p-menu__services">
+        <span class="p-menu__services-label">Services</span>
+        <ul>
+          <li><a href="business-agent.html">AI社員</a></li>
+          <li><a href="business-knowledge.html">ナレッジ管理</a></li>
+          <li><a href="business-x-ops.html">SNS自動化</a></li>
+          <li><a href="business-product-studio.html">マーケティング</a></li>
+          <li><a href="business-aircle.html">AirCle</a></li>
+          <li><a href="business-openclaw.html">OpenClaw</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="p-menu__contact">
+      <div class="p-menu__contact__header">CONTACT</div>
+      <a href="mailto:jiuhuot10@gmail.com" class="p-menu__contact__link">
+        <span>jiuhuot10@gmail.com</span>
+        <svg width="18" height="16" viewBox="0 0 18 16" fill="none"><rect x="0" y="6.55" width="14" height="2.18" fill="currentColor"/><rect x="9.29" width="10.92" height="2.18" transform="rotate(45 9.29 0)" fill="currentColor"/><rect x="7.74" y="13.9" width="10.92" height="2.18" transform="rotate(-45 7.74 13.9)" fill="currentColor"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="p-menu__copyright">&copy; PLai Inc.</div>
+</div>
+
+<a class="sub-back" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>HOME</a>
+
+<!-- Hero -->
+<section class="sub-hero">
+  <div class="sub-hero__inner">
+    <div class="sub-hero__text">
+      <p class="sub-hero__eyebrow">BUSINESS 02</p>
+      <h1 class="sub-hero__title">組織ナレッジ<br>構築代行事業</h1>
+      <p class="sub-hero__desc">社内に眠る知識をObsidianで体系化し、AIが直接活用できるナレッジ基盤を構築。「人が辞めたら知識も消える」を終わらせます。</p>
+      <p class="sub-hero__tagline">— Context is the new code.</p>
+    </div>
+    <div class="sub-hero__visual sub-hero__visual--chars">
+      <img src="assets/img/service_02_knowledge.png" alt="ナレッジ構築">
+    </div>
+  </div>
+</section>
+
+<div class="sub-content">
+
+  <!-- Tool Logos -->
+  <div class="sub-tools">
+    <span class="sub-tools__label">Core Tools</span>
+    <img src="assets/ai_tool_logos/obsidian/logo.png" alt="Obsidian">
+    <img src="assets/ai_tool_logos/claude_code/logo.png" alt="Claude Code">
+    <img src="assets/ai_tool_logos/notion/logo.png" alt="Notion">
+    <img src="assets/ai_tool_logos/github_copilot/logo.png" alt="GitHub">
+  </div>
+
+  <!-- Problem Statement -->
+  <div class="sub-split js-enter">
+    <div class="sub-split__media">
+      <img src="assets/img/diagram_knowledge_workflow.png" alt="ナレッジワークフロー">
+    </div>
+    <div class="sub-split__body">
+      <h3>「知識の使い捨て」を終わらせる</h3>
+      <p>会議メモ、顧客対応の記録、過去の施策とその結果。毎日大量に生まれるこれらの情報は、個人のメモ帳やチャットの中に埋もれ、属人化し、やがて失われていきます。</p>
+      <p>PLaiはObsidianを軸に、散在する知識をMarkdownファイルとして構造化し、リンクとタグで自然につなげる「第二の脳」を構築します。さらにCLAUDE.mdやプロジェクトメモリという形式に変換することで、AIエージェントが直接読み込み、過去の文脈を踏まえた判断ができるようになります。</p>
+    </div>
+  </div>
+
+  <!-- Knowledge Graph -->
+  <div class="sub-split sub-split--reverse js-enter">
+    <div class="sub-split__media">
+      <img src="assets/img/knowledge_graph_viz.png" alt="ナレッジグラフ">
+    </div>
+    <div class="sub-split__body">
+      <h3>知識がつながるナレッジグラフ</h3>
+      <p>Obsidianの最大の特徴は、Wikilink（[[リンク]]）で知識同士を自然につなげられること。「顧客Aの対応記録」と「同業界の成功事例」と「使ったツールのマニュアル」が、1クリックでたどれるようになります。</p>
+      <p>フォルダだけでは見えなかった情報の関連性が、グラフビューで一目瞭然に。必要な情報に最短でたどり着ける仕組みを設計します。</p>
+    </div>
+  </div>
+
+  <!-- Context Flow -->
+  <div class="sub-split js-enter">
+    <div class="sub-split__media">
+      <img src="assets/img/knowledge_context_flow.png" alt="コンテキストフロー">
+    </div>
+    <div class="sub-split__body">
+      <h3>AIが「はじめまして」にならない仕組み</h3>
+      <p>ChatGPTに毎回同じ説明をしていませんか？ PLaiが構築するコンテキストファイルは、AIエージェントが業務開始時に自動で読み込む「引き継ぎ書」のようなもの。会社の方針、過去の意思決定、業務ルール、使っているツール。すべてが一つのファイルに集約されています。</p>
+      <p>PLai自身がこの仕組みで事業を運営しており、7つの部門のAI社員がそれぞれの専門知識を持ったコンテキストファイルを参照して業務を遂行しています。</p>
+    </div>
+  </div>
+
+  <!-- Char showcase -->
+  <div class="char-showcase js-enter" style="margin-bottom: 64px;">
+    <div class="char-showcase__item">
+      <img src="assets/img/chars/obsidian_1.png" alt="Obsidian">
+      <span class="char-showcase__name">Obsidian</span>
+      <span class="char-showcase__role">知識管理</span>
+    </div>
+    <div class="char-showcase__item">
+      <img src="assets/img/chars/claude_code_1.png" alt="Claude Code">
+      <span class="char-showcase__name">Claude Code</span>
+      <span class="char-showcase__role">開発・実装</span>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <section class="sub-section js-enter">
+    <p class="sub-section__label">SERVICES</p>
+    <h2 class="sub-section__title">サービス内容</h2>
+    <div class="feature-grid">
+      <div class="feature-card feature-card--img">
+        <img src="assets/img/knowledge_service_01.png" alt="Obsidian Vault設計" class="feature-card__thumb">
+        <div class="feature-card__inner">
+          <p class="feature-card__num">01</p>
+          <h3 class="feature-card__title">Obsidian Vault<br>設計・構築</h3>
+          <p class="feature-card__text">お客様の業務内容をヒアリングし、最適なフォルダ構造・タグ体系・リンク設計を行います。「何をどこに書くか」を明確にし、誰でも迷わず情報を蓄積・検索できるVaultを構築します。</p>
+        </div>
+      </div>
+      <div class="feature-card feature-card--img">
+        <img src="assets/img/knowledge_service_02.png" alt="CLAUDE.mdコンテキスト設計" class="feature-card__thumb">
+        <div class="feature-card__inner">
+          <p class="feature-card__num">02</p>
+          <h3 class="feature-card__title">CLAUDE.md<br>コンテキスト設計</h3>
+          <p class="feature-card__text">AIエージェントが業務開始時に読み込むコンテキストファイルを設計・構築します。会社の判断基準、業務ルール、過去の意思決定をAIが参照できる形に変換。毎回「はじめまして」にならないAI運用を実現します。</p>
+        </div>
+      </div>
+      <div class="feature-card feature-card--img">
+        <img src="assets/img/knowledge_service_03.png" alt="ナレッジ運用定着支援" class="feature-card__thumb">
+        <div class="feature-card__inner">
+          <p class="feature-card__num">03</p>
+          <h3 class="feature-card__title">ナレッジ運用<br>定着支援</h3>
+          <p class="feature-card__text">構築して終わりではなく、運用ルールの策定、社内トレーニング、定着までを伴走サポート。「書くのが面倒」にならない最小限のルール設計で、知識が自然に蓄積される文化をつくります。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use cases -->
+  <section class="sub-section js-enter">
+    <p class="sub-section__label">USE CASES</p>
+    <h2 class="sub-section__title">活用シーン</h2>
+    <div class="feature-grid">
+      <div class="feature-card feature-card--img">
+        <img src="assets/img/knowledge_case_01.png" alt="全社員が同品質のアウトプット" class="feature-card__thumb">
+        <div class="feature-card__inner">
+          <p class="feature-card__num">CASE 1</p>
+          <h3 class="feature-card__title">全社員が同品質の<br>アウトプットを出せる</h3>
+          <p class="feature-card__text">ベテランだけが知っている判断基準、過去の成功パターン、お客様への対応方針。これらがナレッジとして構造化されていれば、新人でもAIを通じて同じ品質の提案書・対応メール・報告書を作れます。「あの人がいないとできない」がなくなる世界です。</p>
+        </div>
+      </div>
+      <div class="feature-card feature-card--img">
+        <img src="assets/img/knowledge_case_02.png" alt="上司のフィードバック最小化" class="feature-card__thumb">
+        <div class="feature-card__inner">
+          <p class="feature-card__num">CASE 2</p>
+          <h3 class="feature-card__title">上司のフィードバックが<br>最小限で済む</h3>
+          <p class="feature-card__text">「これ前も言ったよね」「うちのやり方はこうだから」——同じフィードバックを何度も繰り返す必要はもうありません。判断基準や業務ルールがコンテキストファイルに集約されていれば、AIが上司の代わりに方針を伝えてくれます。マネジメントコストが劇的に下がります。</p>
+        </div>
+      </div>
+      <div class="feature-card feature-card--img">
+        <img src="assets/img/knowledge_case_03.png" alt="コア業務に集中" class="feature-card__thumb">
+        <div class="feature-card__inner">
+          <p class="feature-card__num">CASE 3</p>
+          <h3 class="feature-card__title">コア業務に集中し<br>雑務はAIに任せる</h3>
+          <p class="feature-card__text">議事録の整理、定型メールの作成、データの転記、報告書のフォーマット調整。こうした「やらなきゃいけないけど価値を生まない仕事」は、ナレッジ基盤を持つAIに任せられます。人間は戦略立案や顧客対応など、本当に頭を使うべき仕事に集中。給与に見合った仕事だけをする組織へ。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="sub-cta">
+    <h3 class="sub-cta__title">ナレッジ管理の相談をする</h3>
+    <p class="sub-cta__text">社内の知識をAIが活用できる状態に。まずはお気軽にご相談ください。</p>
+    <a href="contact.html" class="sub-cta__btn">ナレッジ管理について相談する</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <a href="index.html" class="footer__logo"><img src="assets/img/plai-logo.png" alt="PLai"></a>
+      <div class="footer__links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="mvv.html">MVV</a>
+        <a href="business-agent.html">AI Agent</a>
+        <a href="business-knowledge.html">Knowledge</a>
+        <a href="business-x-ops.html">X運用</a>
+        <a href="business-product-studio.html">Product Studio</a>
+        <a href="business-aircle.html">AirCle</a>
+        <a href="business-openclaw.html">OpenClaw</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <p class="footer__copy">&copy; PLai Inc. ALL RIGHTS RESERVED.</p>
+  </div>
+</footer>
+
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/gsap.min.js"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>

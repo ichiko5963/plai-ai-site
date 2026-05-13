@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>AIで経営を変える｜株式会社PLai</title>
+<meta name="description" content="「AIを導入する」だけでなく、知識を体系化し、経営を変革する。Claude CodeとObsidianを軸に、あなたの会社に最適なAI活用を実現する株式会社PLai。">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:url" content="https://plai-ai.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AIで経営を変える｜株式会社PLai">
+<meta property="og:description" content="Claude CodeとObsidianを軸に、あなたの会社に最適なAI活用を実現する株式会社PLai。">
+<meta property="og:site_name" content="株式会社PLai">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/swiper-bundle.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ Opening Overlay (logo center → fly to header) ============ -->
+<div class="opening" id="opening">
+  <img src="assets/img/plai-logo.png" alt="PLai" class="opening__logo" id="openingLogo">
+</div>
+
+<!-- ============ Header (philduct.com完コピ構造) ============ -->
+<header class="p-header" id="header">
+  <div class="p-header__inner">
+    <a class="p-header__logo" href="index.html">
+      <img src="assets/img/plai-logo.png" alt="PLai" id="headerLogo">
+    </a>
+    <div class="p-header__right">
+      <div class="p-header__clock js-clock"></div>
+      <a class="p-header__menu js-menu-open" href="#">
+        <span>MENU</span>
+        <span>CLOSE</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ Fullscreen Menu (philduct.com完コピ) ============ -->
+<div class="p-menu js-menu">
+  <div class="p-menu__inner">
+    <nav class="p-menu__nav">
+      <ul>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="mvv.html">MVV</a></li>
+        <li><a href="#message">MESSAGE</a></li>
+        <li><a href="#company">COMPANY</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+      <div class="p-menu__services">
+        <span class="p-menu__services-label">Services</span>
+        <ul>
+          <li><a href="business-agent.html">AI社員</a></li>
+          <li><a href="business-knowledge.html">ナレッジ管理</a></li>
+          <li><a href="business-x-ops.html">SNS自動化</a></li>
+          <li><a href="business-product-studio.html">マーケティング</a></li>
+          <li><a href="business-aircle.html">AirCle</a></li>
+          <li><a href="business-openclaw.html">OpenClaw</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="p-menu__contact">
+      <div class="p-menu__contact__header">CONTACT</div>
+      <a href="mailto:jiuhuot10@gmail.com" class="p-menu__contact__link">
+        <span>jiuhuot10@gmail.com</span>
+        <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="6.55" width="14" height="2.18" fill="currentColor"/>
+          <rect x="9.29" width="10.92" height="2.18" transform="rotate(45 9.29 0)" fill="currentColor"/>
+          <rect x="7.74" y="13.9" width="10.92" height="2.18" transform="rotate(-45 7.74 13.9)" fill="currentColor"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div class="p-menu__copyright">&copy; PLai Inc.</div>
+</div>
+
+<!-- ============ Side Nav Dots (philduct.com完コピ) ============ -->
+<div class="l-nav">
+  <ul class="p-nav">
+    <li class="p-nav__item js-nav-item is-current"><a href="#top"></a></li>
+    <li class="p-nav__item js-nav-item"><a href="#about"></a></li>
+    <li class="p-nav__item js-nav-item"><a href="#services"></a></li>
+    <li class="p-nav__item js-nav-item"><a href="#message"></a></li>
+    <li class="p-nav__item js-nav-item"><a href="#company"></a></li>
+    <li class="p-nav__item js-nav-item"><a href="#faq"></a></li>
+  </ul>
+</div>
+
+<!-- ============ KV — Hero ============ -->
+<section class="l-kv js-area" id="top">
+  <div class="p-kv">
+    <div class="p-kv__text">
+      <p class="p-kv__eyebrow">AI EMPLOYEE, HUMAN PARTNER</p>
+      <h1 class="p-kv__copy">
+        <em>AI社員</em>と共に、<br>ビジネスをつくる。
+      </h1>
+      <p class="p-kv__desc">PLaiは、AI社員と人間が協働する新しい時代のパートナー。<br class="pc">企業の成長を、共にデザインします。</p>
+      <div class="p-kv__actions">
+        <a href="mailto:jiuhuot10@gmail.com?subject=無料相談のお申し込み" class="p-kv__btn p-kv__btn--primary">無料相談を申し込む</a>
+        <a href="#" class="p-kv__btn p-kv__btn--outline">資料をダウンロード<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v9m0 0l-3-3m3 3l3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+    <div class="p-kv__visual">
+      <canvas id="hero3d"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Main Content Container (above fixed BG) ============ -->
+<div class="l-container">
+
+<!-- ============ About / Statement ============ -->
+<section class="about js-area" id="about">
+  <div class="about__inner">
+    <div class="about__head" data-reveal>
+      <p class="section-label">About</p>
+      <div class="section-line"><span class="section-diamond"></span></div>
+      <h2 class="section-title-lg">PLaiについて</h2>
+    </div>
+    <div class="about__statement" data-reveal>
+      <p class="about__lead">多くの企業で、知識は<br>属人化し、<em>失われている。</em></p>
+      <p class="about__body">日々の会議、顧客対応、マーケティング施策、SNS運用、営業活動の中で膨大な情報が生まれています。しかし、それらの知識は属人化し、時間とともに失われ、次の意思決定に活かされていません。PLaiは、この「知識の使い捨て」を終わらせ、企業の知的資産を蓄積・活用できる仕組みをつくります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Stats — Achievement Counter ============ -->
+<section class="stats">
+  <div class="stats__inner" data-reveal>
+    <div class="stats__item">
+      <div class="stats__value-row">
+        <span class="stats__num" data-count="6">0</span>
+        <span class="stats__unit">ヶ月</span>
+      </div>
+      <span class="stats__label">自社事業を上場企業にM&amp;A</span>
+    </div>
+    <div class="stats__item">
+      <div class="stats__value-row">
+        <span class="stats__prefix">年商</span>
+        <span class="stats__num" data-count="100000000">0</span>
+        <span class="stats__unit">円</span>
+      </div>
+      <span class="stats__label">創業初年度で突破</span>
+    </div>
+    <div class="stats__item">
+      <div class="stats__value-row">
+        <span class="stats__num" data-count="46000">0</span>
+        <span class="stats__unit">+</span>
+      </div>
+      <span class="stats__label">Total Followers（8アカウント）</span>
+    </div>
+    <div class="stats__item">
+      <div class="stats__value-row">
+        <span class="stats__num" data-count="95">0</span>
+        <span class="stats__unit">%</span>
+      </div>
+      <span class="stats__label">AI活用率（HP・動画・SNS）</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Toolkit ============ -->
+<section class="toolkit">
+  <div class="toolkit__inner" data-reveal>
+    <p class="toolkit__label">Powered by</p>
+    <div class="toolkit__logos">
+      <div class="toolkit__logo-item"><img src="assets/ai_tool_logos/claude_code/logo.png" alt="Claude Code"><span>Claude Code</span></div>
+      <div class="toolkit__logo-item"><img src="assets/ai_tool_logos/obsidian/logo.png" alt="Obsidian"><span>Obsidian</span></div>
+      <div class="toolkit__logo-item"><img src="assets/ai_tool_logos/openclaw/logo.png" alt="OpenClaw"><span>OpenClaw</span></div>
+      <div class="toolkit__logo-item"><img src="assets/ai_tool_logos/codex/logo.png" alt="Codex"><span>Codex</span></div>
+      <div class="toolkit__logo-item"><img src="assets/ai_tool_logos/hermes_agent/logo.png" alt="Hermes"><span>Hermes</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Knowledge Flow — Obsidian Diagram ============ -->
+<section class="kflow">
+  <div class="kflow__inner" data-reveal>
+    <div class="kflow__top">
+      <div class="kflow__head">
+        <p class="section-label">Knowledge Architecture</p>
+        <div class="section-line"><span class="section-diamond"></span></div>
+        <h2 class="section-title-lg">情報を集約し、成果に変える</h2>
+      </div>
+      <div class="kflow__illust">
+        <img src="assets/img/illust_knowledge_flow.png" alt="ナレッジ管理イメージ">
+      </div>
+    </div>
+    <div class="kflow__diagram">
+      <div class="kflow__col">
+        <p class="kflow__col-label">INPUT</p>
+        <div class="kflow__node">会議メモ・議事録</div>
+        <div class="kflow__node">顧客対応ログ</div>
+        <div class="kflow__node">SNS分析データ</div>
+        <div class="kflow__node">営業ナレッジ</div>
+      </div>
+      <div class="kflow__arrows"><span></span><span></span><span></span><span></span></div>
+      <div class="kflow__hub">
+        <img src="assets/ai_tool_logos/obsidian/logo.png" alt="Obsidian" class="kflow__hub-logo">
+        <strong>Obsidian</strong>
+        <small>知識基盤</small>
+      </div>
+      <div class="kflow__arrows"><span></span><span></span><span></span><span></span></div>
+      <div class="kflow__col">
+        <p class="kflow__col-label">OUTPUT</p>
+        <div class="kflow__node kflow__node--out">HP・LP自動生成</div>
+        <div class="kflow__node kflow__node--out">SNS投稿生成</div>
+        <div class="kflow__node kflow__node--out">動画・スライド制作</div>
+        <div class="kflow__node kflow__node--out">AI社員の判断支援</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Services Grid ============ -->
+<section class="services js-area" id="services">
+  <div class="services__inner">
+    <div class="services__head" data-reveal>
+      <div>
+        <p class="section-label">Services</p>
+        <div class="section-line"><span class="section-diamond"></span></div>
+        <h2 class="section-title-lg">事業内容</h2>
+      </div>
+    </div>
+    <div class="services__grid">
+      <a href="business-agent.html" class="service-card" data-reveal>
+        <div class="service-card__img"><img src="assets/img/service_01_agent.png" alt="AI Agent"></div>
+        <div class="service-card__body">
+          <p class="service-card__num">01</p>
+          <h3 class="service-card__title">AI社員構築代行事業</h3>
+          <p class="service-card__text">HP・動画・SNS・スライド、全てAIで制作</p>
+          <span class="service-card__more">詳細を見る</span>
+        </div>
+      </a>
+      <a href="business-knowledge.html" class="service-card" data-reveal>
+        <div class="service-card__img"><img src="assets/img/service_02_knowledge.png" alt="ナレッジ管理"></div>
+        <div class="service-card__body">
+          <p class="service-card__num">02</p>
+          <h3 class="service-card__title">組織ナレッジ構築代行事業</h3>
+          <p class="service-card__text">Obsidianとナレッジグラフで知識を体系化</p>
+          <span class="service-card__more">詳細を見る</span>
+        </div>
+      </a>
+      <a href="business-x-ops.html" class="service-card" data-reveal>
+        <div class="service-card__img"><img src="assets/img/service_03_sns.png" alt="SNS自動化"></div>
+        <div class="service-card__body">
+          <p class="service-card__num">03</p>
+          <h3 class="service-card__title">SNS自動化支援</h3>
+          <p class="service-card__text">8アカウント46,000+フォロワーの運用ノウハウ</p>
+          <span class="service-card__more">詳細を見る</span>
+        </div>
+      </a>
+      <a href="business-product-studio.html" class="service-card" data-reveal>
+        <div class="service-card__img"><img src="assets/img/service_04_marketing.png" alt="AIマーケティング"></div>
+        <div class="service-card__body">
+          <p class="service-card__num">04</p>
+          <h3 class="service-card__title">AIマーケティング支援</h3>
+          <p class="service-card__text">認知拡大からサービス理解まで一気通貫で支援</p>
+          <span class="service-card__more">詳細を見る</span>
+        </div>
+      </a>
+      <a href="business-aircle.html" class="service-card" data-reveal>
+        <div class="service-card__img"><img src="assets/img/service_05_event.png" alt="AIイベント"></div>
+        <div class="service-card__body">
+          <p class="service-card__num">05</p>
+          <h3 class="service-card__title">AIイベント事業</h3>
+          <p class="service-card__text">AI活用事例を学び、事業に実装する場</p>
+          <span class="service-card__more">詳細を見る</span>
+        </div>
+      </a>
+      <a href="business-openclaw.html" class="service-card" data-reveal>
+        <div class="service-card__img"><img src="assets/img/service_06_education.png" alt="教育事業"></div>
+        <div class="service-card__body">
+          <p class="service-card__num">06</p>
+          <h3 class="service-card__title">toC向け教育事業</h3>
+          <p class="service-card__text">実践型カリキュラムでAI活用を身につける</p>
+          <span class="service-card__more">詳細を見る</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Service Details ============ -->
+<section class="detail" id="detail-all">
+  <div class="detail__inner">
+    <div class="detail__block" id="detail-01" data-reveal>
+      <div class="detail__content">
+        <p class="detail__num">01</p>
+        <h3 class="detail__title">AI社員構築<br>代行事業</h3>
+        <p class="detail__text">Claude Code、GPT、Geminiなど複数のAIモデルを組み合わせたエージェントシステムを構築。HP制作、動画編集、SNS運用、スライド作成まで、人間が寝ている間も「AI社員」が働き続けます。当社のHP・動画・SNS投稿は100% AIで制作しています。</p>
+        <a href="business-agent.html" class="detail__more">詳細を見る<span class="detail__more-arrow"></span></a>
+      </div>
+      <div class="detail__visual">
+        <img src="assets/img/service_01_agent.png" alt="AIエージェント">
+      </div>
+    </div>
+    <div class="detail__block" id="detail-02" data-reveal>
+      <div class="detail__content">
+        <p class="detail__num">02</p>
+        <h3 class="detail__title">組織ナレッジ<br>構築代行事業</h3>
+        <p class="detail__text">社内情報をAI活用できる状態にする。Obsidianとナレッジグラフで、日々の業務から生まれる知識を体系化し、AIが参照できる知識基盤と、継続的に改善されるコンテキスト設計を構築します。</p>
+        <a href="business-knowledge.html" class="detail__more">詳細を見る<span class="detail__more-arrow"></span></a>
+      </div>
+      <div class="detail__visual">
+        <img src="assets/img/service_02_knowledge.png" alt="ナレッジマネジメント">
+      </div>
+    </div>
+    <div class="detail__block" id="detail-03" data-reveal>
+      <div class="detail__content">
+        <p class="detail__num">03</p>
+        <h3 class="detail__title">SNS自動化支援</h3>
+        <p class="detail__text">AIを活用した、再現性あるSNS運用の仕組みを構築。コンテンツ生成からスケジュール投稿、エンゲージメント分析まで。8アカウント・46,000+フォロワーの運用ノウハウを活かし、あなたのビジネスのSNSを自動化します。</p>
+        <a href="business-x-ops.html" class="detail__more">詳細を見る<span class="detail__more-arrow"></span></a>
+      </div>
+      <div class="detail__visual">
+        <img src="assets/img/service_03_sns.png" alt="8アカウント運用実績">
+      </div>
+    </div>
+    <div class="detail__block" id="detail-04" data-reveal>
+      <div class="detail__content">
+        <p class="detail__num">04</p>
+        <h3 class="detail__title">AIマーケティング支援</h3>
+        <p class="detail__text">AIサービスのX運用支援、ローンチ動画の企画・制作、広告クリエイティブ制作、日本市場向けの発信設計。SNS上での認知拡大からサービス理解促進まで、イベント連動型マーケティングで一気通貫に支援します。</p>
+        <a href="business-product-studio.html" class="detail__more">詳細を見る<span class="detail__more-arrow"></span></a>
+      </div>
+      <div class="detail__visual">
+        <img src="assets/img/service_04_marketing.png" alt="AIマーケティング">
+      </div>
+    </div>
+    <div class="detail__block" id="detail-05" data-reveal>
+      <div class="detail__content">
+        <p class="detail__num">05</p>
+        <h3 class="detail__title">AIイベント事業</h3>
+        <p class="detail__text">AIに関心を持つユーザー・企業・実践者をつなぐイベントを企画・運営。単なる情報提供にとどまらず、AIの活用事例を学び、事業やキャリアに実装するための場を提供します。</p>
+        <a href="business-aircle.html" class="detail__more">詳細を見る<span class="detail__more-arrow"></span></a>
+      </div>
+      <div class="detail__visual">
+        <img src="assets/img/service_05_event.png" alt="RE:TOKYO AIイベント">
+      </div>
+    </div>
+    <div class="detail__block" id="detail-06" data-reveal>
+      <div class="detail__content">
+        <p class="detail__num">06</p>
+        <h3 class="detail__title">toC向け<br>教育事業</h3>
+        <p class="detail__text">Claude Code × Obsidianを短期間で身につける実践型カリキュラム。AIを本当の意味で事業に活用するには、プロンプトだけでは不十分です。重要なのは、AIが参照できる知識基盤と、継続的に改善されるコンテキスト設計です。</p>
+        <a href="business-openclaw.html" class="detail__more">詳細を見る<span class="detail__more-arrow"></span></a>
+      </div>
+      <div class="detail__visual">
+        <img src="assets/img/service_06_education.png" alt="AI人材育成">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Method ============ -->
+<section class="method">
+  <div class="method__swirl" aria-hidden="true">
+    <div class="method__swirl-ring method__swirl-ring--1"></div>
+    <div class="method__swirl-ring method__swirl-ring--2"></div>
+    <div class="method__swirl-ring method__swirl-ring--3"></div>
+  </div>
+  <div class="method__inner" data-reveal>
+    <div class="method__left">
+      <span class="method__tag">PLaiの方法論</span>
+      <h2 class="method__heading">プロンプトは一時的。<br>構造は永続的。</h2>
+    </div>
+    <div class="method__right">
+      <p class="method__body">AIは優秀でも、使い方が属人化すれば意味がない。<br>PLaiは、文脈（コンテキスト）を設計し、<br>再現性のある知識構造をつくることで、<br>AIの力を組織の力に変えます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Top Message — pronets.co.jp/recruit/message/ 完コピ構造 ============ -->
+<section class="message js-area" id="message">
+  <div class="message__mainVisual">
+    <div class="message__mainVisualInner">
+      <header class="message__pageHeader">
+        <h2 class="message__pageTtl">代表メッセージ</h2>
+        <div class="message__enTtl"><span class="message__diamond"></span><span>Top Message</span></div>
+      </header>
+      <div class="message__img">
+        <img src="assets/img/ceo-message.png" alt="代表取締役 市岡直人">
+      </div>
+    </div>
+  </div>
+  <div class="message__pageBody">
+    <div class="message__txt">
+      <p>はじめまして。<br class="pc">株式会社PLai代表の市岡直人です。</p>
+      <p>私たちの会社は2026年に創業し、「AIを経営のOSにする」というビジョンのもと、<br class="pc">Claude CodeとObsidianを軸に、企業の知的資産を蓄積・活用できる仕組みをつくっています。</p>
+      <p>日々の会議、顧客対応、マーケティング施策、SNS運用、営業活動――。<br class="pc">企業活動の中で膨大な情報が生まれています。<br class="pc">しかし、それらの知識は属人化し、時間とともに失われ、次の意思決定に活かされていません。</p>
+      <p>PLaiは、この「知識の使い捨て」を終わらせます。<br class="pc">AIが文脈を理解した上で業務を支援する――そんな「AI経営OS」を、すべての企業に届けたい。<br class="pc">それが私たちの想いです。</p>
+      <p>AIを導入するだけでは、何も変わりません。<br class="pc">重要なのは、AIが参照できる知識基盤と、継続的に改善されるコンテキスト設計。<br class="pc">私たちは、その設計と実装を、あなたの会社と一緒に行います。</p>
+      <p>もうAIは、あらゆる業務を自動化できる時代に入りました。<br class="pc">AGIの時代に生き残るのは、ローカルに知識を構造化し、自社のコンテキストを持つ企業です。</p>
+      <p>「なんとなくAIを導入しただけ」では、何も変わりません。<br class="pc">ビジネス開始半年で自社事業を上場企業にM&amp;A。<br class="pc">開始1年、ほぼ一人で年商1億円――この数字がすべてを物語っています。</p>
+      <p>株式会社PLai自身が、このコンサルの価値を体現し、成長し続けます。<br class="pc">このコンサルを受けたあと、あなたのビジネスが変わることをお約束します。</p>
+    </div>
+    <div class="message__nameWrap">
+      <div class="message__nameInner">
+        <p class="message__companyName">株式会社PLai</p>
+        <div class="message__presidentName">
+          <p class="message__post">代表取締役</p>
+          <h3 class="message__name">市岡 直人</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq js-area" id="faq">
+  <div class="faq__inner">
+    <div class="faq__head" data-reveal>
+      <p class="section-label">FAQ</p>
+      <div class="section-line"><span class="section-diamond"></span></div>
+      <h2 class="section-title-lg">よくあるご質問</h2>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item" data-reveal>
+        <p class="faq__q">AIの知識がなくても導入できますか？</p>
+        <div class="faq__a" style="display:none;">PLaiでは初期診断から丁寧にヒアリングを行い、お客様の業務内容やITリテラシーに合わせた導入プランをご提案します。セミナーや勉強会も併せて実施するため、社員の方のスキルアップもサポートします。</div>
+      </div>
+      <div class="faq__item" data-reveal>
+        <p class="faq__q">導入にはどのくらいの期間がかかりますか？</p>
+        <div class="faq__a" style="display:none;">基本的なナレッジ管理システムの構築であれば1〜2ヶ月、SNS自動運用の立ち上げは2〜3週間、フル導入で3〜6ヶ月が目安です。まずは小さく始めて、効果を見ながら段階的に拡大していくアプローチを推奨しています。</div>
+      </div>
+      <div class="faq__item" data-reveal>
+        <p class="faq__q">費用はどのくらいかかりますか？</p>
+        <div class="faq__a" style="display:none;">初期診断は無料で実施しています。導入費用は内容によって異なりますので、まずはお気軽にご相談ください。月額のランニングコストも、AIツールの利用料を含めたパッケージプランをご用意しています。</div>
+      </div>
+      <div class="faq__item" data-reveal>
+        <p class="faq__q">データのセキュリティは大丈夫ですか？</p>
+        <div class="faq__a" style="display:none;">セキュリティは最優先事項です。Obsidianはローカルファイルベースのため、データが外部サーバーに送られることはありません。AIツールの利用においても、機密情報の取り扱い方針を策定し、安全な運用体制を構築します。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Testimonials ============ -->
+<section class="voice" id="voice">
+  <div class="voice__inner">
+    <div class="voice__head" data-reveal>
+      <p class="section-label">Voice</p>
+      <div class="section-line"><span class="section-diamond"></span></div>
+      <h2 class="section-title-lg">お客様の声</h2>
+    </div>
+    <div class="voice__grid">
+      <div class="voice__card" data-reveal>
+        <p class="voice__text">「SNS運用が属人化していたのが、PLaiの仕組みで完全に自動化できた。月100投稿を2人で回せるようになった。」</p>
+        <div class="voice__meta">
+          <p class="voice__company">IT企業 マーケティング責任者</p>
+        </div>
+      </div>
+      <div class="voice__card" data-reveal>
+        <p class="voice__text">「社内ナレッジがObsidianに集約されたことで、新人の立ち上がりが格段に早くなった。AIが文脈を理解して回答してくれる。」</p>
+        <div class="voice__meta">
+          <p class="voice__company">SaaS企業 代表取締役</p>
+        </div>
+      </div>
+      <div class="voice__card" data-reveal>
+        <p class="voice__text">「HP・動画・SNSすべてAIで制作しているとは思えないクオリティ。制作コストが従来の1/5になった。」</p>
+        <div class="voice__meta">
+          <p class="voice__company">D2Cブランド CMO</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Company ============ -->
+<section class="company js-area" id="company">
+  <div class="company__inner">
+    <div class="company__head" data-reveal>
+      <p class="section-label">Company</p>
+      <div class="section-line"><span class="section-diamond"></span></div>
+      <h2 class="section-title-lg">会社概要</h2>
+    </div>
+    <table data-reveal>
+      <tr><td>会社名</td><td>株式会社PLai</td></tr>
+      <tr><td>設立</td><td>2026年2月19日</td></tr>
+      <tr><td>代表取締役</td><td>市岡直人</td></tr>
+      <tr><td>法人番号</td><td>6011101114789</td></tr>
+      <tr><td>所在地</td><td>〒160-0023 東京都新宿区西新宿3丁目3番13号 西新宿水間ビル2F</td></tr>
+      <tr><td>事業内容</td><td>AI経営コンサルティング / ナレッジマネジメント構築 / AIマーケティング支援 / SNS自動化 / AI人材育成 / イベント企画運営</td></tr>
+      <tr><td>連絡先</td><td>jiuhuot10@gmail.com / 080-3896-7229</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="cta__inner" data-reveal>
+    <p class="cta__eyebrow">AI時代の事業OSを、ここから作る。</p>
+    <h2 class="cta__title">まずは、お気軽にご相談ください。</h2>
+    <div class="cta__actions">
+      <a href="mailto:jiuhuot10@gmail.com?subject=無料相談のお申し込み" class="btn btn--primary">無料相談を申し込む</a>
+      <a href="contact.html" class="btn btn--outline">お問い合わせ</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <a href="index.html" class="footer__logo"><img src="assets/img/plai-logo.png" alt="PLai"></a>
+      <div class="footer__links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="mvv.html">MVV</a>
+        <a href="business-openclaw.html">OpenClaw</a>
+        <a href="business-aircle.html">AirCle</a>
+        <a href="business-x-ops.html">X運用</a>
+        <a href="business-product-studio.html">Product Studio</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://x.com/plai_corp" target="_blank" rel="noopener">X (Twitter)</a>
+      </div>
+    </div>
+    <p class="footer__copy">&copy; PLai Inc. ALL RIGHTS RESERVED.</p>
+  </div>
+</footer>
+
+</div><!-- /.l-container -->
+
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/gsap.min.js"></script>
+<script src="js/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/hero-3d.js"></script>
+</body>
+</html>
