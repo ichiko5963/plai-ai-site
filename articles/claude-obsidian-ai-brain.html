@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Claude Code × Obsidianで「AIセカンド脳」を作る──思考・タスク・人生をAIが理解する仕組み｜PLai記事</title>
+<meta name="description" content="自分のメモ・タスク・学習記録をObsidianのVaultに集約し、Claude Codeから読ませることで「AIが自分を自分より理解する」状態を作る方法。CLAUDE.mdの書き方、運用上の注意点、応用事例まで網羅。">
+<meta name="keywords" content="Claude Code,Obsidian,AIセカンド脳,Vault,CLAUDE.md,セカンドブレイン,ナレッジ管理">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://plai-ai.com/articles/claude-obsidian-ai-brain.html">
+<meta property="og:url" content="https://plai-ai.com/articles/claude-obsidian-ai-brain.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude Code × Obsidianで「AIセカンド脳」を作る──思考・タスク・人生をAIが理解する仕組み">
+<meta property="og:description" content="ObsidianのVaultとClaude Codeを組み合わせ「AIが自分を自分より理解する」状態を作る方法を解説。">
+<meta property="og:site_name" content="株式会社PLai">
+<meta property="og:image" content="https://plai-ai.com/assets/img/knowledge_graph_viz.png">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2026-04-10T00:00:00+09:00">
+<meta property="article:section" content="Obsidian">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude Code × Obsidianで「AIセカンド脳」を作る">
+<meta name="twitter:description" content="自分の思考・タスク・人生をAIが理解して動いてくれる仕組みの全容。">
+<meta name="twitter:image" content="https://plai-ai.com/assets/img/knowledge_graph_viz.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../css/style.css?v=20260514a">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude Code × Obsidianで「AIセカンド脳」を作る──思考・タスク・人生をAIが理解する仕組み",
+  "description": "自分のメモ・タスク・学習記録をObsidianのVaultに集約し、Claude Codeから読ませることでAIが自分を理解する状態を作る方法。",
+  "image": "https://plai-ai.com/assets/img/knowledge_graph_viz.png",
+  "author": { "@type": "Organization", "name": "株式会社PLai", "url": "https://plai-ai.com/" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "株式会社PLai",
+    "logo": { "@type": "ImageObject", "url": "https://plai-ai.com/assets/img/plai-logo.png" }
+  },
+  "datePublished": "2026-04-10",
+  "dateModified": "2026-04-10",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://plai-ai.com/articles/claude-obsidian-ai-brain.html" }
+}
+</script>
+</head>
+<body>
+
+<!-- Opening -->
+<div class="opening" id="opening">
+  <img src="../assets/img/plai-logo.png" alt="PLai" class="opening__logo" id="openingLogo">
+</div>
+
+<!-- Header -->
+<header class="p-header" id="header">
+  <div class="p-header__inner">
+    <a class="p-header__logo" href="../index.html"><img src="../assets/img/plai-logo.png" alt="PLai" id="headerLogo"></a>
+    <div class="p-header__right">
+      <div class="p-header__clock js-clock"></div>
+      <a class="p-header__menu js-menu-open" href="#"><span>MENU</span><span>CLOSE</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- Menu -->
+<div class="p-menu js-menu">
+  <div class="p-menu__inner">
+    <nav class="p-menu__nav">
+      <ul>
+        <li><a href="../index.html#about">ABOUT</a></li>
+        <li class="p-menu__services-toggle">
+          <a href="#" class="js-services-toggle">SERVICES</a>
+          <div class="p-menu__services">
+            <ul>
+              <li><a href="../business-agent.html">AI社員構築代行事業</a></li>
+              <li><a href="../business-knowledge.html">組織ナレッジ構築代行事業</a></li>
+              <li><a href="../business-x-ops.html">SNS自動化支援</a></li>
+              <li><a href="../business-product-studio.html">AIマーケティング支援</a></li>
+              <li><a href="../business-aircle.html">AIイベント事業</a></li>
+              <li><a href="../business-openclaw.html">toC向け教育事業</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="../articles.html">ARTICLES</a></li>
+        <li><a href="../mvv.html">MVV</a></li>
+        <li><a href="../index.html#message">MESSAGE</a></li>
+        <li><a href="../index.html#company">COMPANY</a></li>
+      </ul>
+    </nav>
+    <div class="p-menu__contact">
+      <div class="p-menu__contact__header">CONTACT</div>
+      <a href="../contact.html#contact-form" class="p-menu__contact__link">
+        <span>お問い合わせフォーム</span>
+        <svg width="18" height="16" viewBox="0 0 18 16" fill="none">
+          <rect x="0" y="6.55" width="14" height="2.18" fill="currentColor"/>
+          <rect x="9.29" width="10.92" height="2.18" transform="rotate(45 9.29 0)" fill="currentColor"/>
+          <rect x="7.74" y="13.9" width="10.92" height="2.18" transform="rotate(-45 7.74 13.9)" fill="currentColor"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div class="p-menu__copyright">&copy; PLai Inc.</div>
+</div>
+
+<!-- ============ ARTICLE HERO ============ -->
+<section class="article-hero">
+  <span class="article-hero__tag">OBSIDIAN</span>
+  <h1 class="article-hero__title">Claude Code × Obsidianで「AIセカンド脳」を作る──思考・タスク・人生をAIが理解する仕組み</h1>
+  <div class="article-hero__meta">
+    <span>2026.04.10</span>
+    <span>11 min read</span>
+  </div>
+</section>
+
+<div class="article-hero__cover">
+  <img src="../assets/img/knowledge_graph_viz.png" alt="ObsidianとClaude CodeのAIセカンド脳">
+</div>
+
+<!-- ============ ARTICLE BODY ============ -->
+<article class="article-body">
+
+<p>「AIが自分のことを、自分より理解してくれたら」</p>
+
+<p>AIを触ったことがある人なら、一度はこう思ったことがあるのではないでしょうか。</p>
+
+<p>いまClaude CodeとObsidian（オブシディアン）を組み合わせて、まさにこの状態を作り出す方法が海外の開発者コミュニティで急速に広まっています。</p>
+
+<p>海外のクリエイター @aiedge_ が書いた記事が890いいねを超えてバズ中。「自分の思考・読んだ記事・書いた文章・事業計画・学習記録をまるごとClaude Codeに渡したら、AIが本当に"自分を理解した"状態で動き始めた」という内容です。</p>
+
+<p>この記事ではその仕組みを、Obsidianを初めて聞く人にもわかるレベルから整理します。</p>
+
+<p class="article-body__source-link">元投稿: <a href="https://x.com/aiedge_/status/2041908011078447222" target="_blank" rel="noopener">https://x.com/aiedge_/status/2041908011078447222</a></p>
+
+<h2>Obsidianとは何か</h2>
+
+<p>まずObsidianについて簡単に説明します。</p>
+
+<p>Obsidianは無料で使えるメモ・ノートアプリです。世界で150万人以上が使っています。</p>
+
+<p>特徴的なのは、メモを「つなげる」ことに特化していること。普通のメモアプリは1枚1枚のメモがバラバラに並んでいますが、Obsidianではメモ同士をリンクでつなげて、知識のネットワークを作れます。</p>
+
+<p>たとえば「プロジェクトA」のメモの中に「技術X」のメモへのリンクを入れると、両方のメモが相互に参照し合う関係になる。メモが増えれば増えるほど、つながりのネットワークが複雑になっていき、自分の知識の地図が出来上がっていきます。</p>
+
+<p>もう1つの大きな特徴は「<strong>ローカル保存</strong>」であること。データはすべて自分のPC内のフォルダに、普通のテキストファイル（Markdown形式）として保存されます。クラウドに勝手に送信されたり、サービス終了でデータが消えたりしない。</p>
+
+<p>この「テキストファイルが入ったフォルダ」のことをObsidianでは「<strong>Vault（ボルト）</strong>」と呼びます。</p>
+
+<h2>なぜObsidianとClaude Codeの組み合わせが注目されるのか</h2>
+
+<p>ここが核心です。</p>
+
+<p>Obsidianのデータは「自分のPCにあるMarkdownファイルの集まり」。Claude Codeは「ローカルファイルを読み書きできるAIツール」。</p>
+
+<p>つまり、Claude CodeにObsidianのVaultフォルダを指定するだけで、AIが自分の全メモ・全タスク・全記録を読める状態になる。</p>
+
+<p>これがどれだけ強力かというと──</p>
+
+<p>普通のAIチャットでは「最近こういうプロジェクトをやっていて、過去にこんな調査をして、今こういう状況で……」と毎回ゼロから文脈を説明する必要があります。</p>
+
+<p>でもObsidian × Claude Codeなら、AIはVaultを読むだけで、あなたが何のプロジェクトに関わっていて、最近何を調べていて、どんな予定があって、何に関心を持っているか、<strong>全部わかった状態で回答してくれます</strong>。</p>
+
+<p>@aiedge_ はこれを「AIセカンド脳」と呼んでいます。自分の思考を外部に保存して、AIに読ませて、AIが自分の代わりに考えて動いてくれる仕組みです。</p>
+
+<h2>実際に何をVaultに入れるのか</h2>
+
+<p>@aiedge_ が自分のVaultに入れているものをまとめると、</p>
+
+<ul>
+<li>日々のタスクや予定のメモ</li>
+<li>読んだ記事の要約と感想</li>
+<li>進行中プロジェクトの計画書と進捗</li>
+<li>事業計画やアイデアのメモ</li>
+<li>自分が書いた文章やブログ記事の原稿</li>
+<li>YouTubeにアップした動画の台本</li>
+<li>週次・月次の振り返りレポート</li>
+<li>学習ログ（何を学んで、何がわかって、何がまだわからないか）</li>
+</ul>
+
+<p>つまり「自分の頭の中にあるもの」を、可能な限りテキストにしてVaultに入れている、ということです。</p>
+
+<p>全部を一度に入れる必要はありません。日常的にObsidianにメモを取る習慣を続けていれば、自然にVaultの情報量は増えていきます。大事なのは「<strong>とにかく書いて残す</strong>」こと。</p>
+
+<h2>Claude CodeはVaultをどう「理解」するのか</h2>
+
+<p>Claude CodeがVaultを読んだとき、ただファイルの中身を検索するだけではありません。</p>
+
+<p>ファイル同士のリンク構造を読みます。つまり「この人は最近Aというプロジェクトについて何度も書いている」「AプロジェクトとBという技術は関連していると認識している」「Cという人物とDという事業仮説がつながっている」──こうした<strong>関係性</strong>まで読み取れます。</p>
+
+<p>これが単純な「メモを検索する」ことと決定的に違う点です。</p>
+
+<p>人間は大量のノートを時系列で読んだり、横断的に関連性を見つけたりするのが苦手です。10個のメモなら頭に入るけど、300個のメモの関連性を一瞬で把握するのは不可能。</p>
+
+<p>でもAIはそれができる。しかも高速に。</p>
+
+<p>だから「自分でも気づいていなかった思考パターン」や「繰り返し出てくるテーマ」をAIが発見してくれる。これが「AIが自分を自分より理解する」状態です。</p>
+
+<h2>CLAUDE.mdという設定ファイル</h2>
+
+<p>この連携を実用レベルにするために、Vaultの中に「<code>CLAUDE.md</code>」というファイルを置きます。</p>
+
+<p>これはClaude Codeに「あなたは誰で、このVaultにはどんな情報があって、どう使ってほしいか」を伝える設定ファイルです。</p>
+
+<p>たとえばこういう内容を書きます。</p>
+
+<pre><code>私は大学3年生で、個人開発をしています。
+Vaultには日々のタスク、プロジェクトの進捗、
+読んだ記事のメモが入っています。
+質問されたら、Vault内のメモを参照して、
+私の状況に合った具体的な回答をしてください。
+新しい気づきがあったら教えてください。</code></pre>
+
+<p>このファイルがあることで、Claude Codeは毎回「このVaultは何のために存在するのか」を理解した状態で作業できます。</p>
+
+<p>CLAUDE.mdの設計次第で、AIの動き方が大きく変わります。漠然と「いい感じにして」と書くのと、「タスク管理では優先度を考慮して提案して、週次レビューでは先週と比較して進捗をまとめて」と具体的に書くのでは、出力の精度がまるで違います。</p>
+
+<h2>具体的にどんなことができるか</h2>
+
+<p>@aiedge_ が実際にやっていること、そして一般のユーザーがすぐ試せることを整理します。</p>
+
+<p><strong>タスク管理の自動化</strong>。Vaultにタスクリストのメモを入れておくと、Claude Codeが「今日の優先タスクはこれ」「このタスクは来週に回したほうがいい」と先回りで提案してくれます。過去の作業ログも参照するので、「前回このタスクに3時間かかった」というデータに基づいた見積もりも出してくれます。</p>
+
+<p><strong>学習内容の定着</strong>。学んだことをメモに書いて溜めていくと、Claude Codeに「今月学んだことの中で、まだ理解が浅い部分はどこ？」と聞くだけで、ノートの内容を横断して弱点を洗い出してくれます。</p>
+
+<p><strong>アイデアの関連性の発見</strong>。バラバラに書いたメモの中から「実はこのアイデアとあのプロジェクトは組み合わせられるのでは？」という提案をAIがしてくれます。人間が300個のメモを横断的に読むのは非現実的ですが、AIにはそれが一瞬でできます。</p>
+
+<p><strong>文章作成の効率化</strong>。過去に書いた文章やメモをClaude Codeが参照した状態で新しい文章を書くので、文体が一貫し、過去の内容と矛盾しない原稿が出てきます。</p>
+
+<h2>セットアップの流れ</h2>
+
+<p>元記事では「見た目は複雑そうだけど、実際には15分で終わる」と書かれています。大まかな手順は、</p>
+
+<ol>
+<li>Obsidianをインストールして、Vaultを作る（まだ使っていない人向け）</li>
+<li>Claude Codeをインストールする</li>
+<li>Claude CodeにVaultのフォルダパスを教える</li>
+<li>CLAUDE.mdを作成して、自分の情報とAIへの指示を書く</li>
+<li>メモを取り始める</li>
+</ol>
+
+<p>以降は日常的にObsidianにメモを溜めていくだけで、AIセカンド脳は自然に育っていきます。</p>
+
+<p>Obsidianをすでに使っている人なら、2〜5だけで済むのでさらに早いです。</p>
+
+<h2>注意しておくべきこと</h2>
+
+<p>Obsidianのデータはローカル保存なので、Claude Codeに読ませてもデータはPC内で完結します。クラウドに送信されることを心配する必要はありません。</p>
+
+<p>ただし、Claude Code自体はAnthropicのAPIを経由するので、Vaultの内容がプロンプトとしてAPIに送信されます。<strong>機密性の高い情報（パスワード、契約書、個人情報など）はVaultに入れないか</strong>、CLAUDE.mdで「このフォルダは読まないで」と指示しておくのが安全です。</p>
+
+<p>またVaultの情報量が膨大になると、Claude Codeのコンテキスト上限に引っかかる場合があります。全ファイルを一度に読ませるのではなく、必要なフォルダやタグを指定して絞り込む使い方が実用的です。</p>
+
+<h2>この仕組みが持つ可能性</h2>
+
+<p>@aiedge_ は「これが自分の人生で最も大きな精神的負荷を取り除いてくれた」と書いています。</p>
+
+<p>やるべきことをAIが把握してくれている。学んだことをAIが覚えていてくれている。考えたことをAIが整理してくれている。</p>
+
+<p>この状態が続くと、人間は「覚える」「整理する」「思い出す」から解放されて、「<strong>考える</strong>」「<strong>決める</strong>」「<strong>作る</strong>」に集中できるようになります。</p>
+
+<p>しかもこの仕組みは、Obsidian（無料）とClaude Code（月額$20のProプラン）だけで構築できます。</p>
+
+<p>Obsidianは世界で150万人以上のユーザーがいて、Claude Codeとの連携ガイドも英語圏で続々と出てきています。日本でも今後急速に広まっていく可能性が高いです。</p>
+
+<p>「AIが自分を理解してくれる」──数年前はSFの話でした。でもいまは、フォルダとテキストファイルとClaude Codeがあれば、今日から始められます。</p>
+
+<h2>まとめ</h2>
+
+<ul>
+<li>Obsidian（無料のメモアプリ）とClaude Codeを組み合わせると「AIセカンド脳」が作れる</li>
+<li>ObsidianのVaultに自分のメモ・タスク・学習記録を溜める → Claude Codeが全部読んで理解する</li>
+<li>AIは単なる検索ではなく、ノート同士のつながりや思考パターンまで読み取る</li>
+<li>CLAUDE.mdという設定ファイルで、AIの動き方をカスタマイズできる</li>
+<li>タスク管理、学習支援、アイデア発見、文章作成など、応用範囲は広い</li>
+<li>セットアップは15分。Obsidianユーザーならさらに短い</li>
+<li>データはローカル完結。ただしAPI経由でのプロンプト送信には注意</li>
+</ul>
+
+<hr>
+
+<p><strong>出典</strong></p>
+<ul>
+<li>元投稿: <a href="https://x.com/aiedge_/status/2041908011078447222" target="_blank" rel="noopener">@aiedge_ / X (890いいね)</a></li>
+<li>参照: Obsidian公式（150万ユーザー以上）、Claude Code MCP Tools</li>
+</ul>
+
+</article>
+
+<!-- ============ CTA ============ -->
+<section class="article-cta">
+  <p class="article-cta__label">PLAI'S SERVICE</p>
+  <h3 class="article-cta__title">組織ナレッジ構築代行──Obsidian × Claude Code で第2の脳を作る</h3>
+  <p class="article-cta__text">この記事の仕組みを、企業の組織ナレッジに応用したい方へ。PLaiでは Obsidian + Claude Code を軸にした組織ナレッジ構築代行を行っています。属人化を防ぎ、意思決定の質を上げる仕組みづくりを伴走します。</p>
+  <a href="../business-knowledge.html" class="article-cta__btn">サービス詳細を見る</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <a href="../index.html" class="footer__logo"><img src="../assets/img/plai-logo.png" alt="PLai"></a>
+      <div class="footer__links">
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#services">Services</a>
+        <a href="../articles.html">Articles</a>
+        <a href="../mvv.html">MVV</a>
+        <a href="../business-agent.html">AI Agent</a>
+        <a href="../business-knowledge.html">Knowledge</a>
+        <a href="../business-x-ops.html">X運用</a>
+        <a href="../business-product-studio.html">Product Studio</a>
+        <a href="../business-aircle.html">AirCle</a>
+        <a href="../business-openclaw.html">OpenClaw</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+    </div>
+    <p class="footer__copy">&copy; PLai Inc. ALL RIGHTS RESERVED.</p>
+  </div>
+</footer>
+
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script src="../js/gsap.min.js"></script>
+<script src="../js/custom.js?v=20260514a"></script>
+</body>
+</html>

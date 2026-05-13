@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Karpathyが実践する「AI外部脳」を、Claude Codeでゼロから作る完全ガイド｜PLai記事</title>
+<meta name="description" content="元OpenAI・元Tesla AIトップのAndrej Karpathyが公開した「LLMナレッジベース」運用法を、Claude Codeで誰でも再現できる3段階ガイドにまとめました。素材を集めるだけでAIが構造化Wikiを自動生成、使うほど賢くなる仕組みの全容。">
+<meta name="keywords" content="Claude Code,Karpathy,AI外部脳,LLMナレッジベース,Obsidian,セカンドブレイン,RAG,ナレッジ管理">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://plai-ai.com/articles/karpathy-external-brain-claude-code.html">
+<meta property="og:url" content="https://plai-ai.com/articles/karpathy-external-brain-claude-code.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Karpathyが実践する「AI外部脳」を、Claude Codeでゼロから作る完全ガイド">
+<meta property="og:description" content="元OpenAI・元Tesla AIトップのAndrej Karpathyが公開した「LLMナレッジベース」を、Claude Codeで誰でも再現できる3段階ガイド。">
+<meta property="og:site_name" content="株式会社PLai">
+<meta property="og:image" content="https://plai-ai.com/assets/img/illust_knowledge_flow.png">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2026-04-10T00:00:00+09:00">
+<meta property="article:section" content="Claude Code">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Karpathyが実践する「AI外部脳」を、Claude Codeでゼロから作る完全ガイド">
+<meta name="twitter:description" content="海外2,100いいねの記事を日本語で再構成。Claude Codeで誰でも作れるAI外部脳の全手順。">
+<meta name="twitter:image" content="https://plai-ai.com/assets/img/illust_knowledge_flow.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../css/style.css?v=20260514a">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Karpathyが実践する「AI外部脳」を、Claude Codeでゼロから作る完全ガイド",
+  "description": "元OpenAI・元Tesla AIトップのAndrej Karpathyが公開した「LLMナレッジベース」運用法を、Claude Codeで誰でも再現できる3段階ガイドにまとめました。",
+  "image": "https://plai-ai.com/assets/img/illust_knowledge_flow.png",
+  "author": { "@type": "Organization", "name": "株式会社PLai", "url": "https://plai-ai.com/" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "株式会社PLai",
+    "logo": { "@type": "ImageObject", "url": "https://plai-ai.com/assets/img/plai-logo.png" }
+  },
+  "datePublished": "2026-04-10",
+  "dateModified": "2026-04-10",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://plai-ai.com/articles/karpathy-external-brain-claude-code.html" }
+}
+</script>
+</head>
+<body>
+
+<!-- Opening -->
+<div class="opening" id="opening">
+  <img src="../assets/img/plai-logo.png" alt="PLai" class="opening__logo" id="openingLogo">
+</div>
+
+<!-- Header -->
+<header class="p-header" id="header">
+  <div class="p-header__inner">
+    <a class="p-header__logo" href="../index.html"><img src="../assets/img/plai-logo.png" alt="PLai" id="headerLogo"></a>
+    <div class="p-header__right">
+      <div class="p-header__clock js-clock"></div>
+      <a class="p-header__menu js-menu-open" href="#"><span>MENU</span><span>CLOSE</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- Menu -->
+<div class="p-menu js-menu">
+  <div class="p-menu__inner">
+    <nav class="p-menu__nav">
+      <ul>
+        <li><a href="../index.html#about">ABOUT</a></li>
+        <li class="p-menu__services-toggle">
+          <a href="#" class="js-services-toggle">SERVICES</a>
+          <div class="p-menu__services">
+            <ul>
+              <li><a href="../business-agent.html">AI社員構築代行事業</a></li>
+              <li><a href="../business-knowledge.html">組織ナレッジ構築代行事業</a></li>
+              <li><a href="../business-x-ops.html">SNS自動化支援</a></li>
+              <li><a href="../business-product-studio.html">AIマーケティング支援</a></li>
+              <li><a href="../business-aircle.html">AIイベント事業</a></li>
+              <li><a href="../business-openclaw.html">toC向け教育事業</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="../articles.html">ARTICLES</a></li>
+        <li><a href="../mvv.html">MVV</a></li>
+        <li><a href="../index.html#message">MESSAGE</a></li>
+        <li><a href="../index.html#company">COMPANY</a></li>
+      </ul>
+    </nav>
+    <div class="p-menu__contact">
+      <div class="p-menu__contact__header">CONTACT</div>
+      <a href="../contact.html#contact-form" class="p-menu__contact__link">
+        <span>お問い合わせフォーム</span>
+        <svg width="18" height="16" viewBox="0 0 18 16" fill="none">
+          <rect x="0" y="6.55" width="14" height="2.18" fill="currentColor"/>
+          <rect x="9.29" width="10.92" height="2.18" transform="rotate(45 9.29 0)" fill="currentColor"/>
+          <rect x="7.74" y="13.9" width="10.92" height="2.18" transform="rotate(-45 7.74 13.9)" fill="currentColor"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div class="p-menu__copyright">&copy; PLai Inc.</div>
+</div>
+
+<!-- ============ ARTICLE HERO ============ -->
+<section class="article-hero">
+  <span class="article-hero__tag">CLAUDE CODE</span>
+  <h1 class="article-hero__title">Karpathyが実践する「AI外部脳」を、Claude Codeでゼロから作る完全ガイド</h1>
+  <div class="article-hero__meta">
+    <span>2026.04.10</span>
+    <span>10 min read</span>
+  </div>
+</section>
+
+<div class="article-hero__cover">
+  <img src="../assets/img/illust_knowledge_flow.png" alt="AI外部脳の構築フロー">
+</div>
+
+<!-- ============ ARTICLE BODY ============ -->
+<article class="article-body">
+
+<p>海外で2,100いいね、いま開発者コミュニティで最も読まれているClaude Code記事のひとつです。</p>
+
+<p>元OpenAI、元Tesla AI部門トップのAndrej Karpathyが、自分のAI活用法として「LLM Knowledge Base（LLMナレッジベース）」を公開しました。ひとことで言うと「AIが読み書きできる、自分専用の知識データベース」です。</p>
+
+<p>これを受けて海外のクリエイター @hooeem が、同じ仕組みを Claude Code で誰でも構築できるように、初心者～開発者まで3段階のガイドとしてまとめた記事が大きくバズしました。</p>
+
+<p>この記事では、その内容をできるだけ分かりやすく日本語で再構成します。</p>
+
+<p class="article-body__source-link">元投稿: <a href="https://x.com/hooeem/status/2041196025906418094" target="_blank" rel="noopener">https://x.com/hooeem/status/2041196025906418094</a></p>
+
+<h2>ほとんどの人のAIの使い方には「致命的な欠点」がある</h2>
+
+<p>いま多くの人がAIを使っています。でもほとんどの場合、使い方はこうです。</p>
+
+<p>ChatGPTやClaudeを開く → 質問する → 答えが返ってくる → タブを閉じる。</p>
+
+<p>翌日、また別の質問をする。AIは昨日のやりとりを何も覚えていません。先週調べたこと、先月考えたこと、自分がどんな仕事をしているか。全部リセットされた状態から始まります。</p>
+
+<p>つまり、毎回AIに「自分は誰で、何をしていて、何を知りたいのか」を最初から説明し直している。これは時間の無駄であると同時に、<strong>AIの能力をほとんど活かせていない状態</strong>です。</p>
+
+<p>Karpathyが公開した方法は、この問題を根本から解決します。</p>
+
+<h2>「AI外部脳」の仕組み</h2>
+
+<p>考え方はシンプルです。</p>
+
+<p>自分が普段集めている情報──記事、論文、YouTube動画の書き起こし、PDF、メモ、何でもいい──を1箇所に集めます。AIにそれを全部読ませて、構造化されたWiki（まとめ）を自動で作らせます。</p>
+
+<p>このWikiには、それぞれの素材の要約だけでなく、概念同士のつながり、キーポイントの整理、マスターインデックスまで含まれます。</p>
+
+<p>そしてこのWikiに対して質問すると、出典付きの、文脈を踏まえた統合的な回答が返ってくる。</p>
+
+<p>ここがポイントです。普通のAIチャットは「一般的な知識」で答えます。でもAI外部脳は<strong>「あなたが集めた素材だけ」を元に答えます</strong>。だからハルシネーション（嘘をつくこと）が起きにくいし、回答があなたの文脈にぴったり合います。</p>
+
+<p>しかも、素材を追加すればするほど、Wikiは自動で更新されて、回答の精度はどんどん上がっていく。使えば使うほど賢くなる仕組みです。</p>
+
+<h2>なぜClaude Codeで作るのか</h2>
+
+<p>ナレッジベース自体は他のツールでも作れます。NotionAI、Obsidian、RAGシステムなど選択肢はあります。</p>
+
+<p>でもClaude Codeを使う理由が3つあります。</p>
+
+<p>1つ目は「<strong>セットアップが圧倒的に楽</strong>」なこと。Claude Codeはターミナルから直接ファイル操作ができるので、フォルダを作って素材を入れるだけで始められます。専用のデータベースもAPIの設定も要りません。</p>
+
+<p>2つ目は「<strong>AI自身がWikiを作ってくれる</strong>」こと。普通のRAGシステムだとベクトルDBの設定、チャンク分割、エンベディングの選定など技術的な作業が必要です。Claude Codeなら「このフォルダの内容を読んで、Wikiを作って」と言うだけ。</p>
+
+<p>3つ目は「<strong>コード生成と知識活用が一体化する</strong>」こと。たとえば技術的なナレッジベースを作った場合、知識を引き出すだけでなく「その知識に基づいてコードを書く」こともClaude Codeならシームレスにできます。知識の参照と実装が同じ環境で完結します。</p>
+
+<h2>バージョン1：完全初心者向け（はじめてのナレッジベース）</h2>
+
+<p>AIやプログラミングの経験がない人向けの方法です。Claude Codeのプロジェクト機能だけで構築できます。</p>
+
+<p>手順はこうです。</p>
+
+<p>まずClaude Codeで新しいプロジェクトを作ります。次にプロジェクト内に「knowledge-base」というフォルダを作ります。</p>
+
+<p>その中に、学びたいテーマごとのサブフォルダを作ります。「AI基礎」「マーケティング」「プログラミング」など、自分が興味あるテーマで大丈夫です。</p>
+
+<p>あとは気になった記事やメモを、テキストファイルとしてそのフォルダに入れていくだけ。最初は10個でいい。Webで読んだ記事をコピペしたテキストファイルでも、自分のメモでも何でもいいです。</p>
+
+<p>素材が溜まったら、Claude Codeに「このフォルダの内容を全部読んで、テーマごとに整理したWikiを作って」と指示します。</p>
+
+<p>Claude Codeはフォルダ内の全ファイルを読んで、キーポイントの抽出、概念の整理、関連性の図解、索引の作成まで自動でやってくれます。</p>
+
+<p>このWikiが「AI外部脳」です。以降はこのWikiに対して質問すれば、自分が集めた情報に基づいた回答が返ってきます。</p>
+
+<p>大事なのは「<strong>最初から完璧を目指さない</strong>」こと。10個の素材から始めて、気になるものを見つけるたびに追加していけば、外部脳は自然に育っていきます。</p>
+
+<h2>バージョン2：中級者向け（フルシステム）</h2>
+
+<p>AIツールにある程度慣れている人向けです。バージョン1の仕組みに「素材収集の自動化」を追加します。</p>
+
+<p>手動で1つずつ記事をコピペするのは正直続きません。中級者向けでは、以下のような素材の自動取り込みを設定します。</p>
+
+<ul>
+<li>YouTube動画のURL を渡すだけで、文字起こしが自動で素材フォルダに保存される</li>
+<li>PDFをフォルダに入れるだけで、テキスト抽出されてWikiに反映される</li>
+<li>RSSフィードやブックマークから、関連記事が自動で流し込まれる</li>
+<li>カテゴリ別に自動分類されるので、手動整理が不要</li>
+</ul>
+
+<p>さらに、定期的なWiki更新の自動化もここで設定します。たとえば「毎朝6時に新しい素材をチェックしてWikiを更新する」というスケジュール実行です。</p>
+
+<p>ここまでできると、自分が寝ている間にも外部脳が成長し続ける状態になります。</p>
+
+<h2>バージョン3：開発者向け（完全自動化）</h2>
+
+<p>プログラミングができる人向けの最終形です。</p>
+
+<p>API連携、スケジュール実行、複数ナレッジベースの統合管理、チームでの共有まで含みます。</p>
+
+<p>このレベルでできることの例を挙げます。</p>
+
+<ul>
+<li>朝起きたら、昨晩の最新ニュースがWikiに反映済み</li>
+<li>特定のトピックに関する新着論文が、サマリー付きで自動追加されている</li>
+<li>「AI業界」「競合分析」「自分のプロダクト」のように、テーマ別に複数のナレッジベースを管理して横断検索ができる</li>
+<li>チームメンバーと共有して、組織のナレッジハブとして運用する</li>
+</ul>
+
+<p>正直、ここまで行くと「もう一人の自分がずっとリサーチしてくれている」のとほぼ同じです。自分が何もしなくても、知識が蓄積され、整理され、いつでも引き出せる状態が続く。</p>
+
+<p>Karpathyが日常的にやっているのは、まさにこのバージョン3の運用です。</p>
+
+<h2>学生・実務者がこの仕組みを使うとどうなるか</h2>
+
+<p>いくつか具体例を挙げます。</p>
+
+<p><strong>卒業論文を書いている場合</strong>。関連する論文や記事を全部ナレッジベースに入れて、「この分野でまだ研究されていない領域は？」「この2つの研究の違いを比較して」とAIに聞く。毎回ゼロからChatGPTに説明し直すのとは精度がまるで違います。</p>
+
+<p><strong>就活中の場合</strong>。志望企業の業界に関する記事・IR情報・ニュースを外部脳に入れて、面接前に「この会社の最近の動きと競合との差は？」と聞く。業界研究がAIに自動でアップデートされ続ける状態になります。</p>
+
+<p><strong>プログラミング学習の場合</strong>。使っている教材やドキュメントをナレッジベースに入れておけば、「この概念とあの概念の違いをコード例付きで説明して」という質問が、自分が読んだ教材をベースに返ってきます。一般論ではなく、自分の学習進度に合った回答が得られます。</p>
+
+<h2>この仕組みの本質</h2>
+
+<p>従来のAI活用は「聞いたら答える」の一方通行でした。</p>
+
+<p>AI外部脳はこれを根本的に変えます。</p>
+
+<p>AIが「聞かれたら答えるだけの存在」から「<strong>自分の知識を蓄積し、育っていく存在</strong>」に変わる。そして最終的には「持ち主のことを理解した上で、先回りして提案してくれる存在」になる。</p>
+
+<p>しかもそのために必要なのは、高額なツールでも、難しいプログラミングでも、特別なハードウェアでもなく、「素材を1箇所に集めて、Claude Codeに読ませる」だけ。</p>
+
+<p>Karpathyレベルの人が実際にやっている方法が、いまや誰でも再現できる。これが2,100いいねを集めた理由です。</p>
+
+<h2>まとめ</h2>
+
+<ul>
+<li>Andrej Karpathyが実践する「LLMナレッジベース」が海外で大きな話題に</li>
+<li>Claude Codeで、初心者から開発者まで3段階で同じシステムを構築できるガイドが公開</li>
+<li>核心は「AIを一回きりのチャットではなく、蓄積型の知識システムとして使う」こと</li>
+<li>素材を集めるだけでAIが構造化Wiki（外部脳）を自動生成し、使うほど賢くなる</li>
+<li>卒論、就活、プログラミング学習、ビジネス──あらゆる場面で応用可能</li>
+<li>バージョン1なら今日、フォルダ1個とテキスト10個で始められる</li>
+</ul>
+
+<hr>
+
+<p><strong>出典</strong></p>
+<ul>
+<li>元投稿: <a href="https://x.com/hooeem/status/2041196025906418094" target="_blank" rel="noopener">@hooeem / X (2,100いいね)</a></li>
+<li>参照: Andrej Karpathy の LLM Knowledge Base 運用に関する公開情報</li>
+</ul>
+
+</article>
+
+<!-- ============ CTA ============ -->
+<section class="article-cta">
+  <p class="article-cta__label">PLAI'S SERVICE</p>
+  <h3 class="article-cta__title">組織のナレッジを「AI外部脳」化する代行事業</h3>
+  <p class="article-cta__text">この記事の仕組みを、企業ナレッジの構築に応用したい方へ。PLaiでは Obsidian + Claude Code を軸にした組織ナレッジ構築代行を行っています。</p>
+  <a href="../business-knowledge.html" class="article-cta__btn">サービス詳細を見る</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <a href="../index.html" class="footer__logo"><img src="../assets/img/plai-logo.png" alt="PLai"></a>
+      <div class="footer__links">
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#services">Services</a>
+        <a href="../articles.html">Articles</a>
+        <a href="../mvv.html">MVV</a>
+        <a href="../business-agent.html">AI Agent</a>
+        <a href="../business-knowledge.html">Knowledge</a>
+        <a href="../business-x-ops.html">X運用</a>
+        <a href="../business-product-studio.html">Product Studio</a>
+        <a href="../business-aircle.html">AirCle</a>
+        <a href="../business-openclaw.html">OpenClaw</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+    </div>
+    <p class="footer__copy">&copy; PLai Inc. ALL RIGHTS RESERVED.</p>
+  </div>
+</footer>
+
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script src="../js/gsap.min.js"></script>
+<script src="../js/custom.js?v=20260514a"></script>
+</body>
+</html>

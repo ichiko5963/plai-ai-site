@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/style.css?v=20260513b">
+<link rel="stylesheet" type="text/css" href="css/style.css?v=20260514a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -43,30 +43,6 @@
   ]
 }
 </script>
-<style>
-  .articles-hero { padding: 200px 80px 80px; max-width: 1280px; margin: 0 auto; }
-  .articles-hero__label { font-family: 'Poppins', sans-serif; font-size: 14px; letter-spacing: 0.15em; color: #6b6b78; margin-bottom: 16px; }
-  .articles-hero__title { font-family: 'Shippori Mincho', serif; font-size: 56px; line-height: 1.3; color: #1a1a2e; margin-bottom: 24px; }
-  .articles-hero__lead { font-family: 'IBM Plex Sans JP', sans-serif; font-size: 16px; line-height: 1.9; color: #4a4a55; max-width: 720px; }
-  .articles-grid { padding: 40px 80px 160px; max-width: 1280px; margin: 0 auto; }
-  .articles-grid__empty {
-    border: 1px dashed rgba(155, 140, 255, 0.4);
-    border-radius: 12px;
-    padding: 80px 40px;
-    text-align: center;
-    font-family: 'IBM Plex Sans JP', sans-serif;
-    color: #6b6b78;
-    background: linear-gradient(135deg, rgba(155,140,255,0.04), rgba(247,168,90,0.04));
-  }
-  .articles-grid__empty-title { font-size: 22px; color: #1a1a2e; margin-bottom: 12px; font-weight: 600; }
-  .articles-grid__empty-text { font-size: 15px; line-height: 1.8; }
-  @media screen and (max-width: 768px) {
-    .articles-hero { padding: 140px 20px 40px; }
-    .articles-hero__title { font-size: 36px; }
-    .articles-grid { padding: 20px 20px 100px; }
-    .articles-grid__empty { padding: 60px 24px; }
-  }
-</style>
 </head>
 <body>
 
@@ -130,14 +106,58 @@
 <section class="articles-hero">
   <p class="articles-hero__label">ARTICLES</p>
   <h1 class="articles-hero__title">記事一覧</h1>
-  <p class="articles-hero__lead">AI社員構築、Claude Code活用、Obsidianによるナレッジ経営、SNS自動化。PLaiが現場で実践してきた知見を、記事として順次公開していきます。</p>
+  <p class="articles-hero__lead">AI社員構築、Claude Code活用、Obsidianによるナレッジ経営、SNS自動化。PLaiが現場で実践してきた知見を、記事として順次公開しています。</p>
 </section>
 
-<!-- ============ ARTICLES GRID (準備中プレースホルダ) ============ -->
+<!-- ============ ARTICLES GRID ============ -->
 <section class="articles-grid">
-  <div class="articles-grid__empty">
-    <p class="articles-grid__empty-title">記事を準備中です</p>
-    <p class="articles-grid__empty-text">過去にX（旧Twitter）で発信してきた長文記事を、SEO対応した形で順次このページに掲載していきます。<br>新着のお知らせは公式アカウントからご案内します。</p>
+  <div class="articles-grid__list">
+
+    <a href="articles/karpathy-external-brain-claude-code.html" class="article-card">
+      <div class="article-card__cover">
+        <img src="assets/img/illust_knowledge_flow.png" alt="AI外部脳の構築フロー">
+      </div>
+      <div class="article-card__body">
+        <span class="article-card__tag">CLAUDE CODE</span>
+        <h3 class="article-card__title">Karpathyが実践する「AI外部脳」を、Claude Codeでゼロから作る完全ガイド</h3>
+        <p class="article-card__summary">元OpenAI・元Tesla AIトップのAndrej Karpathyが公開した「LLMナレッジベース」運用法を、Claude Codeで誰でも再現できる3段階ガイドにまとめました。素材を集めるだけでAIが構造化Wikiを自動生成、使うほど賢くなる仕組みの全容。</p>
+        <div class="article-card__meta">
+          <span>2026.04.10</span>
+          <span>10 min read</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="articles/claude-obsidian-ai-brain.html" class="article-card">
+      <div class="article-card__cover">
+        <img src="assets/img/knowledge_graph_viz.png" alt="ObsidianとClaude CodeのAIセカンド脳">
+      </div>
+      <div class="article-card__body">
+        <span class="article-card__tag">OBSIDIAN</span>
+        <h3 class="article-card__title">Claude Code × Obsidianで「AIセカンド脳」を作る──思考・タスク・人生をAIが理解する仕組み</h3>
+        <p class="article-card__summary">自分のメモ・タスク・学習記録をObsidianのVaultに集約し、Claude Codeから読ませることで「AIが自分を自分より理解する」状態を作る方法。CLAUDE.mdの書き方、運用上の注意点、応用事例まで網羅。</p>
+        <div class="article-card__meta">
+          <span>2026.04.10</span>
+          <span>11 min read</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="articles/claude-code-textbook.html" class="article-card">
+      <div class="article-card__cover">
+        <img src="assets/img/agent_step_01.png" alt="Claude Code教科書">
+      </div>
+      <div class="article-card__body">
+        <span class="article-card__tag">教科書</span>
+        <h3 class="article-card__title">【保存版】初心者向け Claude Codeの教科書──インストールから実務まで全部入り</h3>
+        <p class="article-card__summary">ChatGPTとの違い、インストール、CLAUDE.md、Plan Mode、サブエージェント、MCP、トークン節約、実務ワークフロー。Claude Codeを「なんとなく使える」から「開発の主力ツール」に変える1ヶ月ロードマップ。</p>
+        <div class="article-card__meta">
+          <span>2026.05.07</span>
+          <span>15 min read</span>
+        </div>
+      </div>
+    </a>
+
   </div>
 </section>
 
@@ -166,6 +186,6 @@
 
 <script src="js/jquery-3.7.1.min.js"></script>
 <script src="js/gsap.min.js"></script>
-<script src="js/custom.js?v=20260513b"></script>
+<script src="js/custom.js?v=20260514a"></script>
 </body>
 </html>

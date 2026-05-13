@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>【保存版】初心者向け Claude Codeの教科書──インストールから実務まで全部入り｜PLai記事</title>
+<meta name="description" content="ChatGPTとの違い、インストール、CLAUDE.md、Plan Mode、サブエージェント、MCP、トークン節約、実務ワークフロー。Claude Codeを「なんとなく使える」から「開発の主力ツール」に変える1ヶ月ロードマップ。">
+<meta name="keywords" content="Claude Code,初心者,教科書,インストール,CLAUDE.md,Plan Mode,MCP,トークン節約,Anthropic">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://plai-ai.com/articles/claude-code-textbook.html">
+<meta property="og:url" content="https://plai-ai.com/articles/claude-code-textbook.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【保存版】初心者向け Claude Codeの教科書──インストールから実務まで全部入り">
+<meta property="og:description" content="Claude Codeを始める人が最初に読むべき1本。インストールから実務活用まで、1ヶ月のロードマップで完全網羅。">
+<meta property="og:site_name" content="株式会社PLai">
+<meta property="og:image" content="https://plai-ai.com/assets/img/agent_step_01.png">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2026-05-07T00:00:00+09:00">
+<meta property="article:section" content="Claude Code">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="【保存版】初心者向け Claude Codeの教科書">
+<meta name="twitter:description" content="インストールから実務まで全部入りの1本。1ヶ月のロードマップ付き。">
+<meta name="twitter:image" content="https://plai-ai.com/assets/img/agent_step_01.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../css/style.css?v=20260514a">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "【保存版】初心者向け Claude Codeの教科書──インストールから実務まで全部入り",
+  "description": "ChatGPTとの違い、インストール、CLAUDE.md、Plan Mode、サブエージェント、MCP、トークン節約、実務ワークフロー、1ヶ月ロードマップを網羅した完全ガイド。",
+  "image": "https://plai-ai.com/assets/img/agent_step_01.png",
+  "author": { "@type": "Organization", "name": "株式会社PLai", "url": "https://plai-ai.com/" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "株式会社PLai",
+    "logo": { "@type": "ImageObject", "url": "https://plai-ai.com/assets/img/plai-logo.png" }
+  },
+  "datePublished": "2026-05-07",
+  "dateModified": "2026-05-07",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://plai-ai.com/articles/claude-code-textbook.html" }
+}
+</script>
+</head>
+<body>
+
+<!-- Opening -->
+<div class="opening" id="opening">
+  <img src="../assets/img/plai-logo.png" alt="PLai" class="opening__logo" id="openingLogo">
+</div>
+
+<!-- Header -->
+<header class="p-header" id="header">
+  <div class="p-header__inner">
+    <a class="p-header__logo" href="../index.html"><img src="../assets/img/plai-logo.png" alt="PLai" id="headerLogo"></a>
+    <div class="p-header__right">
+      <div class="p-header__clock js-clock"></div>
+      <a class="p-header__menu js-menu-open" href="#"><span>MENU</span><span>CLOSE</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- Menu -->
+<div class="p-menu js-menu">
+  <div class="p-menu__inner">
+    <nav class="p-menu__nav">
+      <ul>
+        <li><a href="../index.html#about">ABOUT</a></li>
+        <li class="p-menu__services-toggle">
+          <a href="#" class="js-services-toggle">SERVICES</a>
+          <div class="p-menu__services">
+            <ul>
+              <li><a href="../business-agent.html">AI社員構築代行事業</a></li>
+              <li><a href="../business-knowledge.html">組織ナレッジ構築代行事業</a></li>
+              <li><a href="../business-x-ops.html">SNS自動化支援</a></li>
+              <li><a href="../business-product-studio.html">AIマーケティング支援</a></li>
+              <li><a href="../business-aircle.html">AIイベント事業</a></li>
+              <li><a href="../business-openclaw.html">toC向け教育事業</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="../articles.html">ARTICLES</a></li>
+        <li><a href="../mvv.html">MVV</a></li>
+        <li><a href="../index.html#message">MESSAGE</a></li>
+        <li><a href="../index.html#company">COMPANY</a></li>
+      </ul>
+    </nav>
+    <div class="p-menu__contact">
+      <div class="p-menu__contact__header">CONTACT</div>
+      <a href="../contact.html#contact-form" class="p-menu__contact__link">
+        <span>お問い合わせフォーム</span>
+        <svg width="18" height="16" viewBox="0 0 18 16" fill="none">
+          <rect x="0" y="6.55" width="14" height="2.18" fill="currentColor"/>
+          <rect x="9.29" width="10.92" height="2.18" transform="rotate(45 9.29 0)" fill="currentColor"/>
+          <rect x="7.74" y="13.9" width="10.92" height="2.18" transform="rotate(-45 7.74 13.9)" fill="currentColor"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div class="p-menu__copyright">&copy; PLai Inc.</div>
+</div>
+
+<!-- ============ ARTICLE HERO ============ -->
+<section class="article-hero">
+  <span class="article-hero__tag">教科書</span>
+  <h1 class="article-hero__title">【保存版】初心者向け Claude Codeの教科書──インストールから実務まで全部入り</h1>
+  <div class="article-hero__meta">
+    <span>2026.05.07</span>
+    <span>15 min read</span>
+  </div>
+</section>
+
+<div class="article-hero__cover">
+  <img src="../assets/img/agent_step_01.png" alt="Claude Code教科書">
+</div>
+
+<!-- ============ ARTICLE BODY ============ -->
+<article class="article-body">
+
+<p>こんな悩みありませんか？</p>
+
+<ul>
+<li>Claude Codeって聞いたことあるけど、ChatGPTと何が違うの？</li>
+<li>ターミナルって時点でもう無理な気がする</li>
+<li>インストールしたはいいけど、何をどう使えばいいか分からない</li>
+<li>とりあえず触ってみたけど、トークンだけ消費して何も進まなかった</li>
+<li>周りが「Claude Codeヤバい」って言ってるけど、自分だけ取り残されてる気がする</li>
+</ul>
+
+<p>もしひとつでも当てはまるなら、この記事はあなたのために書きました。</p>
+
+<p>Claude Codeは2025年2月にAnthropicが公開したCLI（コマンドラインインターフェース）ベースのAIコーディングエージェントです。公開から1年以上が経ち、いまやプロの開発者から学生まで、世界中のユーザーが日常の開発ツールとして使っています。</p>
+
+<p>でも「最初の壁」でつまずいて止まってしまう人がものすごく多い。</p>
+
+<p>この記事では、Claude Codeをまったく触ったことがない人でも、インストールから実務レベルの活用まで一気に理解できるように、全部まとめました。</p>
+
+<h2>そもそもClaude Codeとは何か</h2>
+
+<p>まずここを正確に理解しないと、後の全部がぼやけます。</p>
+
+<p>Claude Codeは、Anthropicが開発した<strong>ターミナル上で動くAIエージェント</strong>です。ChatGPTやClaudeのWebアプリとは根本的に違います。</p>
+
+<p>何が違うかというと、Claude Codeは「<strong>あなたのPC上のファイルを直接読んで、直接編集できる</strong>」こと。</p>
+
+<p>ChatGPTに「このコードを修正して」と頼むと、修正案がチャット画面に表示されます。それをコピーして、自分のエディタに貼り付けて、保存する。この手作業が毎回発生します。</p>
+
+<p>Claude Codeの場合、あなたのプロジェクトフォルダの中に入って、ファイルを読み、理解し、必要な箇所を直接書き換えます。ターミナルコマンドも実行できる。gitも操作できる。テストも走らせられる。</p>
+
+<p>つまりClaude Codeは「チャットで答えを教えてくれるAI」ではなく、「あなたのPCの中で一緒にコードを書いてくれる開発パートナー」です。</p>
+
+<p>ここが分かっていないと「ChatGPTでよくない？」という疑問から抜け出せません。</p>
+
+<h2>ChatGPTやCursorとの違い</h2>
+
+<p>よく比較されるのがこの3つです。整理します。</p>
+
+<p><strong>ChatGPT / Claude Web版</strong><br>→ ブラウザ上でAIと会話する。コードの相談はできるが、実行もファイル操作もAI側からはできない。「アドバイザー」。</p>
+
+<p><strong>Cursor / Windsurf（AIエディタ）</strong><br>→ VS CodeベースのエディタにAIが内蔵されている。ファイルの読み書きはできるが、基本的にエディタ内の操作に限られる。「AIアシスタント付きエディタ」。</p>
+
+<p><strong>Claude Code</strong><br>→ ターミナルから起動して、ファイルシステム全体にアクセスできる。コード編集だけでなく、git操作、コマンド実行、環境構築、デプロイまで自律的にやれる。「AIエンジニア」。</p>
+
+<p>CursorやWindsurfが「エディタの中にAIがいる」なら、Claude Codeは「AIそのものが開発者として動く」感覚に近い。</p>
+
+<p>もちろん目的によって使い分けるのがベストですが、Claude Codeの守備範囲の広さは圧倒的です。1つのツールでコードの生成、修正、テスト、git管理、デプロイまで完結する。これがClaude Codeが「ゲームチェンジャー」と呼ばれている理由です。</p>
+
+<h2>インストール方法</h2>
+
+<p>ここでつまずく人が多いけど、実はめちゃくちゃ簡単です。</p>
+
+<p><strong>必要なもの:</strong></p>
+<ul>
+<li>Node.js（v18以上）</li>
+<li>ターミナル（Mac: Terminal.app / Windows: PowerShell or WSL）</li>
+<li>Anthropicのアカウント（claude.aiで作れる）</li>
+</ul>
+
+<p><strong>手順:</strong></p>
+
+<pre><code>npm install -g @anthropic-ai/claude-code</code></pre>
+
+<p>これ1行です。これだけでインストール完了。</p>
+
+<p>次にプロジェクトのフォルダに移動して：</p>
+
+<pre><code>cd あなたのプロジェクトフォルダ
+claude</code></pre>
+
+<p><code>claude</code> と打つだけで起動します。初回はAnthropicアカウントの認証が求められるので、ブラウザが開いたらログインして許可するだけ。</p>
+
+<p>ここまで5分もかかりません。</p>
+
+<p>「ターミナル怖い」という人も安心してください。必要なのは <code>cd</code>（フォルダ移動）と <code>claude</code>（起動）の2コマンドだけ。これ以上複雑なターミナル操作は、Claude Code自身がやってくれます。</p>
+
+<h2>最初の使い方──何を指示すればいいか</h2>
+
+<p>インストールできた。<code>claude</code> と打って起動した。さて何を言えばいいか。</p>
+
+<p>ここで「なんか作って」と漠然と指示するのは一番もったいない使い方です。Claude Codeの実力を引き出すには、まず「今あるプロジェクトの中で具体的に何をしてほしいか」を伝えることが大事。</p>
+
+<p><strong>初心者におすすめの最初の一言：</strong></p>
+
+<pre><code>このプロジェクトの構成を説明して</code></pre>
+
+<p>これだけ。Claude Codeはフォルダ内のファイルを全部読んで、「このプロジェクトは○○で、○○のフレームワークを使っていて、エントリーポイントは○○で…」と構造を説明してくれます。</p>
+
+<p>自分が書いたコードでも、他人から引き継いだコードでも、OSSのリポジトリでも、最初にこれを聞くだけでプロジェクト全体の理解が一気に進みます。</p>
+
+<p><strong>次のステップとして：</strong></p>
+
+<pre><code>READMEを読んで、このアプリをローカルで動かすのに必要な手順を教えて</code></pre>
+
+<pre><code>src/components/Header.tsx にバグがありそう。調べて修正して</code></pre>
+
+<pre><code>このプロジェクトにダークモードを追加して</code></pre>
+
+<p>こんな感じで、具体的な指示を出すほどClaude Codeは的確に動きます。</p>
+
+<h2>CLAUDE.md──これを知らないと損をする</h2>
+
+<p>Claude Codeを使う上で、最も重要な機能のひとつが <code>CLAUDE.md</code> です。</p>
+
+<p>これはプロジェクトのルートに置くテキストファイルで、「このプロジェクトでClaude Codeがどう振る舞うべきか」を定義するもの。いわば<strong>AIへの永続的な指示書</strong>です。</p>
+
+<p>たとえばこんなことを書きます：</p>
+
+<pre><code># CLAUDE.md
+
+このプロジェクトはNext.js 14 + TypeScript + Tailwind CSS。
+テストはvitestを使う。
+コミットメッセージはConventional Commitsに従う。
+日本語でコメントを書く。
+新しいファイルを作る時は必ず既存のファイルの命名規則に従う。</code></pre>
+
+<p>これを一度書いておくだけで、Claude Codeは毎回この指示を参照してくれます。</p>
+
+<p>何がすごいかというと、「毎回同じ注意点を伝え直す手間」がゼロになること。ChatGPTだと新しい会話のたびに「TypeScriptで書いて」「テストも書いて」「日本語コメントで」と繰り返す必要がある。CLAUDE.mdがあれば、それが全部自動で適用される。</p>
+
+<p>心当たりありませんか？　毎回同じ前提条件を説明し直している人。CLAUDE.mdひとつで解決します。</p>
+
+<h2>Plan Mode──いきなりコードを書かせない</h2>
+
+<p>これは初心者が一番やりがちなミスです。</p>
+
+<p>「○○を作って」と指示すると、Claude Codeはいきなりコードを書き始めます。でも複雑なタスクほど、最初に「どう作るか」を設計してから書き始めたほうが圧倒的にいい結果になる。</p>
+
+<p>そこで使うのが<strong>Plan Mode</strong>。</p>
+
+<pre><code>Shift + Tab</code></pre>
+
+<p>これでPlan Modeに切り替わります。Plan Modeでは、Claude Codeはコードを書かずに「設計」だけをしてくれる。</p>
+
+<p>たとえば「認証機能を追加して」と指示すると：</p>
+
+<ul>
+<li>どのライブラリを使うか</li>
+<li>どのファイルを変更するか</li>
+<li>どういう順番で実装するか</li>
+<li>考慮すべきエッジケースは何か</li>
+</ul>
+
+<p>これを先に出してくれる。設計を確認して「OK、この方針で進めて」と言えば、そこから実装に入る。</p>
+
+<p>Plan Modeを使うだけで、無駄なやり直しが激減します。トークン（使用量）の節約にもなるし、仕上がりの品質も上がる。「急がば回れ」がClaude Codeでは本当に効きます。</p>
+
+<h2>サブエージェントでコンテキストを守る</h2>
+
+<p>Claude Codeには「コンテキストウィンドウ」の上限があります。簡単に言うと、一度に覚えていられる情報量に限界がある。</p>
+
+<p>長いセッションを続けていると、最初に伝えた指示や序盤で読んだファイルの内容を忘れ始めます。これがトークンの限界です。</p>
+
+<p>対策として強力なのが<strong>サブエージェント</strong>。</p>
+
+<p>Claude Codeは内部的に別のAIエージェントを起動して、調査や分析を任せることができます。サブエージェントが使った情報は親のコンテキストを圧迫しない。つまり「調べものは部下に任せて、自分のメモリを空けておく」ことができる。</p>
+
+<p>実際にはClaude Codeが自動的にサブエージェントを使ってくれることが多いですが、明示的に指示することもできます：</p>
+
+<pre><code>このプロジェクトのテストカバレッジを調べて。
+サブエージェントを使って各ディレクトリごとに分析して</code></pre>
+
+<p>大規模なプロジェクトほど、この機能の恩恵は大きくなります。</p>
+
+<h2>/compact──コンテキストが溢れる前に</h2>
+
+<p>サブエージェントと合わせて覚えておきたいのが <code>/compact</code> コマンド。</p>
+
+<pre><code>/compact</code></pre>
+
+<p>これを打つと、Claude Codeが今までの会話を要約して、コンテキストを圧縮してくれます。</p>
+
+<p>長時間作業していて「なんかClaude Codeの精度が落ちてきたな」と感じたら、それはコンテキストが溢れかけているサインです。<code>/compact</code> でリフレッシュするだけで、精度が戻ります。</p>
+
+<p>目安としては、30分〜1時間ごとに1回。もしくは大きなタスクが一段落したタイミングで打つのがおすすめです。</p>
+
+<h2>MCP──Claude Codeの能力を拡張する</h2>
+
+<p>MCP（Model Context Protocol）は、Claude Codeに「外部ツールとの接続能力」を追加する仕組みです。</p>
+
+<p>たとえば：</p>
+
+<ul>
+<li>GitHub MCPを入れると、Claude CodeからPRの作成やレビューができる</li>
+<li>Slack MCPを入れると、チャンネルの内容を読んでタスクに反映できる</li>
+<li>Figma MCPを入れると、デザインを見ながらコードを書ける</li>
+<li>ブラウザMCPを入れると、Webページの内容を取得して参照できる</li>
+</ul>
+
+<p>MCPなしのClaude Codeが「優秀な開発者」だとすると、MCPありのClaude Codeは「<strong>あらゆるツールを使いこなす開発チーム</strong>」になる。</p>
+
+<p>設定もシンプルで、<code>claude mcp add</code> コマンドで追加するだけ。</p>
+
+<pre><code>claude mcp add github -- npx -y @modelcontextprotocol/server-github</code></pre>
+
+<p>最初から全部入れる必要はありません。自分の開発フローで「ここ手作業だな」と感じたところから、対応するMCPを1つずつ追加していく。これが一番無理のない進め方です。</p>
+
+<h2>トークンの使い方を最適化する</h2>
+
+<p>Claude Codeの料金は、使ったトークン量で決まります。ここを意識しないと、あっという間にコストが膨らむ。</p>
+
+<p>トークンを節約するコツ：</p>
+
+<p><strong>1. 指示は1回で明確に出す</strong><br>「ボタンを追加して」→「色を赤にして」→「位置を右上にして」と3回に分けるより、「右上に赤いボタンを追加して」と1回で言うほうが圧倒的にトークン効率がいい。</p>
+
+<p><strong>2. CLAUDE.mdで繰り返し指示を自動化</strong><br>前述の通り。毎回伝えている共通指示は全部CLAUDE.mdに書く。</p>
+
+<p><strong>3. Plan Modeで無駄な実装を減らす</strong><br>いきなり実装して「違う、やり直し」が最もトークンを消費するパターン。</p>
+
+<p><strong>4. /compactを定期的に使う</strong><br>コンテキストが溢れると、Claude Codeは同じファイルを何度も読み直す。これは純粋な無駄。</p>
+
+<p><strong>5. Sonnetモデルに切り替える</strong><br>深い思考が不要な単純作業（フォーマット修正、リネームなど）は、<code>/model</code> でSonnetに切り替えると安くて速い。</p>
+
+<p>これらを意識するだけで、同じ予算で2〜3倍の作業量をこなせるようになります。</p>
+
+<h2>実務での使い方の具体例</h2>
+
+<p>理屈は分かった。じゃあ実際にどう使うのか。</p>
+
+<p><strong>ケース1：バグ修正</strong></p>
+
+<pre><code>ユーザーがログインボタンを押しても画面が遷移しない。
+原因を調べて修正して</code></pre>
+
+<p>Claude Codeは関連するファイルを自動で特定して、ログを確認して、原因を見つけて、修正して、テストまで書いてくれます。</p>
+
+<p><strong>ケース2：新機能追加</strong></p>
+
+<pre><code>ユーザープロフィールページにアバター画像のアップロード機能を追加して。
+S3にアップロードする設計で</code></pre>
+
+<p>Plan Modeで設計を確認 → 承認 → 実装 → テスト。この流れで完結します。</p>
+
+<p><strong>ケース3：リファクタリング</strong></p>
+
+<pre><code>src/utils/helpers.ts が500行超えてる。
+機能ごとにファイルを分割して、import元も全部修正して</code></pre>
+
+<p>手動でやると半日かかる作業が、数分で終わります。</p>
+
+<p><strong>ケース4：コードレビュー</strong></p>
+
+<pre><code>git diff main...feature-branch の変更内容をレビューして。
+バグ、セキュリティリスク、パフォーマンス問題があれば指摘して</code></pre>
+
+<p>人間のレビュアーと同等以上の精度で、数秒で返ってきます。</p>
+
+<h2>初心者がやりがちなミス5選</h2>
+
+<p><strong>1. 「なんか作って」と漠然と指示する</strong><br>→ 具体的であるほどClaude Codeは的確に動く。ゴール、制約、使用技術を明示する。</p>
+
+<p><strong>2. 長時間セッションを/compactなしで続ける</strong><br>→ 精度がどんどん落ちる。定期的にコンテキストを圧縮する。</p>
+
+<p><strong>3. エラーが出たら自分で直そうとする</strong><br>→ エラーメッセージをそのままClaude Codeに貼ればいい。AIはエラー解読が得意。</p>
+
+<p><strong>4. CLAUDE.mdを作らない</strong><br>→ 毎回同じ指示を繰り返す羽目になる。最初に10分かけて書くだけで、以降の全セッションが効率化する。</p>
+
+<p><strong>5. 全部Opusでやろうとする</strong><br>→ 簡単なタスクはSonnetで十分。使い分けるだけでコストが半分以下になることもある。</p>
+
+<h2>初心者から中級者になるための1ヶ月ロードマップ</h2>
+
+<p>最後に、Claude Codeの学習ロードマップを整理します。</p>
+
+<h3>Week 1：基本操作</h3>
+<ul>
+<li>インストールして <code>claude</code> で起動できるようになる</li>
+<li>既存プロジェクトの構造を説明させてみる</li>
+<li>簡単な修正（typo修正、スタイル変更など）を指示してみる</li>
+</ul>
+
+<h3>Week 2：CLAUDE.mdとPlan Mode</h3>
+<ul>
+<li>CLAUDE.mdを書いてプロジェクトに置く</li>
+<li>Plan Modeで設計してから実装する流れを身につける</li>
+<li>/compactを習慣化する</li>
+</ul>
+
+<h3>Week 3：実務タスクに投入</h3>
+<ul>
+<li>バグ修正、機能追加、テスト作成をClaude Codeで実際にやる</li>
+<li>エラーが出たらClaude Codeに解決させる</li>
+<li>git操作もClaude Codeに任せてみる</li>
+</ul>
+
+<h3>Week 4：MCPと高度な活用</h3>
+<ul>
+<li>必要なMCPサーバーを1つ追加してみる</li>
+<li>サブエージェントを活用した大規模タスクに挑戦</li>
+<li>複数セッションの使い分けを試す</li>
+</ul>
+
+<p>1ヶ月もあれば、Claude Codeを「なんとなく使える」から「<strong>開発の主力ツール</strong>」に変えられます。</p>
+
+<h2>まとめ</h2>
+
+<ul>
+<li>Claude Codeは「チャットAI」ではなく「AIエンジニア」。あなたのPC上で直接コードを書く</li>
+<li>インストールは <code>npm install -g @anthropic-ai/claude-code</code> の1行</li>
+<li>CLAUDE.mdで永続的な指示を設定して、毎回の説明を自動化</li>
+<li>Plan Modeで設計してから実装する。急がば回れ</li>
+<li>/compactでコンテキストを定期リフレッシュ</li>
+<li>MCPで外部ツールと連携し、能力を拡張</li>
+<li>トークン節約は「1回で明確に指示」「Sonnetとの使い分け」が鉄則</li>
+<li>1ヶ月のロードマップで初心者→実務レベルまで到達可能</li>
+</ul>
+
+<p>Claude Codeは「AIでコードを書く」ことのスタンダードを変えたツールです。まだ触れていないなら、今日がはじめるベストなタイミング。</p>
+
+</article>
+
+<!-- ============ CTA ============ -->
+<section class="article-cta">
+  <p class="article-cta__label">PLAI'S SERVICE</p>
+  <h3 class="article-cta__title">AI社員構築代行──Claude Codeを「自社の開発チーム」に変える</h3>
+  <p class="article-cta__text">この記事で紹介したClaude Code活用を、自社の業務に組み込みたい方へ。PLaiでは、Claude Codeを軸にしたAI社員（自律的に動くAIエージェント）の構築・運用代行を行っています。HP・動画・SNS制作、業務自動化まで。</p>
+  <a href="../business-agent.html" class="article-cta__btn">サービス詳細を見る</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <a href="../index.html" class="footer__logo"><img src="../assets/img/plai-logo.png" alt="PLai"></a>
+      <div class="footer__links">
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#services">Services</a>
+        <a href="../articles.html">Articles</a>
+        <a href="../mvv.html">MVV</a>
+        <a href="../business-agent.html">AI Agent</a>
+        <a href="../business-knowledge.html">Knowledge</a>
+        <a href="../business-x-ops.html">X運用</a>
+        <a href="../business-product-studio.html">Product Studio</a>
+        <a href="../business-aircle.html">AirCle</a>
+        <a href="../business-openclaw.html">OpenClaw</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+    </div>
+    <p class="footer__copy">&copy; PLai Inc. ALL RIGHTS RESERVED.</p>
+  </div>
+</footer>
+
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script src="../js/gsap.min.js"></script>
+<script src="../js/custom.js?v=20260514a"></script>
+</body>
+</html>
