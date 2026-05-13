@@ -6,7 +6,7 @@ pages_build_output_dir = "."
 [[d1_databases]]
 binding = "DB"
 database_name = "plai-submissions"
-database_id = "REPLACE_WITH_D1_DATABASE_ID_FROM_DASHBOARD"
+database_id = "b1c48e5e-a60c-4e28-8867-6739b5d2965e"
 migrations_dir = "migrations"
 
 # Admin token for CSV export endpoint (also set in dashboard → Settings → Environment variables)
