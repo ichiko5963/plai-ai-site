@@ -1,2 +1,4 @@
 *.py
-*.mp4
+
+# mp4 allowed (compressed to <100MB), but exclude originals backup
+assets/_originals/*.mp4
