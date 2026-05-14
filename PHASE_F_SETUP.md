@@ -153,9 +153,27 @@ plai-new-site/
 
 ## 後で追加する場合
 
-### メール送信（実装済み）
+### メール送信（実装済み・Resend経由）
 
-`functions/api/subscribe.js` は MailChannels HTTP API を呼んで、フォーム送信完了時に **PDF ダウンロードリンク + 無料相談 CTA** を含むメールを自動配信する。
+> **2024年8月でMailChannels無料Workers統合は廃止**されたため、**Resend** に切替。
+> 無料枠 3,000通/月。送信ドメイン未認証なら `onboarding@resend.dev` から送信可。
+
+`functions/api/subscribe.js` は Resend HTTP API（`https://api.resend.com/emails`）を呼んで、フォーム送信完了時に **PDF ダウンロードリンク + 無料相談 CTA** を含むメールを自動配信する。
+
+#### Resend セットアップ（必須）
+
+1. **アカウント作成**: https://resend.com にアクセスして無料登録（メアド or GitHub）
+2. **API key 発行**: ログイン後 → API Keys → Create API Key（権限: Sending access）→ `re_xxxxxx` をコピー
+3. **Cloudflare Pages secret に登録**:
+```bash
+cd plai-new-site
+echo "re_YOUR_API_KEY_HERE" | npx wrangler pages secret put RESEND_API_KEY --project-name=plai-ai-site
+```
+4. **（任意）独自ドメイン認証**: より良いブランディング+送信制限緩和のため
+   - Resend ダッシュボード → Domains → Add Domain → `plai-ai.com`
+   - Resendが表示するDKIM/SPFレコードをCloudflare DNSに追加
+   - 認証完了後、Pages secret に `RESEND_FROM_VERIFIED=1` を追加
+   - これで送信元が `noreply@plai-ai.com` に切替（未設定だと `onboarding@resend.dev`）
 
 #### 配信内容
 

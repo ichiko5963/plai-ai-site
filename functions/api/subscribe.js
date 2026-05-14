@@ -91,34 +91,37 @@ async function sendGiftEmail(opts) {
     ({ subject, plain, html } = buildArticleEmail({ name, company, sourcePath }));
   }
 
-  // Build personalization, optionally with DKIM signing (improves deliverability)
-  const personalization = { to: [{ email, name }] };
-  if (env && env.DKIM_DOMAIN && env.DKIM_SELECTOR && env.DKIM_PRIVATE_KEY) {
-    personalization.dkim_domain = env.DKIM_DOMAIN;
-    personalization.dkim_selector = env.DKIM_SELECTOR;
-    personalization.dkim_private_key = env.DKIM_PRIVATE_KEY;
+  // Prefer Resend (3000/month free); fallback note: MailChannels free tier ended 2024-08
+  if (!env || !env.RESEND_API_KEY) {
+    throw new Error('resend_api_key_missing: set RESEND_API_KEY as Cloudflare Pages secret');
   }
 
+  // Use plai-ai.com once domain is verified in Resend dashboard; otherwise use onboarding@resend.dev
+  const fromAddr = env.RESEND_FROM_VERIFIED === '1'
+    ? `${FROM.name} <${FROM.email}>`
+    : `${FROM.name} <onboarding@resend.dev>`;
+
   const payload = {
-    personalizations: [personalization],
-    from: FROM,
-    reply_to: REPLY_TO,
+    from: fromAddr,
+    to: [`${name} <${email}>`],
+    reply_to: REPLY_TO.email,
     subject,
-    content: [
-      { type: 'text/plain', value: plain },
-      { type: 'text/html', value: html },
-    ],
+    html,
+    text: plain,
   };
 
-  const res = await fetch('https://api.mailchannels.net/tx/v1/send', {
+  const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+    },
     body: JSON.stringify(payload),
   });
 
   if (!res.ok) {
     const txt = await res.text();
-    throw new Error(`mailchannels_${res.status}: ${txt.slice(0, 200)}`);
+    throw new Error(`resend_${res.status}: ${txt.slice(0, 200)}`);
   }
 }
 
