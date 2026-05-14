@@ -3,3 +3,9 @@
 # mp4 allowed (compressed to <100MB), but exclude originals backup
 assets/_originals/*.mp4
 assets/video/
+
+# Newsletter drafts (本文に内部情報を含むためローカルのみ)
+scripts/newsletters/*.html
+scripts/newsletters/*.txt
+scripts/newsletters/*.md
+!scripts/newsletters/README.md
