@@ -15,7 +15,7 @@ export async function onRequestGet(context) {
   let rows;
   try {
     const { results } = await env.DB.prepare(
-      `SELECT id, email, name, company, position, gift_type, source_path, created_at, ip, user_agent
+      `SELECT id, email, name, company, position, gift_type, source_path, consent_newsletter, created_at, ip, user_agent
        FROM submissions
        ORDER BY created_at DESC`
     ).all();
@@ -34,7 +34,7 @@ export async function onRequestGet(context) {
   }
 
   // CSV
-  const columns = ['id', 'email', 'name', 'company', 'position', 'gift_type', 'source_path', 'created_at', 'ip', 'user_agent'];
+  const columns = ['id', 'email', 'name', 'company', 'position', 'gift_type', 'source_path', 'consent_newsletter', 'created_at', 'ip', 'user_agent'];
   const csv = [
     columns.join(','),
     ...rows.map(r => columns.map(c => csvEscape(r[c])).join(',')),

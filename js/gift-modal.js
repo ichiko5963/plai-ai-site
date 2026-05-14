@@ -82,12 +82,16 @@
             <input type="email" name="email" required maxlength="254" placeholder="info@example.com">
           </label>
           <label class="gift-modal__field">
-            <span>会社名・団体名</span>
-            <input type="text" name="company" maxlength="200" placeholder="株式会社○○">
+            <span>会社名・団体名 <em>必須</em></span>
+            <input type="text" name="company" required maxlength="200" placeholder="株式会社○○">
           </label>
           <label class="gift-modal__field">
-            <span>役職</span>
-            <input type="text" name="position" maxlength="100" placeholder="代表取締役 / マーケ担当 など">
+            <span>役職 <em>必須</em></span>
+            <input type="text" name="position" required maxlength="100" placeholder="代表取締役 / マーケ担当 など">
+          </label>
+          <label class="gift-modal__consent">
+            <input type="checkbox" name="consent_newsletter" required>
+            <span>今後 PLai からの無料イベント開催のご案内をメールで受け取ることに同意します <em>必須</em></span>
           </label>
           <p class="gift-modal__notice">いただいた情報は PLai のサービスに関するご案内のためのみに利用します。</p>
           <button type="submit" class="gift-modal__submit">
@@ -122,6 +126,7 @@
       email: form.email.value.trim(),
       company: form.company.value.trim(),
       position: form.position.value.trim(),
+      consent_newsletter: form.consent_newsletter.checked ? 1 : 0,
       gift_type: giftType,
       source_path: location.pathname + location.search,
     };
@@ -130,6 +135,9 @@
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
       showError(errEl, 'メールアドレスの形式が正しくありません'); return;
     }
+    if (!data.company) { showError(errEl, '会社名・団体名を入力してください'); return; }
+    if (!data.position) { showError(errEl, '役職を入力してください'); return; }
+    if (!data.consent_newsletter) { showError(errEl, '無料イベント案内の受信にご同意ください'); return; }
 
     submitBtn.disabled = true;
     submitBtn.textContent = '送信中…';

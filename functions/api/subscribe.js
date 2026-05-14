@@ -24,14 +24,16 @@ export async function onRequestPost(context) {
   const position  = (body.position  || '').trim();
   const giftType  = (body.gift_type || '').trim();
   const source    = (body.source_path || '').trim().slice(0, 255);
+  const consent   = body.consent_newsletter === 1 || body.consent_newsletter === true || body.consent_newsletter === '1' ? 1 : 0;
 
-  // Basic validation
-  if (!isValidEmail(email))       return jsonResponse({ ok: false, error: 'invalid_email' }, 400, allowedOrigin);
-  if (!name || name.length > 100) return jsonResponse({ ok: false, error: 'invalid_name' }, 400, allowedOrigin);
-  if (company.length > 200 || position.length > 100)
-                                  return jsonResponse({ ok: false, error: 'field_too_long' }, 400, allowedOrigin);
+  // Basic validation — all 4 user fields required + consent required
+  if (!isValidEmail(email))              return jsonResponse({ ok: false, error: 'invalid_email' }, 400, allowedOrigin);
+  if (!name || name.length > 100)        return jsonResponse({ ok: false, error: 'invalid_name' }, 400, allowedOrigin);
+  if (!company || company.length > 200)  return jsonResponse({ ok: false, error: 'invalid_company' }, 400, allowedOrigin);
+  if (!position || position.length > 100) return jsonResponse({ ok: false, error: 'invalid_position' }, 400, allowedOrigin);
+  if (consent !== 1)                     return jsonResponse({ ok: false, error: 'consent_required' }, 400, allowedOrigin);
   if (!['article_continue', 'obsidian_vault'].includes(giftType))
-                                  return jsonResponse({ ok: false, error: 'invalid_gift_type' }, 400, allowedOrigin);
+                                         return jsonResponse({ ok: false, error: 'invalid_gift_type' }, 400, allowedOrigin);
 
   const id = crypto.randomUUID();
   const ip = request.headers.get('CF-Connecting-IP') || '';
@@ -39,9 +41,9 @@ export async function onRequestPost(context) {
 
   try {
     await env.DB.prepare(
-      `INSERT INTO submissions (id, email, name, company, position, gift_type, source_path, ip, user_agent)
-       VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9)`
-    ).bind(id, email, name, company || null, position || null, giftType, source || null, ip || null, ua || null).run();
+      `INSERT INTO submissions (id, email, name, company, position, gift_type, source_path, ip, user_agent, consent_newsletter)
+       VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)`
+    ).bind(id, email, name, company, position, giftType, source || null, ip || null, ua || null, consent).run();
   } catch (e) {
     return jsonResponse({ ok: false, error: 'db_error', detail: String(e).slice(0, 200) }, 500, allowedOrigin);
   }

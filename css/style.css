@@ -3716,6 +3716,24 @@ ul, ol {
 .gift-card__cta:hover { transform: translateY(-2px); background: #f7a85a; color: #fff; }
 .gift-card__cta.gift-trigger--unlocked::after { content: ' ✓'; color: #16a34a; }
 
+/* Banner variant — full-width image as the card body */
+.gift-card--banner { padding: 0; overflow: hidden; gap: 0; }
+.gift-card--banner .gift-card__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1672 / 941;
+  object-fit: cover;
+}
+.gift-card--banner .gift-card__cta {
+  margin: 0;
+  width: 100%;
+  border-radius: 0;
+  padding: 20px;
+  font-size: 1.5rem;
+}
+.gift-card--banner:hover .gift-card__image { transform: none; }
+
 @media screen and (max-width: 768px) {
   .gift-section { padding: 64px 16px; }
   .gift-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -3834,6 +3852,37 @@ ul, ol {
   color: #9999a8;
   line-height: 1.7;
   margin: 4px 0 4px;
+}
+.gift-modal__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(155, 140, 255, 0.06);
+  border: 1px solid rgba(155, 140, 255, 0.18);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-top: 6px;
+  cursor: pointer;
+}
+.gift-modal__consent input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: #6b46c1;
+  cursor: pointer;
+}
+.gift-modal__consent > span {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #1a1a2e;
+}
+.gift-modal__consent em {
+  font-style: normal;
+  font-size: 0.85em;
+  color: #f7a85a;
+  font-weight: 600;
+  margin-left: 4px;
 }
 .gift-modal__submit {
   display: block;
