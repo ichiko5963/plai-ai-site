@@ -153,8 +153,76 @@ plai-new-site/
 
 ## 後で追加する場合
 
-### メール送信を追加するなら
-`functions/api/subscribe.js` の最後に MailChannels HTTP API（`https://api.mailchannels.net/tx/v1/send`）を fetch で叩く処理を追加。確認メールを送りたいなら専用エンドポイントを別途追加。
+### メール送信（実装済み）
+
+`functions/api/subscribe.js` は MailChannels HTTP API を呼んで、フォーム送信完了時に **PDF ダウンロードリンク + 無料相談 CTA** を含むメールを自動配信する。
+
+#### 配信内容
+
+| gift_type | 件名 | 本文の主内容 |
+|---|---|---|
+| `obsidian_vault` | 【PLai】Obsidian Vault テンプレートをお届けします | PDF (19MB) + HTML版リンク + 無料相談ボタン |
+| `article_continue` | 【PLai】記事の続き＆過去記事一覧をお届けします | 全3記事のWeb版+PDF版リンク（読んでた記事に ★） + 無料相談ボタン |
+
+送信元: `noreply@plai-ai.com`（plai-ai.com 上の任意のローカルパート、実在不要）
+返信先: `jiuhuot10@gmail.com`
+
+#### MailChannels DNS設定（**必須・手動**）
+
+Cloudflare Pages Functions から MailChannels API を使うには、DNS に 3 種類のレコードを追加する必要がある。
+全て Cloudflare ダッシュボード → plai-ai.com → DNS → Records から追加できる。
+
+##### ① ドメインロックダウン（必須・これがないと全部失敗）
+
+| Type | Name | Content | TTL |
+|------|------|---------|-----|
+| TXT | `_mailchannels` | `v=mc1 cfid=f14850d872cc625d7dc3a2f7354c1256` | Auto |
+
+これがないと `Domain Lockdown` エラーで送信不可。Cloudflare account_id は `f14850d872cc625d7dc3a2f7354c1256`（ダッシュボード URL に含まれる）。
+
+##### ② SPF レコード（既存レコードがある場合は include を追加）
+
+| Type | Name | Content | TTL |
+|------|------|---------|-----|
+| TXT | `@`（plai-ai.com） | `v=spf1 include:relay.mailchannels.net ~all` | Auto |
+
+既に SPF レコードがある場合は、`include:relay.mailchannels.net` を含むよう更新する（複数 SPF レコードは作らない、1 つにまとめる）。
+
+##### ③ DKIM（迷惑メールフォルダ回避のため強く推奨）
+
+1. ローカルで秘密鍵・公開鍵を生成:
+```bash
+openssl genrsa 2048 | tee priv_key.pem | openssl rsa -outform der | openssl base64 -A > priv_key.txt
+echo -n 'v=DKIM1;p=' > pub_key_record.txt
+openssl rsa -in priv_key.pem -pubout -outform der | openssl base64 -A >> pub_key_record.txt
+```
+
+2. `pub_key_record.txt` の内容を DNS に追加:
+
+| Type | Name | Content | TTL |
+|------|------|---------|-----|
+| TXT | `mailchannels._domainkey` | （`pub_key_record.txt` の中身） | Auto |
+
+3. `priv_key.txt` の中身を Cloudflare Pages 環境変数に追加:
+
+Dashboard → Pages → plai-ai-site → Settings → Environment variables → Production
+- `DKIM_PRIVATE_KEY` = priv_key.txt の中身（Encrypted）
+- `DKIM_DOMAIN` = `plai-ai.com`
+- `DKIM_SELECTOR` = `mailchannels`
+
+4. `functions/api/subscribe.js` 側で DKIM 署名を payload に追加（任意機能、未実装。要追加実装）。
+
+> **最低限の運用**: ① _mailchannels TXT だけは必須。② SPF と ③ DKIM は迷惑メール対策。本番運用に入る前に全部設定推奨。
+
+#### 動作確認
+
+DNS 反映後（数分〜30分）、フォーム送信して受信箱を確認。
+迷惑メールフォルダに入る場合は SPF/DKIM が未設定。
+
+#### トラブルシュート
+- `mailchannels_403: Domain Lockdown` → ① _mailchannels TXT が未設定 or 反映待ち
+- メールが届かない → 迷惑メールフォルダ確認、SPF/DKIM 設定
+- subscribe レスポンスに `email_sent: false` → MailChannels API エラー、`email_error` 詳細確認
 
 ### ダブルオプトインに切り替える
 - subscribe.js で `confirmed_at` カラムを追加 + 確認トークン生成 + メールリンク送信

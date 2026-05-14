@@ -3976,3 +3976,15 @@ ul, ol {
 .article-gated { display: none; }
 .article-gated--revealed { display: block; }
 .article-gate--hidden { display: none; }
+
+/* PRINT mode: 印刷/PDF生成時は gate を外して全文を出す。ナビとgift-sectionは非表示 */
+@media print {
+  .article-gated { display: block !important; }
+  .article-gate { display: none !important; }
+  .p-header, .p-menu, .opening, .gift-section, .article-cta, footer.footer { display: none !important; }
+  body { background: #fff !important; }
+  .article-hero { padding: 40px 60px 30px !important; }
+  .article-hero__cover { padding: 0 60px !important; margin-bottom: 30px !important; }
+  .article-body { padding: 0 60px 40px !important; max-width: 100% !important; }
+  .article-body h2 { page-break-after: avoid; }
+}
