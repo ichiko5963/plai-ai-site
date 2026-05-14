@@ -49,7 +49,7 @@ export async function onRequestPost(context) {
   let emailSent = false;
   let emailError = null;
   try {
-    await sendGiftEmail({ email, name, company, position, giftType, sourcePath: source });
+    await sendGiftEmail({ email, name, company, position, giftType, sourcePath: source, env });
     emailSent = true;
   } catch (e) {
     emailError = String(e).slice(0, 200);
@@ -82,7 +82,7 @@ const FROM = { email: 'noreply@plai-ai.com', name: '株式会社PLai' };
 const REPLY_TO = { email: 'jiuhuot10@gmail.com', name: '株式会社PLai' };
 
 async function sendGiftEmail(opts) {
-  const { email, name, company, giftType, sourcePath } = opts;
+  const { email, name, company, giftType, sourcePath, env } = opts;
 
   let subject, plain, html;
   if (giftType === 'obsidian_vault') {
@@ -91,8 +91,16 @@ async function sendGiftEmail(opts) {
     ({ subject, plain, html } = buildArticleEmail({ name, company, sourcePath }));
   }
 
+  // Build personalization, optionally with DKIM signing (improves deliverability)
+  const personalization = { to: [{ email, name }] };
+  if (env && env.DKIM_DOMAIN && env.DKIM_SELECTOR && env.DKIM_PRIVATE_KEY) {
+    personalization.dkim_domain = env.DKIM_DOMAIN;
+    personalization.dkim_selector = env.DKIM_SELECTOR;
+    personalization.dkim_private_key = env.DKIM_PRIVATE_KEY;
+  }
+
   const payload = {
-    personalizations: [{ to: [{ email, name }] }],
+    personalizations: [personalization],
     from: FROM,
     reply_to: REPLY_TO,
     subject,
