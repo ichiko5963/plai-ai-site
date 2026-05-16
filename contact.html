@@ -117,12 +117,8 @@
     <section class="sub-section" id="contact-form">
       <p class="sub-section__label">CONTACT FORM</p>
       <h2 class="sub-section__title">お問い合わせ</h2>
-      <form action="https://formsubmit.co/jiuhuot10@gmail.com" method="POST" class="contact-form">
-        <input type="hidden" name="_subject" value="【PLai HP】新規お問い合わせ">
-        <input type="hidden" name="_captcha" value="true">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://plai-ai.com/contact.html?sent=1">
-        <input type="text" name="_honey" style="display:none">
+      <form id="contactForm" class="contact-form" novalidate>
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
 
         <div class="contact-form__group">
           <label class="contact-form__label" for="name">お名前 <span class="contact-form__required">REQUIRED</span></label>
@@ -277,7 +273,8 @@
         </div>
 
         <div class="contact-form__group" style="text-align:center; margin-top:40px;">
-          <button type="submit" class="contact-form__submit">送信する</button>
+          <button type="submit" class="contact-form__submit" id="contactSubmit">送信する</button>
+          <p id="contactError" style="display:none; margin-top:16px; color:#c0392b; font-size:1.3rem;"></p>
         </div>
       </form>
       <div id="sent-message" style="display:none; text-align:center; padding:56px 40px; background:var(--white); border:1px solid rgba(155,140,255,0.12); border-radius:24px; box-shadow:0 4px 40px rgba(0,0,0,0.03); max-width:720px; margin:0 auto;">
@@ -444,11 +441,94 @@
   var dates=document.querySelectorAll('.datetime-picker__date');
   dates.forEach(function(el){el.min=fmt(minDate);el.max=fmt(maxDate);});
 })();
-if(window.location.search.includes('sent=1')){
-  document.querySelector('.contact-form').style.display='none';
-  document.getElementById('sent-message').style.display='block';
-  window.scrollTo({top:document.getElementById('contact-form').offsetTop-80,behavior:'smooth'});
-}
+
+// Submit contact form via /api/contact (saves to D1 + emails jiuhuot10@gmail.com)
+(function(){
+  var form = document.getElementById('contactForm');
+  if (!form) return;
+  var submitBtn = document.getElementById('contactSubmit');
+  var errorEl = document.getElementById('contactError');
+  var sentEl = document.getElementById('sent-message');
+
+  function showError(msg){
+    errorEl.textContent = msg;
+    errorEl.style.display = 'block';
+  }
+  function clearError(){
+    errorEl.textContent = '';
+    errorEl.style.display = 'none';
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    clearError();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    var fd = new FormData(form);
+    var services = fd.getAll('ご相談事業').map(String);
+    if (services.length === 0) {
+      showError('ご相談の事業を1つ以上選択してください。');
+      return;
+    }
+
+    var slots = [];
+    for (var i = 1; i <= 5; i++) {
+      var d = fd.get('候補日時' + i + '_日付');
+      var t = fd.get('候補日時' + i + '_時間');
+      if (d && t) slots.push(d + ' ' + t);
+    }
+    if (slots.length < 3) {
+      showError('初回面談の候補日時を3件以上ご入力ください。');
+      return;
+    }
+
+    var payload = {
+      name: fd.get('お名前') || '',
+      company: fd.get('会社名') || '',
+      email: fd.get('メールアドレス') || '',
+      phone: fd.get('電話番号') || '',
+      services: services,
+      budget: fd.get('ご予算') || '',
+      message: fd.get('お問い合わせ内容') || '',
+      candidate_slots: slots,
+      _honey: fd.get('_honey') || ''
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送信中…';
+
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload)
+    })
+    .then(function(res){ return res.json().then(function(j){ return {ok: res.ok, body: j}; }); })
+    .then(function(r){
+      if (!r.ok || !r.body || r.body.ok !== true) {
+        var err = r.body && r.body.error ? r.body.error : 'send_failed';
+        throw new Error(err);
+      }
+      form.style.display = 'none';
+      sentEl.style.display = 'block';
+      window.scrollTo({top: document.getElementById('contact-form').offsetTop - 80, behavior: 'smooth'});
+    })
+    .catch(function(err){
+      submitBtn.disabled = false;
+      submitBtn.textContent = '送信する';
+      showError('送信に失敗しました。お手数ですが直接 jiuhuot10@gmail.com までご連絡ください。(' + (err && err.message ? err.message : 'error') + ')');
+    });
+  });
+
+  // Backwards-compat: legacy ?sent=1 URL still shows confirmation
+  if (window.location.search.indexOf('sent=1') !== -1) {
+    form.style.display = 'none';
+    sentEl.style.display = 'block';
+  }
+})();
 </script>
 </body>
 </html>

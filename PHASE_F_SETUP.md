@@ -246,3 +246,72 @@ DNS 反映後（数分〜30分）、フォーム送信して受信箱を確認�
 - subscribe.js で `confirmed_at` カラムを追加 + 確認トークン生成 + メールリンク送信
 - 別エンドポイント `/api/confirm?token=XXX` で `confirmed_at` を更新
 - gift-modal.js のレスポンス分岐を「確認メール送信済み」表示に
+
+---
+
+## お問い合わせフォーム（contact.html）
+
+`contact.html` の問い合わせも D1 + Resend 構成で動く。フローは以下：
+
+```
+contact.html フォーム送信
+   ↓ fetch POST application/json
+/api/contact (functions/api/contact.js)
+   ↓
+D1 contacts テーブルへ INSERT
+   ↓
+Resend で jiuhuot10@gmail.com に通知メール (Reply-To = 問い合わせ者)
+   ↓
+問い合わせ者にお礼の自動返信メール
+   ↓
+管理者: GET /api/export?token=XXX&type=contacts&format=csv で一覧ダウンロード
+```
+
+### マイグレーション適用
+
+```bash
+cd plai-new-site
+
+# ローカル D1 に適用（開発・テスト用）
+npx wrangler d1 migrations apply plai-submissions --local
+
+# 本番 D1 に適用 (0004_add_contacts.sql が走る)
+npx wrangler d1 migrations apply plai-submissions --remote
+```
+
+### 必要な環境変数 (Cloudflare Pages → Settings → Environment variables → Production)
+
+| Variable | 値 | 型 |
+|---|---|---|
+| `RESEND_API_KEY` | `re_xxxx`（subscribe で既に設定済みなら共用） | Encrypted |
+| `RESEND_FROM_VERIFIED` | `1`（plai-ai.com を Resend で認証済みの場合）/ 未設定で `onboarding@resend.dev` 送信 | Plaintext |
+| `EXPORT_TOKEN` | エクスポート用秘密トークン（既存と共用） | Encrypted |
+
+### 問い合わせ一覧の取得
+
+```bash
+# CSV
+curl "https://plai-ai.com/api/export?token=YOUR_TOKEN&type=contacts&format=csv" -o plai-contacts.csv
+
+# JSON
+curl "https://plai-ai.com/api/export?token=YOUR_TOKEN&type=contacts&format=json"
+
+# D1 直接 SQL
+npx wrangler d1 execute plai-submissions --remote \
+  --command "SELECT id, name, company, email, created_at FROM contacts ORDER BY created_at DESC LIMIT 20"
+```
+
+### 動作確認チェックリスト
+
+- [ ] `/contact.html` で送信 → ブラウザに「送信が完了しました」表示
+- [ ] `jiuhuot10@gmail.com` に「【PLai HP】新規お問い合わせ: 名前 / 会社名」件名のメールが届く
+- [ ] そのメールに「返信」するとフォーム入力者のメールアドレス宛に飛ぶ (Reply-To)
+- [ ] 問い合わせ者にも「お問い合わせを受け付けました」自動返信が届く
+- [ ] D1 `contacts` テーブルに 1 行追加されている
+
+### トラブルシュート
+
+- 送信ボタン押下後にエラー表示 → DevTools Network タブで `/api/contact` のレスポンスを確認
+- `db_error` → `wrangler.toml` の `database_id` と Pages の D1 binding が一致しているか、`contacts` テーブルが migrate 済みか
+- 通知メールが届かない → Resend ダッシュボード → Logs を確認 / `RESEND_API_KEY` が Production secret に登録されているか
+- 迷惑メールに入る → Resend で `plai-ai.com` ドメイン認証 (DKIM/SPF) を済ませ、`RESEND_FROM_VERIFIED=1` を Production env var に設定
