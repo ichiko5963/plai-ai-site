@@ -57,6 +57,16 @@ export async function onRequestPost(context) {
     console.log('mailchannels_error', emailError);
   }
 
+  // Admin notification (best-effort) — alert jiuhuot10@gmail.com so leads are never missed
+  try {
+    await sendAdminNotification({
+      email, name, company, position, giftType,
+      sourcePath: source, consent, ip, env,
+    });
+  } catch (e) {
+    console.log('admin_notify_error', String(e).slice(0, 200));
+  }
+
   return jsonResponse({
     ok: true,
     submission_id: id,
@@ -96,10 +106,7 @@ async function sendGiftEmail(opts) {
     throw new Error('resend_api_key_missing: set RESEND_API_KEY as Cloudflare Pages secret');
   }
 
-  // Use plai-ai.com once domain is verified in Resend dashboard; otherwise use onboarding@resend.dev
-  const fromAddr = env.RESEND_FROM_VERIFIED === '1'
-    ? `${FROM.name} <${FROM.email}>`
-    : `${FROM.name} <onboarding@resend.dev>`;
+  const fromAddr = getFromAddr(env);
 
   const payload = {
     from: fromAddr,
@@ -123,6 +130,65 @@ async function sendGiftEmail(opts) {
     const txt = await res.text();
     throw new Error(`resend_${res.status}: ${txt.slice(0, 200)}`);
   }
+}
+
+async function sendAdminNotification(opts) {
+  const { email, name, company, position, giftType, sourcePath, consent, ip, env } = opts;
+
+  if (!env || !env.RESEND_API_KEY) {
+    throw new Error('resend_api_key_missing');
+  }
+
+  const fromAddr = getFromAddr(env);
+  const subject = `【PLai HP】NEW LEAD: ${name} / ${company} (${giftType})`;
+
+  const text = [
+    `新規ギフト受取がありました`,
+    ``,
+    `名前:         ${name}`,
+    `会社:         ${company}`,
+    `役職:         ${position}`,
+    `メール:       ${email}`,
+    `ギフト種別:   ${giftType}`,
+    `ソースページ: ${sourcePath || '(unknown)'}`,
+    `メルマガ同意: ${consent === 1 ? 'はい' : 'いいえ'}`,
+    `IP:           ${ip || '(unknown)'}`,
+    `登録時刻:     ${new Date().toISOString()}`,
+    ``,
+    `------------------------------------------------------------`,
+    ``,
+    `→ 返信はこの相手に直接: ${email}`,
+    `→ D1で全情報を確認:`,
+    `   wrangler d1 execute plai-submissions --remote --command "SELECT * FROM submissions WHERE email='${email}'"`,
+  ].join('\n');
+
+  const payload = {
+    from: fromAddr,
+    to: ['jiuhuot10@gmail.com'],
+    reply_to: email,
+    subject,
+    text,
+  };
+
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!res.ok) {
+    const txt = await res.text();
+    throw new Error(`resend_admin_${res.status}: ${txt.slice(0, 200)}`);
+  }
+}
+
+function getFromAddr(env) {
+  return env.RESEND_FROM_VERIFIED === '1'
+    ? `${FROM.name} <${FROM.email}>`
+    : `${FROM.name} <onboarding@resend.dev>`;
 }
 
 function buildVaultEmail({ name, company }) {
