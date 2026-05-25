@@ -26,6 +26,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/style.css?v=20260513b">
+<style>
+  /* business-knowledge 専用の補助スタイル（モバイル対応） */
+  @media (max-width: 820px) {
+    .bk-grid-2 { grid-template-columns: 1fr !important; }
+    .bk-grid-3 { grid-template-columns: 1fr !important; }
+    .bk-pricing-grid { grid-template-columns: 1fr !important; }
+    .bk-pricing-recommend { transform: none !important; }
+    .bk-process-step { gap: 16px !important; }
+    .bk-process-num { width: 56px !important; height: 56px !important; font-size: 1.3em !important; }
+    .bk-process-line { left: 27px !important; }
+    .bk-hero-banner { height: 200px !important; }
+    .bk-hero-overlay { padding: 0 24px !important; }
+    .bk-hero-overlay h3 { font-size: 1.1em !important; }
+    .bk-timeline-card { padding: 24px 18px !important; }
+  }
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -271,51 +287,76 @@
   <section class="sub-section js-enter">
     <p class="sub-section__label">PROCESS</p>
     <h2 class="sub-section__title">構築の進め方｜6ステップ</h2>
-    <p style="max-width:780px;margin:0 auto 48px;text-align:center;color:#555;line-height:1.8;">ヒアリングから検収・伴走移行まで、すべての工程を見える化。<br>各ステップで「次に何が起こるか」を事前に共有し、進行中も判定可能な状態を維持します。</p>
+    <p style="max-width:780px;margin:0 auto 40px;text-align:center;color:#555;line-height:1.8;">ヒアリングから研修・達成判定・伴走移行まで、すべての工程を見える化。<br>各ステップで「次に何が起こるか」を事前に共有し、進行中も判定可能な状態を維持します。</p>
 
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">STEP 01</p>
-          <h3 class="feature-card__title">無料ヒアリング・要件定義</h3>
-          <p class="feature-card__text">業務領域・現状の課題・受講者・ゴールイメージを伺い、対象スコープを言語化。プラン選定とお見積もりまで無料で実施します。</p>
+    <div style="max-width:960px;margin:0 auto 56px;border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.08);position:relative;">
+      <img class="bk-hero-banner" src="https://images.unsplash.com/photo-1758518731706-be5d5230e5a5?w=1400&q=80&auto=format&fit=crop" alt="構築プロセスのチームワーク" style="width:100%;height:260px;object-fit:cover;display:block;">
+      <div class="bk-hero-overlay" style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(31,78,121,.85) 0%,rgba(46,117,182,.4) 60%,transparent 100%);display:flex;align-items:center;padding:0 48px;">
+        <div style="color:#fff;max-width:480px;">
+          <p style="margin:0 0 8px;font-size:0.72em;letter-spacing:0.15em;font-weight:700;color:#fbbf24;">YOUR PROJECT, OUR PROCESS</p>
+          <h3 style="margin:0 0 6px;font-size:1.4em;line-height:1.5;">全ステップで「次に何が起こるか」が分かる進行体制</h3>
+          <p style="margin:0;font-size:0.92em;line-height:1.7;color:#dbeafe;">面談 → 設計 → 構築 → 研修 → 達成判定 → 伴走、すべて見える化。</p>
         </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">STEP 02</p>
-          <h3 class="feature-card__title">ゴール判定シートの設計</h3>
-          <p class="feature-card__text">貴社業務に合わせた操作タスクへ分解し、判定基準を明文化。検収条件として契約書に別添で紐付け、「完了」の定義を契約段階で合意します。</p>
+    </div>
+
+    <div style="max-width:920px;margin:0 auto;position:relative;">
+      <div class="bk-process-line" style="position:absolute;left:39px;top:24px;bottom:24px;width:2px;background:linear-gradient(180deg,#2E75B6 0%,#1F4E79 100%);z-index:0;"></div>
+
+      <div class="bk-process-step" style="position:relative;display:flex;gap:28px;align-items:flex-start;padding:24px 0;z-index:1;">
+        <div class="bk-process-num" style="flex-shrink:0;width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#2E75B6 0%,#1F4E79 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.8em;font-weight:700;font-family:'Poppins',sans-serif;box-shadow:0 6px 16px rgba(31,78,121,.25);">01</div>
+        <div style="flex:1;padding-top:6px;">
+          <p style="margin:0 0 4px;font-size:0.72em;letter-spacing:0.15em;color:#888;font-weight:600;">STEP 01 — KICK OFF</p>
+          <h3 style="margin:0 0 10px;font-size:1.2em;color:#1F4E79;">無料ヒアリング・要件定義</h3>
+          <p style="margin:0;color:#555;line-height:1.85;">業務領域・現状の課題・受講者・ゴールイメージを伺い、対象スコープを言語化。プラン選定とお見積もりまで無料で実施します。「相談してみるだけ」でも全く問題ありません。</p>
         </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">STEP 03</p>
-          <h3 class="feature-card__title">ナレッジ基盤の構築</h3>
-          <p class="feature-card__text">Obsidian Vault のフォルダ階層・命名規則・_RULE.md を貴社専用に設計し、既存資料・議事録・マニュアル等を Markdown 化して流し込みます。</p>
+
+      <div style="position:relative;display:flex;gap:28px;align-items:flex-start;padding:24px 0;z-index:1;">
+        <div style="flex-shrink:0;width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#2E75B6 0%,#1F4E79 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.8em;font-weight:700;font-family:'Poppins',sans-serif;box-shadow:0 6px 16px rgba(31,78,121,.25);">02</div>
+        <div style="flex:1;padding-top:6px;">
+          <p style="margin:0 0 4px;font-size:0.72em;letter-spacing:0.15em;color:#888;font-weight:600;">STEP 02 — GOAL DESIGN</p>
+          <h3 style="margin:0 0 10px;font-size:1.2em;color:#1F4E79;">ゴール判定シートの設計</h3>
+          <p style="margin:0;color:#555;line-height:1.85;">貴社業務に合わせた操作タスクへ分解し、達成基準を明文化。契約書の別添として紐付け、「研修ゴール＝何ができたら完了か」を契約段階で合意します。</p>
         </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">STEP 04</p>
-          <h3 class="feature-card__title">AI連携・コンテキスト設計</h3>
-          <p class="feature-card__text">CLAUDE.md／プロジェクトメモリを設計し、Claude Code・Codex・ChatGPT等から貴社ナレッジを参照しながら作業依頼できる状態を構築します。</p>
+
+      <div style="position:relative;display:flex;gap:28px;align-items:flex-start;padding:24px 0;z-index:1;">
+        <div style="flex-shrink:0;width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#2E75B6 0%,#1F4E79 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.8em;font-weight:700;font-family:'Poppins',sans-serif;box-shadow:0 6px 16px rgba(31,78,121,.25);">03</div>
+        <div style="flex:1;padding-top:6px;">
+          <p style="margin:0 0 4px;font-size:0.72em;letter-spacing:0.15em;color:#888;font-weight:600;">STEP 03 — BUILD</p>
+          <h3 style="margin:0 0 10px;font-size:1.2em;color:#1F4E79;">ナレッジ基盤の構築</h3>
+          <p style="margin:0;color:#555;line-height:1.85;">Obsidian Vault のフォルダ階層・命名規則・_RULE.md を貴社専用に設計し、既存資料・議事録・マニュアル等を Markdown 化して流し込みます。</p>
         </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">STEP 05</p>
-          <h3 class="feature-card__title">受講者トレーニング・伴走</h3>
-          <p class="feature-card__text">隔週60分のグループセッション（1対3形式）＋Chatwork窓口で常時質問対応。判定シートを埋めながら受講者が独立運用できる状態へ。</p>
+
+      <div style="position:relative;display:flex;gap:28px;align-items:flex-start;padding:24px 0;z-index:1;">
+        <div style="flex-shrink:0;width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#2E75B6 0%,#1F4E79 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.8em;font-weight:700;font-family:'Poppins',sans-serif;box-shadow:0 6px 16px rgba(31,78,121,.25);">04</div>
+        <div style="flex:1;padding-top:6px;">
+          <p style="margin:0 0 4px;font-size:0.72em;letter-spacing:0.15em;color:#888;font-weight:600;">STEP 04 — AI INTEGRATION</p>
+          <h3 style="margin:0 0 10px;font-size:1.2em;color:#1F4E79;">AI連携・コンテキスト設計</h3>
+          <p style="margin:0;color:#555;line-height:1.85;">CLAUDE.md／プロジェクトメモリを設計し、Claude Code・Codex・ChatGPT 等から貴社ナレッジを参照しながら作業依頼できる状態を構築します。</p>
         </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">STEP 06</p>
-          <h3 class="feature-card__title">検収・3ヶ月伴走フォロー</h3>
-          <p class="feature-card__text">判定シートの達成率80%以上で検収完了。その後3ヶ月の伴走フォローでナレッジを実務に定着させ、運用ハビットを組織に根付かせます。</p>
+
+      <div style="position:relative;display:flex;gap:28px;align-items:flex-start;padding:24px 0;z-index:1;">
+        <div style="flex-shrink:0;width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#10b981 0%,#059669 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.8em;font-weight:700;font-family:'Poppins',sans-serif;box-shadow:0 6px 16px rgba(5,150,105,.25);">05</div>
+        <div style="flex:1;padding-top:6px;">
+          <p style="margin:0 0 4px;font-size:0.72em;letter-spacing:0.15em;color:#888;font-weight:600;">STEP 05 — TRAINING</p>
+          <h3 style="margin:0 0 10px;font-size:1.2em;color:#059669;">受講者研修（メインフェーズ）</h3>
+          <p style="margin:0;color:#555;line-height:1.85;">隔週60分のグループ研修＋Chatwork窓口で常時質問対応。受講者の人数・形式（個別／グループ）は貴社に合わせて調整。判定シートを埋めながら受講者が独立運用できる状態へ。</p>
         </div>
       </div>
+
+      <div style="position:relative;display:flex;gap:28px;align-items:flex-start;padding:24px 0;z-index:1;">
+        <div style="flex-shrink:0;width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#d97706 0%,#92400e 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.8em;font-weight:700;font-family:'Poppins',sans-serif;box-shadow:0 6px 16px rgba(146,64,14,.25);">06</div>
+        <div style="flex:1;padding-top:6px;">
+          <p style="margin:0 0 4px;font-size:0.72em;letter-spacing:0.15em;color:#888;font-weight:600;">STEP 06 — FOLLOW UP</p>
+          <h3 style="margin:0 0 10px;font-size:1.2em;color:#92400e;">達成判定＆3ヶ月伴走フォロー</h3>
+          <p style="margin:0;color:#555;line-height:1.85;">判定シート達成率80%以上で研修完了 → 検収手続き。その後 3ヶ月の伴走フォローでナレッジを実務に定着させ、運用ハビットを組織に根付かせます。</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -323,53 +364,88 @@
   <section class="sub-section js-enter">
     <p class="sub-section__label">TIMELINE</p>
     <h2 class="sub-section__title">スケジュール感｜標準で約4〜6ヶ月</h2>
-    <p style="max-width:780px;margin:0 auto 16px;text-align:center;color:#555;line-height:1.8;">構築フェーズ（約2ヶ月）＋検収＋3ヶ月伴走の合計で、4〜6ヶ月の標準モデル。<br>業務領域数・受講者数・既存ナレッジの整備状況に応じてLIGHT／STANDARD／PREMIUMから選定します。</p>
+    <p style="max-width:780px;margin:0 auto 16px;text-align:center;color:#555;line-height:1.8;">構築フェーズ（約2ヶ月）＋研修（約1ヶ月）＋3ヶ月伴走の合計で、4〜6ヶ月の標準モデル。<br>業務領域数・受講者数・既存ナレッジの整備状況に応じてLIGHT／STANDARD／PREMIUMから選定します。</p>
     <p style="max-width:780px;margin:0 auto 48px;text-align:center;color:#888;font-size:0.9em;line-height:1.7;">※タイトな進行・段階導入・別部署への横展開なども面談で個別調整可能です。</p>
 
-    <div style="max-width:920px;margin:0 auto;">
-      <div style="display:flex;flex-direction:column;gap:16px;">
+    <div style="max-width:960px;margin:0 auto;background:#fff;padding:36px 36px 32px;border-radius:14px;border:1px solid #e6e6e6;box-shadow:0 4px 20px rgba(0,0,0,.04);overflow-x:auto;">
 
-        <div style="display:flex;gap:24px;align-items:flex-start;padding:24px 28px;background:#f8fafc;border-radius:10px;border-left:4px solid #2E75B6;">
-          <div style="min-width:120px;font-weight:700;color:#1F4E79;font-size:0.95em;letter-spacing:0.05em;">Week 0</div>
-          <div>
-            <h4 style="margin:0 0 6px;color:#1F4E79;font-size:1.05em;">キックオフ・契約締結</h4>
-            <p style="margin:0;color:#444;line-height:1.7;">無料ヒアリング → お見積もり → 業務委託契約書締結 → ゴール判定シートの初版確定。Chatworkグループの開設も同時に行います。</p>
-          </div>
+      <div style="min-width:640px;">
+        <div style="position:relative;height:22px;margin-bottom:14px;font-family:'Poppins',sans-serif;">
+          <span style="position:absolute;left:0%;font-size:0.72em;color:#888;font-weight:600;letter-spacing:0.05em;">Week 0</span>
+          <span style="position:absolute;left:21.7%;font-size:0.72em;color:#888;font-weight:600;letter-spacing:0.05em;transform:translateX(-50%);">Week 5</span>
+          <span style="position:absolute;left:43.5%;font-size:0.72em;color:#888;font-weight:600;letter-spacing:0.05em;transform:translateX(-50%);">Week 10</span>
+          <span style="position:absolute;left:65.2%;font-size:0.72em;color:#888;font-weight:600;letter-spacing:0.05em;transform:translateX(-50%);">Week 15</span>
+          <span style="position:absolute;right:0%;font-size:0.72em;color:#888;font-weight:600;letter-spacing:0.05em;">Week 22</span>
         </div>
 
-        <div style="display:flex;gap:24px;align-items:flex-start;padding:24px 28px;background:#f8fafc;border-radius:10px;border-left:4px solid #2E75B6;">
-          <div style="min-width:120px;font-weight:700;color:#1F4E79;font-size:0.95em;letter-spacing:0.05em;">Week 1〜4</div>
-          <div>
-            <h4 style="margin:0 0 6px;color:#1F4E79;font-size:1.05em;">ナレッジ基盤の構築フェーズ</h4>
-            <p style="margin:0;color:#444;line-height:1.7;">Obsidian Vault 設計、フォルダ階層・命名規則の確定、既存資料の Markdown 化と流し込み、AI連携用 CLAUDE.md／プロジェクトメモリの設計を進めます。</p>
+        <div style="position:relative;background:linear-gradient(180deg,#fafbfc 0%,#f5f7fa 100%);border-radius:10px;padding:14px 10px;">
+
+          <div style="position:relative;height:38px;margin-bottom:8px;">
+            <div style="position:absolute;left:0%;width:4.3%;height:100%;background:linear-gradient(135deg,#94a3b8,#64748b);border-radius:5px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.68em;font-weight:700;box-shadow:0 2px 4px rgba(0,0,0,.08);">W0</div>
+            <div style="position:absolute;left:6.3%;top:50%;transform:translateY(-50%);font-size:0.78em;color:#475569;font-weight:600;white-space:nowrap;">キックオフ・契約締結</div>
           </div>
+
+          <div style="position:relative;height:38px;margin-bottom:8px;">
+            <div style="position:absolute;left:4.3%;width:17.4%;height:100%;background:linear-gradient(135deg,#2E75B6,#1F4E79);border-radius:5px;display:flex;align-items:center;padding-left:14px;color:#fff;font-size:0.8em;font-weight:600;box-shadow:0 2px 4px rgba(31,78,121,.18);">基盤構築フェーズ</div>
+          </div>
+
+          <div style="position:relative;height:38px;margin-bottom:8px;">
+            <div style="position:absolute;left:21.7%;width:17.4%;height:100%;background:linear-gradient(135deg,#10b981,#059669);border-radius:5px;display:flex;align-items:center;padding-left:14px;color:#fff;font-size:0.8em;font-weight:600;box-shadow:0 2px 4px rgba(5,150,105,.18);">研修フェーズ（メイン）</div>
+          </div>
+
+          <div style="position:relative;height:38px;margin-bottom:8px;">
+            <div style="position:absolute;left:39.1%;width:8.7%;height:100%;background:linear-gradient(135deg,#8b5cf6,#6d28d9);border-radius:5px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.72em;font-weight:600;box-shadow:0 2px 4px rgba(109,40,217,.18);">達成判定</div>
+          </div>
+
+          <div style="position:relative;height:38px;">
+            <div style="position:absolute;left:47.8%;width:52.2%;height:100%;background:linear-gradient(135deg,#fbbf24,#d97706);border-radius:5px;display:flex;align-items:center;padding-left:14px;color:#fff;font-size:0.8em;font-weight:600;box-shadow:0 2px 4px rgba(217,119,6,.18);">3ヶ月伴走フォローフェーズ（標準パッケージ内）</div>
+          </div>
+
         </div>
 
-        <div style="display:flex;gap:24px;align-items:flex-start;padding:24px 28px;background:#f8fafc;border-radius:10px;border-left:4px solid #2E75B6;">
-          <div style="min-width:120px;font-weight:700;color:#1F4E79;font-size:0.95em;letter-spacing:0.05em;">Week 5〜8</div>
-          <div>
-            <h4 style="margin:0 0 6px;color:#1F4E79;font-size:1.05em;">受講者トレーニング・伴走フェーズ</h4>
-            <p style="margin:0;color:#444;line-height:1.7;">隔週60分のグループセッション（1対3形式）でハンズオン。判定シートを埋めながら、受講者が単独でナレッジ運用できる状態を作っていきます。</p>
-          </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px 16px;margin-top:18px;font-size:0.78em;color:#555;">
+          <div style="display:flex;align-items:center;gap:8px;"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:linear-gradient(135deg,#94a3b8,#64748b);flex-shrink:0;"></span>KICK OFF</div>
+          <div style="display:flex;align-items:center;gap:8px;"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:linear-gradient(135deg,#2E75B6,#1F4E79);flex-shrink:0;"></span>基盤構築</div>
+          <div style="display:flex;align-items:center;gap:8px;"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:linear-gradient(135deg,#10b981,#059669);flex-shrink:0;"></span>研修</div>
+          <div style="display:flex;align-items:center;gap:8px;"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:linear-gradient(135deg,#8b5cf6,#6d28d9);flex-shrink:0;"></span>達成判定</div>
+          <div style="display:flex;align-items:center;gap:8px;"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:linear-gradient(135deg,#fbbf24,#d97706);flex-shrink:0;"></span>伴走フォロー</div>
         </div>
-
-        <div style="display:flex;gap:24px;align-items:flex-start;padding:24px 28px;background:#f8fafc;border-radius:10px;border-left:4px solid #2E75B6;">
-          <div style="min-width:120px;font-weight:700;color:#1F4E79;font-size:0.95em;letter-spacing:0.05em;">Week 9〜10</div>
-          <div>
-            <h4 style="margin:0 0 6px;color:#1F4E79;font-size:1.05em;">検収フェーズ</h4>
-            <p style="margin:0;color:#444;line-height:1.7;">判定シートを受講者ごとに実施。達成率80%以上で検収完了 → 検収報告書を発行。未達タスクがあれば原因分析と追加サポート方針を共有します。</p>
-          </div>
-        </div>
-
-        <div style="display:flex;gap:24px;align-items:flex-start;padding:24px 28px;background:#fff7e6;border-radius:10px;border-left:4px solid #d97706;">
-          <div style="min-width:120px;font-weight:700;color:#92400e;font-size:0.95em;letter-spacing:0.05em;">Week 11〜22</div>
-          <div>
-            <h4 style="margin:0 0 6px;color:#92400e;font-size:1.05em;">3ヶ月伴走フォローフェーズ（標準パッケージ内）</h4>
-            <p style="margin:0;color:#444;line-height:1.7;">検収後の3ヶ月間、隔週セッション＋Chatwork窓口で実務適用を伴走サポート。微調整・追加質問・運用相談すべて基本料金内で対応します。</p>
-          </div>
-        </div>
-
       </div>
+
+    </div>
+
+    <div style="max-width:960px;margin:32px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;">
+
+      <div style="padding:18px 20px;background:#fff;border-radius:10px;border-top:3px solid #64748b;">
+        <p style="margin:0 0 4px;font-family:'Poppins',sans-serif;font-size:0.7em;letter-spacing:0.1em;color:#64748b;font-weight:700;">WEEK 0</p>
+        <h4 style="margin:0 0 8px;font-size:0.95em;color:#1F4E79;">キックオフ</h4>
+        <p style="margin:0;color:#666;line-height:1.7;font-size:0.85em;">無料ヒアリング → お見積もり → 契約書締結 → 判定シート初版確定。</p>
+      </div>
+
+      <div style="padding:18px 20px;background:#fff;border-radius:10px;border-top:3px solid #2E75B6;">
+        <p style="margin:0 0 4px;font-family:'Poppins',sans-serif;font-size:0.7em;letter-spacing:0.1em;color:#2E75B6;font-weight:700;">WEEK 1〜4</p>
+        <h4 style="margin:0 0 8px;font-size:0.95em;color:#1F4E79;">基盤構築</h4>
+        <p style="margin:0;color:#666;line-height:1.7;font-size:0.85em;">Obsidian Vault 設計、命名規則確定、既存資料の Markdown 化、AI連携の準備。</p>
+      </div>
+
+      <div style="padding:18px 20px;background:#fff;border-radius:10px;border-top:3px solid #059669;">
+        <p style="margin:0 0 4px;font-family:'Poppins',sans-serif;font-size:0.7em;letter-spacing:0.1em;color:#059669;font-weight:700;">WEEK 5〜8</p>
+        <h4 style="margin:0 0 8px;font-size:0.95em;color:#1F4E79;">研修フェーズ</h4>
+        <p style="margin:0;color:#666;line-height:1.7;font-size:0.85em;">受講者のハンズオン研修。判定シートを埋めながら独立運用できる状態を作っていく。</p>
+      </div>
+
+      <div style="padding:18px 20px;background:#fff;border-radius:10px;border-top:3px solid #6d28d9;">
+        <p style="margin:0 0 4px;font-family:'Poppins',sans-serif;font-size:0.7em;letter-spacing:0.1em;color:#6d28d9;font-weight:700;">WEEK 9〜10</p>
+        <h4 style="margin:0 0 8px;font-size:0.95em;color:#1F4E79;">達成判定</h4>
+        <p style="margin:0;color:#666;line-height:1.7;font-size:0.85em;">判定シートを受講者ごとに実施。達成率80%以上で完了 → 検収手続きへ。</p>
+      </div>
+
+      <div style="padding:18px 20px;background:#fff7e6;border-radius:10px;border-top:3px solid #d97706;">
+        <p style="margin:0 0 4px;font-family:'Poppins',sans-serif;font-size:0.7em;letter-spacing:0.1em;color:#d97706;font-weight:700;">WEEK 11〜22</p>
+        <h4 style="margin:0 0 8px;font-size:0.95em;color:#92400e;">3ヶ月伴走フォロー</h4>
+        <p style="margin:0;color:#666;line-height:1.7;font-size:0.85em;">隔週セッション＋Chatwork窓口で実務適用を伴走。微調整・運用相談すべて基本料金内。</p>
+      </div>
+
     </div>
   </section>
 
@@ -379,49 +455,70 @@
     <h2 class="sub-section__title">ご準備いただくもの</h2>
     <p style="max-width:780px;margin:0 auto 48px;text-align:center;color:#555;line-height:1.8;">ご依頼時にご用意いただきたい要素をまとめました。<br>初回ヒアリングまでにすべて揃っている必要はなく、面談の中で一緒に整理することも可能です。</p>
 
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">01</p>
-          <h3 class="feature-card__title">対象業務領域の選定</h3>
-          <p class="feature-card__text">構築対象とする業務領域（推奨 2〜3 領域）。明確でなくてもOK。ヒアリングで「どこから着手するか」を一緒に決めます。</p>
+    <div class="bk-grid-2" style="max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;">
+
+      <div>
+        <img src="https://images.unsplash.com/photo-1758518729711-1cbacd55efdb?w=900&q=80&auto=format&fit=crop" alt="チームミーティング" style="width:100%;height:auto;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.1);">
+        <div style="margin-top:20px;padding:20px 24px;background:#eff6ff;border-radius:10px;border-left:4px solid #2E75B6;">
+          <p style="margin:0 0 6px;font-size:0.75em;letter-spacing:0.1em;font-weight:700;color:#1F4E79;">POINT</p>
+          <p style="margin:0;color:#333;line-height:1.8;font-size:0.92em;">「全部揃っていなくて大丈夫」が前提。<br>不足要素・曖昧な要素も面談で一緒に整理します。</p>
         </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">02</p>
-          <h3 class="feature-card__title">受講者の選定</h3>
-          <p class="feature-card__text">ナレッジを運用していくメンバー（推奨3名／最大5名程度）。役職・経歴は不問、ITリテラシーは中程度あればOKです。</p>
-        </div>
+
+      <div>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;">
+
+          <li style="display:flex;gap:16px;padding:18px 20px;background:#fff;border:1px solid #e6e6e6;border-radius:10px;">
+            <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#2E75B6;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.9em;font-weight:700;">✓</div>
+            <div>
+              <h4 style="margin:0 0 4px;font-size:1em;color:#1F4E79;">対象業務領域の選定</h4>
+              <p style="margin:0;color:#666;line-height:1.7;font-size:0.88em;">構築対象とする業務領域（複数領域 OK）。明確でなくてもOK、ヒアリングで「どこから着手するか」を一緒に決めます。</p>
+            </div>
+          </li>
+
+          <li style="display:flex;gap:16px;padding:18px 20px;background:#fff;border:1px solid #e6e6e6;border-radius:10px;">
+            <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#2E75B6;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.9em;font-weight:700;">✓</div>
+            <div>
+              <h4 style="margin:0 0 4px;font-size:1em;color:#1F4E79;">受講者の選定</h4>
+              <p style="margin:0;color:#666;line-height:1.7;font-size:0.88em;">ナレッジを運用していくメンバー。<strong style="color:#1F4E79;">1名から複数名まで柔軟に対応</strong>、貴社の体制に合わせて人数・形式を調整。役職・経歴は不問、ITリテラシーは中程度でOKです。</p>
+            </div>
+          </li>
+
+          <li style="display:flex;gap:16px;padding:18px 20px;background:#fff;border:1px solid #e6e6e6;border-radius:10px;">
+            <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#2E75B6;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.9em;font-weight:700;">✓</div>
+            <div>
+              <h4 style="margin:0 0 4px;font-size:1em;color:#1F4E79;">既存ナレッジ素材</h4>
+              <p style="margin:0;color:#666;line-height:1.7;font-size:0.88em;">議事録・マニュアル・社内資料・過去メール等。<strong style="color:#1F4E79;">「散らかったまま」で構いません</strong>。構造化はPLai側で行います。</p>
+            </div>
+          </li>
+
+          <li style="display:flex;gap:16px;padding:18px 20px;background:#fff;border:1px solid #e6e6e6;border-radius:10px;">
+            <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#2E75B6;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.9em;font-weight:700;">✓</div>
+            <div>
+              <h4 style="margin:0 0 4px;font-size:1em;color:#1F4E79;">窓口担当者の任命</h4>
+              <p style="margin:0;color:#666;line-height:1.7;font-size:0.88em;">プロジェクト窓口となるご担当者様1名。意思決定権限のある方が望ましく、Chatworkでの常時連絡をお願いします。</p>
+            </div>
+          </li>
+
+          <li style="display:flex;gap:16px;padding:18px 20px;background:#fff;border:1px solid #e6e6e6;border-radius:10px;">
+            <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#2E75B6;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.9em;font-weight:700;">✓</div>
+            <div>
+              <h4 style="margin:0 0 4px;font-size:1em;color:#1F4E79;">必要ツールのライセンス</h4>
+              <p style="margin:0;color:#666;line-height:1.7;font-size:0.88em;">Cursor／Obsidian／Claude／ChatGPT 等のサブスク。受講者人数分のライセンスはクライアント様にてご負担（合計でも月数万円規模）。</p>
+            </div>
+          </li>
+
+          <li style="display:flex;gap:16px;padding:18px 20px;background:#fff;border:1px solid #e6e6e6;border-radius:10px;">
+            <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#2E75B6;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.9em;font-weight:700;">✓</div>
+            <div>
+              <h4 style="margin:0 0 4px;font-size:1em;color:#1F4E79;">定期ミーティング枠</h4>
+              <p style="margin:0;color:#666;line-height:1.7;font-size:0.88em;">隔週60分前後の研修セッション枠。オンライン（Google Meet等）で実施、貴社の都合に合わせて曜日・時間帯を設定します。</p>
+            </div>
+          </li>
+
+        </ul>
       </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">03</p>
-          <h3 class="feature-card__title">既存ナレッジ素材</h3>
-          <p class="feature-card__text">議事録・マニュアル・社内資料・過去メール等。「散らかったまま」でも構いません。構造化はPLai側で行います。</p>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">04</p>
-          <h3 class="feature-card__title">窓口担当者の任命</h3>
-          <p class="feature-card__text">プロジェクト窓口となるご担当者様1名。意思決定権限のある方が望ましく、Chatworkでの常時連絡をお願いします。</p>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">05</p>
-          <h3 class="feature-card__title">必要ツールのライセンス</h3>
-          <p class="feature-card__text">Cursor／Obsidian／Claude／ChatGPT 等。受講者人数分のライセンスはクライアント様にてご負担いただきます（合計でも月数万円程度）。</p>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">06</p>
-          <h3 class="feature-card__title">定期ミーティング枠</h3>
-          <p class="feature-card__text">隔週60分の受講者セッション枠。オンライン（Google Meet等）で実施し、貴社の都合に合わせて曜日・時間帯を設定します。</p>
-        </div>
-      </div>
+
     </div>
   </section>
 
@@ -502,56 +599,64 @@
   <section class="sub-section js-enter">
     <p class="sub-section__label">SUPPORT</p>
     <h2 class="sub-section__title">アフターサポート・継続支援も充実</h2>
-    <p style="max-width:780px;margin:0 auto 48px;text-align:center;color:#555;line-height:1.8;">「構築して終わり」ではなく、組織にナレッジ運用が根付くまで伴走します。<br>検収後の3ヶ月伴走に加え、その先の継続支援メニューもご用意しています。</p>
+    <p style="max-width:780px;margin:0 auto 56px;text-align:center;color:#555;line-height:1.8;">「構築して終わり」ではなく、組織にナレッジ運用が根付くまで伴走します。<br>研修＋3ヶ月伴走に加え、その先の継続支援メニューもご用意しています。</p>
 
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">SUPPORT 01</p>
-          <h3 class="feature-card__title">検収後3ヶ月の伴走<br><span style="font-size:0.75em;color:#888;">＊基本料金内に含む</span></h3>
-          <p class="feature-card__text">隔週60分セッション＋Chatwork窓口で実務適用を伴走サポート。微調整・追加質問・運用相談のすべてが基本料金内に含まれます。</p>
+    <div style="max-width:980px;margin:0 auto 32px;padding:32px 36px;background:linear-gradient(135deg,#ecfdf5 0%,#d1fae5 100%);border-radius:14px;border:2px solid #10b981;">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;">
+        <div style="flex-shrink:0;width:46px;height:46px;border-radius:50%;background:#059669;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.3em;font-weight:700;">✓</div>
+        <div>
+          <p style="margin:0;font-size:0.7em;letter-spacing:0.15em;font-weight:700;color:#059669;">INCLUDED IN BASE PRICE</p>
+          <h3 style="margin:2px 0 0;font-size:1.4em;color:#065f46;">基本料金内に含まれるサポート</h3>
         </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">SUPPORT 02</p>
-          <h3 class="feature-card__title">修正・微調整<br><span style="font-size:0.75em;color:#888;">＊基本料金内に含む</span></h3>
-          <p class="feature-card__text">フォルダ構造の微調整、命名規則の修正、CLAUDE.mdのアップデート、判定シートの追加項目などは基本料金内で対応します。</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+        <div style="padding:20px;background:#fff;border-radius:10px;">
+          <h4 style="margin:0 0 8px;color:#059669;font-size:1em;">3ヶ月伴走フォロー</h4>
+          <p style="margin:0;color:#555;line-height:1.7;font-size:0.88em;">研修完了後、隔週60分セッションでナレッジを実務に定着させていきます。</p>
         </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">SUPPORT 03</p>
-          <h3 class="feature-card__title">Chatwork常時窓口<br><span style="font-size:0.75em;color:#888;">＊伴走期間中</span></h3>
-          <p class="feature-card__text">伴走期間中はChatworkでいつでも質問可能。「Cursorでエラーが出た」「この資料はどこに入れるべき？」等を即時解決します。</p>
+        <div style="padding:20px;background:#fff;border-radius:10px;">
+          <h4 style="margin:0 0 8px;color:#059669;font-size:1em;">修正・微調整は無制限</h4>
+          <p style="margin:0;color:#555;line-height:1.7;font-size:0.88em;">フォルダ構造の調整、命名規則の修正、CLAUDE.md更新、判定シート追加項目すべて。</p>
         </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">CONTINUE 01</p>
-          <h3 class="feature-card__title">月次メンテナンス契約<br><span style="font-size:0.75em;color:#888;">＊3ヶ月後〜</span></h3>
-          <p class="feature-card__text">伴走終了後も継続的にナレッジを成長させたいお客様向け。月次でナレッジ構造の監査・新ルール追加・受講者フォローを実施します。</p>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">CONTINUE 02</p>
-          <h3 class="feature-card__title">別部署・別領域への横展開<br><span style="font-size:0.75em;color:#888;">＊個別見積もり</span></h3>
-          <p class="feature-card__text">初回プロジェクトで構築した基盤を流用し、別部署・別業務領域へ展開する場合は、新規より大幅に圧縮した形でご提案できます。</p>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">CONTINUE 03</p>
-          <h3 class="feature-card__title">AI社員構築事業との連携<br><span style="font-size:0.75em;color:#888;">＊個別見積もり</span></h3>
-          <p class="feature-card__text">構築したナレッジを土台に、特定業務を完全自動化するAIエージェント（AI社員）を構築する事業へとシームレスに移行できます。</p>
+        <div style="padding:20px;background:#fff;border-radius:10px;">
+          <h4 style="margin:0 0 8px;color:#059669;font-size:1em;">Chatwork常時窓口</h4>
+          <p style="margin:0;color:#555;line-height:1.7;font-size:0.88em;">「Cursorでエラーが出た」「この資料はどこに入れるべき？」等を即時相談・解決できます。</p>
         </div>
       </div>
     </div>
 
-    <div style="margin-top:48px;padding:32px 36px;background:#eff6ff;border-radius:12px;border-left:4px solid #2E75B6;max-width:920px;margin-left:auto;margin-right:auto;">
-      <p style="margin:0 0 12px;font-size:0.85em;font-weight:600;letter-spacing:0.08em;color:#1F4E79;">PLai のサポートポリシー</p>
-      <p style="margin:0;line-height:1.9;color:#333;">ナレッジは「育てるもの」という思想で運用しています。検収＝終わり、ではなく、組織にナレッジ文化が根付き、AI と共に運用される状態を作るまで伴走することがゴール。<br>伴走期間中の質問・修正は無制限、業務都合での進行調整も柔軟に対応します。</p>
+    <div style="max-width:980px;margin:0 auto;padding:32px 36px;background:#fff;border-radius:14px;border:2px solid #e5e7eb;">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;">
+        <div style="flex-shrink:0;width:46px;height:46px;border-radius:50%;background:#1F4E79;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.3em;font-weight:700;">＋</div>
+        <div>
+          <p style="margin:0;font-size:0.7em;letter-spacing:0.15em;font-weight:700;color:#1F4E79;">OPTIONAL CONTINUATION</p>
+          <h3 style="margin:2px 0 0;font-size:1.4em;color:#1F4E79;">伴走終了後の継続支援メニュー</h3>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+        <div style="padding:20px;background:#f8fafc;border-radius:10px;border-left:3px solid #2E75B6;">
+          <p style="margin:0 0 4px;font-size:0.7em;letter-spacing:0.1em;color:#888;font-weight:700;">OPTION 01</p>
+          <h4 style="margin:0 0 8px;color:#1F4E79;font-size:1em;">月次メンテナンス契約</h4>
+          <p style="margin:0;color:#555;line-height:1.7;font-size:0.88em;">月次でナレッジ構造の監査、新ルール追加、受講者フォローを継続実施します。</p>
+        </div>
+        <div style="padding:20px;background:#f8fafc;border-radius:10px;border-left:3px solid #2E75B6;">
+          <p style="margin:0 0 4px;font-size:0.7em;letter-spacing:0.1em;color:#888;font-weight:700;">OPTION 02</p>
+          <h4 style="margin:0 0 8px;color:#1F4E79;font-size:1em;">別部署・別領域への横展開</h4>
+          <p style="margin:0;color:#555;line-height:1.7;font-size:0.88em;">既存基盤を流用して別部署・別業務領域へ展開する場合は新規より大幅圧縮でご提案。</p>
+        </div>
+        <div style="padding:20px;background:#f8fafc;border-radius:10px;border-left:3px solid #2E75B6;">
+          <p style="margin:0 0 4px;font-size:0.7em;letter-spacing:0.1em;color:#888;font-weight:700;">OPTION 03</p>
+          <h4 style="margin:0 0 8px;color:#1F4E79;font-size:1em;">AI社員構築事業との連携</h4>
+          <p style="margin:0;color:#555;line-height:1.7;font-size:0.88em;">構築済みナレッジを土台に、特定業務を完全自動化するAIエージェントを構築。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width:980px;margin:32px auto 0;padding:28px 36px;background:linear-gradient(135deg,#1F4E79 0%,#2E75B6 100%);border-radius:14px;color:#fff;">
+      <p style="margin:0 0 8px;font-size:0.75em;font-weight:600;letter-spacing:0.12em;color:#cfe2f3;">PLAI のサポートポリシー</p>
+      <p style="margin:0;line-height:1.9;font-size:1em;">ナレッジは「育てるもの」という思想で運用しています。研修完了＝終わり、ではなく、組織にナレッジ文化が根付き、AIと共に運用される状態を作るまで伴走することがゴール。<br>伴走期間中の質問・修正は無制限、業務都合での進行調整も柔軟に対応します。</p>
     </div>
   </section>
 
@@ -560,49 +665,91 @@
     <p class="sub-section__label">PRICING</p>
     <h2 class="sub-section__title">料金の考え方</h2>
     <p style="max-width:780px;margin:0 auto 16px;text-align:center;color:#555;line-height:1.8;">LIGHT／STANDARD／PREMIUM の3プランをご用意。<br>業務領域数・受講者数・既存ナレッジ整備状況・伴走期間に応じて、最適なプランをご提案します。</p>
-    <p style="max-width:780px;margin:0 auto 48px;text-align:center;color:#888;font-size:0.9em;line-height:1.7;">※具体的な金額はWebサイト上では非公開とし、ヒアリング後に書面でお見積もりをお渡しします。<br>「具体額を見てから検討したい」ご要望にも初回面談で誠実にご回答します。</p>
+    <p style="max-width:780px;margin:0 auto 56px;text-align:center;color:#888;font-size:0.9em;line-height:1.7;">※具体的な金額はWebサイト上では非公開とし、ヒアリング後に書面でお見積もりをお渡しします。<br>「具体額を見てから検討したい」ご要望にも初回面談で誠実にご回答します。</p>
 
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">PLAN A</p>
-          <h3 class="feature-card__title">LIGHT</h3>
-          <p class="feature-card__text">単一業務領域・受講者1〜2名向けのスモールスタート。短期間でナレッジ運用の型を体験したい初学者・小規模チーム向け。</p>
-        </div>
+    <div class="bk-pricing-grid" style="max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:16px;align-items:stretch;">
+
+      <div style="background:#fff;border:1px solid #e6e6e6;border-radius:14px;padding:32px 28px;display:flex;flex-direction:column;">
+        <p style="margin:0 0 4px;font-family:'Poppins',sans-serif;font-size:0.7em;letter-spacing:0.15em;color:#888;font-weight:700;">PLAN A</p>
+        <h3 style="margin:0 0 6px;font-size:1.6em;color:#1F4E79;font-family:'Poppins',sans-serif;">LIGHT</h3>
+        <p style="margin:0 0 18px;font-size:0.85em;color:#888;">スモールスタート向け</p>
+        <p style="margin:0 0 20px;color:#555;line-height:1.8;font-size:0.92em;flex:1;">単一業務領域・受講者少人数向け。短期間でナレッジ運用の型を体験したい小規模チームに最適。</p>
+        <ul style="margin:0;padding:0;list-style:none;font-size:0.85em;color:#555;line-height:2;border-top:1px solid #f0f0f0;padding-top:14px;">
+          <li>✓ 1業務領域</li>
+          <li>✓ 受講者1〜2名</li>
+          <li>✓ 短期構築</li>
+          <li>✓ 1ヶ月伴走</li>
+        </ul>
       </div>
-      <div class="feature-card" style="border:2px solid #1F4E79;position:relative;">
-        <div style="position:absolute;top:-12px;left:24px;background:#1F4E79;color:#fff;font-size:0.7em;font-weight:600;padding:4px 12px;border-radius:12px;letter-spacing:0.08em;">RECOMMEND</div>
-        <div class="feature-card__inner">
-          <p class="feature-card__num">PLAN B</p>
-          <h3 class="feature-card__title">STANDARD</h3>
-          <p class="feature-card__text">2〜3業務領域・受講者3名・3ヶ月伴走付き。最も多くの企業様にお選びいただく標準プラン。基盤構築から定着まで網羅。</p>
-        </div>
+
+      <div class="bk-pricing-recommend" style="background:linear-gradient(180deg,#1F4E79 0%,#2E75B6 100%);border-radius:14px;padding:36px 28px;display:flex;flex-direction:column;color:#fff;position:relative;box-shadow:0 12px 32px rgba(31,78,121,.25);transform:translateY(-12px);">
+        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#fbbf24;color:#7c2d12;font-size:0.72em;font-weight:700;padding:6px 16px;border-radius:14px;letter-spacing:0.1em;box-shadow:0 4px 12px rgba(0,0,0,.15);">★ RECOMMEND</div>
+        <p style="margin:0 0 4px;font-family:'Poppins',sans-serif;font-size:0.72em;letter-spacing:0.15em;color:#cfe2f3;font-weight:700;">PLAN B</p>
+        <h3 style="margin:0 0 6px;font-size:1.9em;font-family:'Poppins',sans-serif;">STANDARD</h3>
+        <p style="margin:0 0 18px;font-size:0.88em;color:#bfdbfe;">最も選ばれる標準プラン</p>
+        <p style="margin:0 0 20px;line-height:1.8;font-size:0.95em;flex:1;">2〜3業務領域・複数受講者・3ヶ月伴走付き。基盤構築から定着まで網羅した本格運用向け。</p>
+        <ul style="margin:0;padding:0;list-style:none;font-size:0.88em;line-height:2;border-top:1px solid rgba(255,255,255,.2);padding-top:14px;color:#fff;">
+          <li>✓ 2〜3業務領域</li>
+          <li>✓ 受講者3〜5名（柔軟調整）</li>
+          <li>✓ フル構築（約2ヶ月）</li>
+          <li>✓ <strong>3ヶ月伴走フォロー込み</strong></li>
+          <li>✓ 着手30%／中間40%／検収30%</li>
+        </ul>
       </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">PLAN C</p>
-          <h3 class="feature-card__title">PREMIUM</h3>
-          <p class="feature-card__text">複数部署・受講者5名以上・既存資料が大量にあるケース向け。AI社員構築まで含むフルパッケージにも対応可能。</p>
-        </div>
+
+      <div style="background:#fff;border:1px solid #e6e6e6;border-radius:14px;padding:32px 28px;display:flex;flex-direction:column;">
+        <p style="margin:0 0 4px;font-family:'Poppins',sans-serif;font-size:0.7em;letter-spacing:0.15em;color:#888;font-weight:700;">PLAN C</p>
+        <h3 style="margin:0 0 6px;font-size:1.6em;color:#1F4E79;font-family:'Poppins',sans-serif;">PREMIUM</h3>
+        <p style="margin:0 0 18px;font-size:0.85em;color:#888;">複数部署・大規模向け</p>
+        <p style="margin:0 0 20px;color:#555;line-height:1.8;font-size:0.92em;flex:1;">複数部署・受講者多数・既存資料が大量にあるケース向け。AI社員構築まで含むフルパッケージにも対応可能。</p>
+        <ul style="margin:0;padding:0;list-style:none;font-size:0.85em;color:#555;line-height:2;border-top:1px solid #f0f0f0;padding-top:14px;">
+          <li>✓ 複数部署対応</li>
+          <li>✓ 受講者5名〜</li>
+          <li>✓ AI社員構築連携</li>
+          <li>✓ カスタム伴走期間</li>
+        </ul>
       </div>
+
     </div>
 
-    <div style="margin-top:48px;padding:32px 36px;background:#f8fafc;border-radius:12px;max-width:920px;margin-left:auto;margin-right:auto;">
-      <p style="margin:0 0 16px;font-size:0.85em;font-weight:600;letter-spacing:0.08em;color:#1F4E79;">SPOT — 単発・個別対応</p>
-      <p style="margin:0 0 16px;line-height:1.9;color:#333;">構築後に「ちょっとだけ追加で支援してほしい」というニーズにもスポット対応します。<br>過去にお客様からよくいただくスポット相談例：</p>
-      <ul style="margin:0 0 16px;padding-left:20px;color:#444;line-height:2;">
-        <li>追加業務領域の構築（既存基盤に追加で1領域だけ追加したい）</li>
-        <li>緊急ヒアリングセッション（新規プロジェクト開始時に2時間集中で相談）</li>
-        <li>特定ツール導入支援（Cursor / Obsidian / Claude Code 等の単発レクチャー）</li>
-        <li>過去資料のMarkdown化代行（議事録・マニュアルのまとめてリストラ）</li>
-        <li>判定シートの再設計（業務変更・組織変更があった際のメンテナンス）</li>
-      </ul>
-      <p style="margin:0;line-height:1.9;color:#666;font-size:0.92em;">スポット料金は内容と工数に応じて個別お見積もり。<strong style="color:#1F4E79;">「これだけ頼みたいけどいくら？」</strong> という具体相談、大歓迎です。</p>
-    </div>
+    <div class="bk-grid-2" style="max-width:1040px;margin:56px auto 0;display:grid;grid-template-columns:1.4fr 1fr;gap:24px;">
 
-    <div style="margin-top:32px;padding:32px 36px;background:#fff7e6;border-radius:12px;border-left:4px solid #d97706;max-width:920px;margin-left:auto;margin-right:auto;">
-      <p style="margin:0 0 12px;font-size:0.85em;font-weight:600;letter-spacing:0.08em;color:#92400e;">PAYMENT — 分割払いに対応</p>
-      <p style="margin:0;line-height:1.9;color:#333;">標準プランは <strong>着手 30% ／ 中間 40% ／ 検収 30%</strong> の3分割払いに対応。一括での負担を避けながら、進捗に合わせて段階的にお支払いいただけます。<br>請求書払い・銀行振込でのお支払いが基本です。</p>
+      <div style="padding:32px 36px;background:#f8fafc;border-radius:14px;border:1px solid #e6e6e6;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+          <div style="width:36px;height:36px;border-radius:8px;background:#1F4E79;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2em;font-weight:700;">＋</div>
+          <div>
+            <p style="margin:0;font-size:0.7em;letter-spacing:0.12em;color:#888;font-weight:700;">SPOT</p>
+            <h4 style="margin:0;color:#1F4E79;font-size:1.15em;">単発・個別対応も柔軟に</h4>
+          </div>
+        </div>
+        <p style="margin:0 0 16px;line-height:1.85;color:#444;font-size:0.93em;">構築後に「ちょっとだけ追加で支援してほしい」というニーズにもスポット対応します。よくいただくご相談例：</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;color:#555;font-size:0.88em;line-height:1.9;">
+          <div>● 追加業務領域の構築</div>
+          <div>● 緊急ヒアリング（2時間集中）</div>
+          <div>● 特定ツール導入レクチャー</div>
+          <div>● 過去資料のMarkdown化代行</div>
+          <div>● 判定シートの再設計</div>
+          <div>● 別部署への横展開</div>
+        </div>
+        <p style="margin:18px 0 0;line-height:1.8;color:#666;font-size:0.88em;">スポット料金は内容と工数に応じて個別お見積もり。<strong style="color:#1F4E79;">「これだけ頼みたいけどいくら？」</strong>という具体相談、大歓迎です。</p>
+      </div>
+
+      <div style="padding:32px 36px;background:linear-gradient(135deg,#fef3c7 0%,#fff7e6 100%);border-radius:14px;border:1px solid #fcd34d;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+          <div style="width:36px;height:36px;border-radius:8px;background:#d97706;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2em;font-weight:700;">¥</div>
+          <div>
+            <p style="margin:0;font-size:0.7em;letter-spacing:0.12em;color:#92400e;font-weight:700;">PAYMENT</p>
+            <h4 style="margin:0;color:#92400e;font-size:1.15em;">3分割でのお支払い対応</h4>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;margin-bottom:16px;">
+          <div style="flex:30;background:#d97706;color:#fff;text-align:center;padding:14px 4px;border-radius:6px 0 0 6px;font-weight:700;font-size:0.9em;">30%<br><span style="font-size:0.65em;font-weight:500;">着手時</span></div>
+          <div style="flex:40;background:#92400e;color:#fff;text-align:center;padding:14px 4px;font-weight:700;font-size:0.9em;">40%<br><span style="font-size:0.65em;font-weight:500;">中間</span></div>
+          <div style="flex:30;background:#7c2d12;color:#fff;text-align:center;padding:14px 4px;border-radius:0 6px 6px 0;font-weight:700;font-size:0.9em;">30%<br><span style="font-size:0.65em;font-weight:500;">検収時</span></div>
+        </div>
+        <p style="margin:0;color:#5b3a1f;line-height:1.8;font-size:0.88em;">一括での負担を避け、進捗に合わせて段階的にお支払いいただけます。請求書払い・銀行振込が基本です。</p>
+      </div>
+
     </div>
   </section>
 
@@ -612,55 +759,72 @@
     <h2 class="sub-section__title">契約・進行体制で安心していただくために</h2>
     <p style="max-width:780px;margin:0 auto 48px;text-align:center;color:#555;line-height:1.8;">「依頼するの不安…」というお気持ち、よくわかります。<br>PLai は契約書・NDA・検収条件を最初にしっかり巻いた上で着手するスタイル。<br>不安なポイントは契約段階ですべて解消する進め方を徹底しています。</p>
 
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">CONTRACT 01</p>
-          <h3 class="feature-card__title">業務委託契約書を必ず締結</h3>
-          <p class="feature-card__text">スコープ・成果物・スケジュール・支払条件・解約条件・知財帰属を明文化した業務委託契約書を必ず締結してから着手します。</p>
-        </div>
+    <div style="max-width:980px;margin:0 auto;background:#fff;border:1px solid #e6e6e6;border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.04);">
+
+      <div style="display:grid;grid-template-columns:200px 1fr;gap:0;background:#1F4E79;color:#fff;padding:14px 24px;font-size:0.78em;letter-spacing:0.08em;font-weight:700;">
+        <div>項目</div>
+        <div>契約書での取り決め</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">CONTRACT 02</p>
-          <h3 class="feature-card__title">ゴール判定シートを契約別添に</h3>
-          <p class="feature-card__text">検収条件として判定シートを契約書の別添に紐付け。達成率80%以上で検収完了とする条件を契約段階で合意します。</p>
+
+      <div style="display:grid;grid-template-columns:200px 1fr;padding:20px 24px;border-bottom:1px solid #f0f0f0;align-items:center;">
+        <div style="display:flex;align-items:center;gap:10px;color:#1F4E79;font-weight:700;font-size:0.95em;">
+          <span style="width:24px;height:24px;border-radius:50%;background:#2E75B6;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.7em;">01</span>
+          業務委託契約書
         </div>
+        <div style="color:#555;line-height:1.7;font-size:0.92em;">スコープ・成果物・スケジュール・支払条件・解約条件・知財帰属を明文化した業務委託契約書を<strong style="color:#1F4E79;">必ず締結してから着手</strong>します。</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">CONTRACT 03</p>
-          <h3 class="feature-card__title">秘密保持（NDA）は無期限</h3>
-          <p class="feature-card__text">プロジェクトを通じて知り得た情報は、契約期間中はもちろん、契約終了後も期間の定めなく秘密保持義務を負います。</p>
+
+      <div style="display:grid;grid-template-columns:200px 1fr;padding:20px 24px;border-bottom:1px solid #f0f0f0;align-items:center;background:#f8fafc;">
+        <div style="display:flex;align-items:center;gap:10px;color:#1F4E79;font-weight:700;font-size:0.95em;">
+          <span style="width:24px;height:24px;border-radius:50%;background:#2E75B6;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.7em;">02</span>
+          検収条件
         </div>
+        <div style="color:#555;line-height:1.7;font-size:0.92em;">ゴール判定シートを契約書の別添に紐付け、<strong style="color:#1F4E79;">達成率80%以上で検収完了</strong>とする条件を契約段階で合意します。</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">CONTRACT 04</p>
-          <h3 class="feature-card__title">成果物の知財帰属を明記</h3>
-          <p class="feature-card__text">構築したナレッジ・コンテキストファイル・判定シート等の成果物は、検収・お支払い完了をもってクライアント様に帰属します。</p>
+
+      <div style="display:grid;grid-template-columns:200px 1fr;padding:20px 24px;border-bottom:1px solid #f0f0f0;align-items:center;">
+        <div style="display:flex;align-items:center;gap:10px;color:#1F4E79;font-weight:700;font-size:0.95em;">
+          <span style="width:24px;height:24px;border-radius:50%;background:#2E75B6;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.7em;">03</span>
+          秘密保持（NDA）
         </div>
+        <div style="color:#555;line-height:1.7;font-size:0.92em;">プロジェクトを通じて知り得た情報は、契約期間中はもちろん、契約終了後も <strong style="color:#1F4E79;">期間の定めなく</strong> 秘密保持義務を負います。</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">CONTRACT 05</p>
-          <h3 class="feature-card__title">中途解約条項あり</h3>
-          <p class="feature-card__text">想定外の事業変更等で中止が必要となった場合の精算ルール（既履行業務の精算・成果物の引き渡し方法）も契約書に明記します。</p>
+
+      <div style="display:grid;grid-template-columns:200px 1fr;padding:20px 24px;border-bottom:1px solid #f0f0f0;align-items:center;background:#f8fafc;">
+        <div style="display:flex;align-items:center;gap:10px;color:#1F4E79;font-weight:700;font-size:0.95em;">
+          <span style="width:24px;height:24px;border-radius:50%;background:#2E75B6;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.7em;">04</span>
+          知財・成果物の帰属
         </div>
+        <div style="color:#555;line-height:1.7;font-size:0.92em;">構築したナレッジ・コンテキストファイル・判定シート等の成果物は、<strong style="color:#1F4E79;">検収・お支払い完了をもってクライアント様に帰属</strong>します。</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-card__inner">
-          <p class="feature-card__num">CONTRACT 06</p>
-          <h3 class="feature-card__title">追加業務は別途協議</h3>
-          <p class="feature-card__text">契約スコープ外の追加業務は、勝手に進行・追加請求することなく、必ず甲乙協議の上で書面合意してから着手します。</p>
+
+      <div style="display:grid;grid-template-columns:200px 1fr;padding:20px 24px;border-bottom:1px solid #f0f0f0;align-items:center;">
+        <div style="display:flex;align-items:center;gap:10px;color:#1F4E79;font-weight:700;font-size:0.95em;">
+          <span style="width:24px;height:24px;border-radius:50%;background:#2E75B6;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.7em;">05</span>
+          中途解約条項
         </div>
+        <div style="color:#555;line-height:1.7;font-size:0.92em;">想定外の事業変更等で中止が必要となった場合の<strong style="color:#1F4E79;">精算ルール（既履行業務の精算・成果物の引き渡し方法）</strong>も契約書に明記します。</div>
       </div>
+
+      <div style="display:grid;grid-template-columns:200px 1fr;padding:20px 24px;align-items:center;background:#f8fafc;">
+        <div style="display:flex;align-items:center;gap:10px;color:#1F4E79;font-weight:700;font-size:0.95em;">
+          <span style="width:24px;height:24px;border-radius:50%;background:#2E75B6;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.7em;">06</span>
+          追加業務の取扱い
+        </div>
+        <div style="color:#555;line-height:1.7;font-size:0.92em;">契約スコープ外の追加業務は、勝手に進行・追加請求することなく、<strong style="color:#1F4E79;">必ず甲乙協議の上で書面合意してから着手</strong>します。</div>
+      </div>
+
     </div>
 
-    <div style="margin-top:48px;padding:36px 40px;background:linear-gradient(135deg,#1F4E79 0%,#2E75B6 100%);border-radius:12px;max-width:920px;margin-left:auto;margin-right:auto;color:#fff;">
-      <p style="margin:0 0 12px;font-size:0.85em;font-weight:600;letter-spacing:0.1em;color:#cfe2f3;">CONFIDENCE — 安心していただくための約束</p>
-      <p style="margin:0 0 12px;line-height:1.9;font-size:1.05em;">「具体的な金額が分からないと不安」「コンサル系って結局何してくれるの？」「途中で追加費用が発生しそう」<br>——こうしたよくあるご懸念に、契約書・判定シート・スケジュール・支払い条件の4点を最初にすべて見える化することでお応えしています。</p>
-      <p style="margin:0;line-height:1.9;font-size:0.95em;color:#cfe2f3;">初回ヒアリングはもちろん無料。お見積もりも書面で明示。気になることは何でも面談で聞いてください。</p>
+    <div style="margin-top:48px;padding:40px 44px;background:linear-gradient(135deg,#1F4E79 0%,#2E75B6 100%);border-radius:14px;max-width:980px;margin-left:auto;margin-right:auto;color:#fff;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.05);"></div>
+      <div style="position:absolute;bottom:-60px;left:-60px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.05);"></div>
+      <div style="position:relative;z-index:1;">
+        <p style="margin:0 0 16px;font-size:0.78em;font-weight:700;letter-spacing:0.15em;color:#fbbf24;">CONFIDENCE — 安心していただくための約束</p>
+        <h3 style="margin:0 0 18px;font-size:1.4em;line-height:1.5;">不安なポイントは契約段階ですべて解消します。</h3>
+        <p style="margin:0 0 12px;line-height:1.9;font-size:1em;">「具体的な金額が分からないと不安」「コンサル系って結局何してくれるの？」「途中で追加費用が発生しそう」<br>——こうしたよくあるご懸念に、<strong style="color:#fbbf24;">契約書・判定シート・スケジュール・支払い条件</strong>の4点を最初にすべて見える化することでお応えしています。</p>
+        <p style="margin:0;line-height:1.9;font-size:0.92em;color:#cfe2f3;">初回ヒアリングはもちろん無料。お見積もりも書面で明示。気になることは何でも面談で聞いてください。</p>
+      </div>
     </div>
   </section>
 
