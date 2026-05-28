@@ -441,7 +441,21 @@
   initVH();
 
   $(function () {
-    initOpeningAnimation();
+    // 全画面オーバーレイ(.opening, z-index:9999)はJSのみで解除するため、
+    // GSAP未読込やアニメ例外時にページ全体(送信ボタン含む)が永久にクリック不能になりうる。
+    // 必ず解除する安全網を張る。
+    var dismissOpening = function () {
+      var op = document.getElementById('opening');
+      if (op) op.style.display = 'none';
+      document.body.classList.add('is-load-end');
+    };
+    var openingSafety = setTimeout(dismissOpening, 3000);
+    try {
+      initOpeningAnimation();
+    } catch (e) {
+      clearTimeout(openingSafety);
+      dismissOpening();
+    }
     initClock();
     initMenuToggle();
     initScrollState();

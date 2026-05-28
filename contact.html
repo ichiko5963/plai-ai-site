@@ -126,7 +126,7 @@
         </div>
 
         <div class="contact-form__group">
-          <label class="contact-form__label" for="company">会社名・団体名</label>
+          <label class="contact-form__label" for="company">会社名・団体名 <span class="contact-form__optional">任意</span></label>
           <input class="contact-form__input" type="text" id="company" name="会社名" placeholder="株式会社○○">
         </div>
 
@@ -136,7 +136,7 @@
         </div>
 
         <div class="contact-form__group">
-          <label class="contact-form__label" for="phone">電話番号</label>
+          <label class="contact-form__label" for="phone">電話番号 <span class="contact-form__optional">任意</span></label>
           <input class="contact-form__input" type="tel" id="phone" name="電話番号" placeholder="080-1234-5678">
         </div>
 
@@ -177,7 +177,7 @@
         </div>
 
         <div class="contact-form__group">
-          <label class="contact-form__label">ご予算 <span class="contact-form__required">REQUIRED</span></label>
+          <label class="contact-form__label">ご予算 <span class="contact-form__optional">任意</span></label>
           <p class="contact-form__note">ご予算を踏まえた上で、どこまで構築するかをお話しさせていただきます。<br>お問い合わせが非常に多くなっておりますため、ご予算によってはお手伝いできかねる場合がございます。あらかじめご了承ください。</p>
           <div class="budget-slider">
             <div class="budget-slider__display">
@@ -206,13 +206,13 @@
         <div class="contact-form__divider"></div>
 
         <div class="contact-form__group">
-          <label class="contact-form__label">初回面談の候補日時 <span class="contact-form__required">REQUIRED</span></label>
-          <p class="contact-form__note">1週間後〜2週間後の範囲で、ご都合のよい日時を5つほどお選びください。</p>
+          <label class="contact-form__label">初回面談の候補日時 <span class="contact-form__optional">任意</span></label>
+          <p class="contact-form__note">日程が決まっている方のみで結構です。1週間後〜2週間後の範囲で、ご都合のよい日時をお選びください（後ほど調整も可能です）。</p>
           <div class="datetime-picker" id="datetimePicker">
             <div class="datetime-picker__row">
               <span class="datetime-picker__num">1</span>
-              <input type="date" class="datetime-picker__date" name="候補日時1_日付" required>
-              <select class="datetime-picker__time" name="候補日時1_時間" required>
+              <input type="date" class="datetime-picker__date" name="候補日時1_日付">
+              <select class="datetime-picker__time" name="候補日時1_時間">
                 <option value="" disabled selected>時間</option>
                 <option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option>
                 <option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option>
@@ -223,8 +223,8 @@
             </div>
             <div class="datetime-picker__row">
               <span class="datetime-picker__num">2</span>
-              <input type="date" class="datetime-picker__date" name="候補日時2_日付" required>
-              <select class="datetime-picker__time" name="候補日時2_時間" required>
+              <input type="date" class="datetime-picker__date" name="候補日時2_日付">
+              <select class="datetime-picker__time" name="候補日時2_時間">
                 <option value="" disabled selected>時間</option>
                 <option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option>
                 <option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option>
@@ -235,8 +235,8 @@
             </div>
             <div class="datetime-picker__row">
               <span class="datetime-picker__num">3</span>
-              <input type="date" class="datetime-picker__date" name="候補日時3_日付" required>
-              <select class="datetime-picker__time" name="候補日時3_時間" required>
+              <input type="date" class="datetime-picker__date" name="候補日時3_日付">
+              <select class="datetime-picker__time" name="候補日時3_時間">
                 <option value="" disabled selected>時間</option>
                 <option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option>
                 <option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option>
@@ -273,7 +273,7 @@
         </div>
 
         <div class="contact-form__group" style="text-align:center; margin-top:40px;">
-          <button type="submit" class="contact-form__submit" id="contactSubmit">送信する</button>
+          <button type="submit" class="contact-form__submit" id="contactSubmit">無料で相談する（30分・無料）</button>
           <p id="contactError" style="display:none; margin-top:16px; color:#c0392b; font-size:1.3rem;"></p>
         </div>
       </form>
@@ -290,7 +290,7 @@
       <h3 class="sub-cta__title">AI時代の事業OSを、ここから作る。</h3>
       <p class="sub-cta__text">Memory Management / AI Education / Marketing Automation / Product Studio</p>
       <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:24px;">
-        <a href="#contact-form" class="sub-cta__btn">フォームからお問い合わせ</a>
+        <a href="#contact-form" class="sub-cta__btn">無料相談を申し込む</a>
         <a href="mailto:jiuhuot10@gmail.com?subject=資料ダウンロード希望" class="sub-cta__btn" style="background:#c87941;">資料ダウンロード</a>
       </div>
     </div>
@@ -408,7 +408,7 @@
 
 <script src="js/jquery-3.7.1.min.js"></script>
 <script src="js/gsap.min.js"></script>
-<script src="js/custom.js?v=20260513b"></script>
+<script src="js/custom.js?v=20260528a"></script>
 <script>
 (function(){
   var steps=['100万円','150万円','200万円','300万円','500万円','800万円','1,000万円〜'];
@@ -471,7 +471,16 @@
     var fd = new FormData(form);
     var services = fd.getAll('ご相談事業').map(String);
     if (services.length === 0) {
-      showError('ご相談の事業を1つ以上選択してください。');
+      showError('「ご相談の事業」を1つ以上選択してください。');
+      var box = document.querySelector('.contact-form__checkboxes');
+      if (box) {
+        box.style.outline = '2px solid #c0392b';
+        box.style.outlineOffset = '8px';
+        box.style.borderRadius = '8px';
+        box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        var clearBox = function(){ box.style.outline = ''; box.removeEventListener('change', clearBox, true); };
+        box.addEventListener('change', clearBox, true);
+      }
       return;
     }
 
@@ -480,10 +489,6 @@
       var d = fd.get('候補日時' + i + '_日付');
       var t = fd.get('候補日時' + i + '_時間');
       if (d && t) slots.push(d + ' ' + t);
-    }
-    if (slots.length < 3) {
-      showError('初回面談の候補日時を3件以上ご入力ください。');
-      return;
     }
 
     var payload = {
@@ -518,7 +523,7 @@
     })
     .catch(function(err){
       submitBtn.disabled = false;
-      submitBtn.textContent = '送信する';
+      submitBtn.textContent = '無料で相談する（30分・無料）';
       showError('送信に失敗しました。お手数ですが直接 jiuhuot10@gmail.com までご連絡ください。(' + (err && err.message ? err.message : 'error') + ')');
     });
   });
