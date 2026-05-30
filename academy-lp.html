@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>AGI Worker Academy｜もう一人の自分を作る AI社員量産スクール｜株式会社PLai</title>
+<meta name="description" content="累計3,600人が受講したOpenClaw講座の総決算。Claude Code / Obsidian / Hermes Agent / OpenClaw / Codex を組み合わせ、第二の脳からAI社員チームを構築する実践スクール。1期生は生涯50名限定。">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AGI Worker Academy｜もう一人の自分を作るスクール">
+<meta property="og:description" content="累計3,600人が受講。第二の脳からAI社員チームを構築する実践スクール。1期生は生涯50名限定。">
+<meta property="og:image" content="assets/gen-dark/og.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#020308; --bg2:#05060f; --card:#0a0b16; --card2:#0d0f1d;
+  --line:rgba(112,100,214,.18); --line2:rgba(124,110,226,.30);
+  --ink:#f4f3fa; --soft:#b4b8cd; --mut:#6f7390;
+  --blue:#2a3aa0; --blue-l:#6f60ec; --cyan:#7a6cf2;
+  --indigo1:#161a52; --indigo2:#2c2790; --indigo3:#4a3fc8;
+  --gold:#e8c06a; --gold-d:#caa24e; --gold-soft:#f1d79b;
+  --red:#e0556a; --red-d:#9e2740;
+  --serif:"Shippori Mincho",serif;
+  --col:800px;
+  --grad-btn:linear-gradient(135deg,#161a52 0%,#2c2790 55%,#4a3fc8 100%);
+  --glow-b:0 0 26px rgba(91,70,214,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans JP",system-ui,sans-serif;color:var(--ink);line-height:1.85;background:#000;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{text-decoration:none;color:inherit}
+
+.stage{max-width:var(--col);margin:0 auto;position:relative;
+  background:
+    radial-gradient(120% 50% at 50% 0%, #140f38 0%, rgba(20,15,56,0) 55%),
+    radial-gradient(90% 36% at 88% 22%, rgba(91,70,214,.14) 0%, rgba(91,70,214,0) 60%),
+    linear-gradient(180deg,#04040c 0%, #020308 100%);
+  box-shadow:0 0 90px rgba(0,0,0,.7);overflow:hidden}
+.sec{padding:54px 22px}
+.sec-tight{padding:32px 22px}
+.band{display:block;width:100%}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--line2),transparent);margin:0 22px}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:40;background:rgba(4,5,13,.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hdr__in{max-width:var(--col);margin:0 auto;padding:11px 18px;display:flex;align-items:center;justify-content:space-between}
+.hdr__logo img{height:24px;filter:brightness(0) invert(1)}
+.hdr__cta{display:inline-flex;align-items:center;gap:6px;background:var(--grad-btn);color:#fff;font-weight:800;font-size:12px;padding:9px 16px;border-radius:999px;border:1px solid rgba(150,135,255,.32);box-shadow:0 8px 20px -8px rgba(74,63,200,.6)}
+
+.urg{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:11px;background:linear-gradient(90deg,#1a0b14,#33112a 50%,#1a0b14);color:#f7f3f9;text-align:center;font-family:var(--serif);font-size:20px;font-weight:800;padding:22px 16px;letter-spacing:.03em;border-bottom:1px solid rgba(224,85,106,.5);transition:filter .2s}
+.urg:hover{filter:brightness(1.15)}
+.urg b{color:#ff8a98}
+.urg .n{font-family:var(--serif);font-weight:800;font-size:34px;color:#ff5a72;text-shadow:0 0 20px rgba(255,90,114,.85);margin:0 4px}
+.urg__arw{font-size:13px;color:#ff9aa6;background:rgba(224,85,106,.16);border:1px solid rgba(224,85,106,.5);border-radius:999px;padding:6px 12px}
+
+/* eyebrow + serif headings */
+.eyebrow{text-align:center;font-family:"Poppins";font-weight:700;letter-spacing:.28em;font-size:11px;color:var(--blue-l);margin-bottom:14px;text-transform:uppercase;text-shadow:0 0 16px rgba(47,123,255,.5)}
+.htitle{font-family:var(--serif);font-weight:800;text-align:center;line-height:1.42;font-size:clamp(24px,6.4vw,34px);color:#fff}
+.htitle .b{background:linear-gradient(135deg,#5b9bff,#56c8ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.htitle .u{display:inline-block;border-bottom:2px solid var(--blue);padding-bottom:3px}
+.lead{text-align:center;max-width:600px;margin:16px auto 0;font-size:14.5px;color:var(--soft)}
+
+/* buttons */
+.btn-wrap{padding:8px 22px 0;display:flex;flex-direction:column;align-items:center;gap:9px}
+.btn{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-radius:999px;font-weight:900;line-height:1.4;cursor:pointer;width:100%;max-width:620px;padding:30px 30px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;margin:0 auto}
+.btn--enroll{background:var(--grad-btn);color:#fff;border:1px solid rgba(150,135,255,.38);box-shadow:0 20px 48px -14px rgba(74,63,200,.7),inset 0 1px 0 rgba(255,255,255,.16)}
+.btn--enroll .btn__main{letter-spacing:.02em}
+.btn:hover{transform:translateY(-3px)}
+.btn__sub{font-size:15px;font-weight:700;opacity:.96;margin-bottom:5px}
+.btn__main{font-size:24px;letter-spacing:.02em}
+.btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-18deg);animation:shine 3.6s ease-in-out infinite}
+@keyframes shine{0%,62%{left:-60%}100%{left:150%}}
+.cta-note{font-size:11.5px;color:var(--mut);text-align:center}
+
+/* sticky */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(120%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.sticky.show{transform:none}
+.sticky__in{max-width:var(--col);margin:0 auto;padding:9px 12px;display:flex;align-items:center;gap:10px;background:rgba(8,10,22,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+.sticky__txt{flex:1;font-size:13.5px;font-weight:700;line-height:1.45}
+.sticky__txt b{color:var(--gold)}
+.sticky__btn{background:var(--grad-btn);color:#fff;font-weight:900;font-size:15px;padding:15px 22px;border-radius:999px;white-space:nowrap;border:1px solid rgba(150,135,255,.32);box-shadow:0 8px 20px -8px rgba(74,63,200,.6)}
+
+/* tool row */
+.tools{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:18px;margin:0 auto;padding:22px 18px;background:rgba(255,255,255,.03);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tools__lbl{width:100%;text-align:center;font-family:"Poppins";font-size:10px;letter-spacing:.24em;color:var(--mut);margin-bottom:2px}
+.tools img{height:28px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.6))}
+
+/* ===== BONUS (navy + gold) ===== */
+.bonus{position:relative;padding:54px 22px 50px;
+  background:radial-gradient(120% 60% at 50% 0%, rgba(232,192,106,.16) 0%, rgba(232,192,106,0) 50%),
+    linear-gradient(180deg,#0a0c1a 0%, #06070f 100%);
+  border-top:1px solid rgba(232,192,106,.25)}
+.bonus__rib{display:block;width:fit-content;margin:0 auto 14px;background:linear-gradient(135deg,#e8c06a,#caa24e);color:#2a2008;font-weight:900;font-size:12.5px;padding:6px 22px;border-radius:999px;letter-spacing:.04em;box-shadow:0 8px 20px -8px rgba(232,192,106,.6)}
+.bgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;max-width:620px;margin:28px auto 0}
+.bcard{background:linear-gradient(180deg,#10131f,#0a0c16);border:1px solid var(--line);border-radius:16px;padding:18px 16px;position:relative;display:flex;flex-direction:column;gap:9px;box-shadow:0 14px 34px -22px rgba(0,0,0,.8)}
+.bcard--feat{grid-column:1/-1;border:1.5px solid var(--gold);box-shadow:0 0 34px rgba(232,192,106,.22)}
+.bcard__no{font-family:"Poppins";font-weight:900;font-size:12px;color:var(--gold);letter-spacing:.08em}
+.bcard__ico{height:40px;display:flex;align-items:center;gap:9px}
+.bcard__ico img{height:32px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.6))}
+.bcard__ico .sym{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#2f7bff,#56c8ff);display:grid;place-items:center;font-size:18px;font-weight:900;color:#fff;box-shadow:0 0 16px rgba(47,123,255,.45)}
+.bcard h4{font-size:14px;font-weight:800;color:#fff;line-height:1.45}
+.bcard p{font-size:11.5px;color:var(--mut);line-height:1.65}
+.bcard__tag{align-self:flex-start;margin-top:auto;font-size:10.5px;font-weight:800;color:#0e1120;background:linear-gradient(135deg,#5b9bff,#56c8ff);padding:4px 10px;border-radius:999px}
+.bcard--feat .bcard__tag{background:linear-gradient(135deg,#e8c06a,#f1d79b);color:#2a2008}
+.hot{position:absolute;top:-10px;right:12px;background:var(--gold);color:#2a2008;font-size:11px;font-weight:900;padding:3px 12px;border-radius:999px;box-shadow:0 4px 12px rgba(0,0,0,.5)}
+
+.price{text-align:center;background:linear-gradient(180deg,#0c0f1c,#080a14);border:1px solid var(--line2);border-radius:20px;padding:30px 20px;max-width:600px;margin:28px auto 0;box-shadow:0 20px 50px -28px rgba(0,0,0,.9)}
+.price__lead{font-size:14.5px;color:var(--soft)}
+.price__old{font-size:15px;color:var(--mut);text-decoration:line-through;text-decoration-color:var(--red);margin-top:4px}
+.price__free{font-family:var(--serif);font-weight:800;font-size:clamp(38px,11vw,58px);color:var(--gold);text-shadow:0 0 30px rgba(232,192,106,.45);margin-top:4px;line-height:1}
+.price__free small{font-size:19px;color:#fff}
+.price__note{font-size:12px;color:var(--mut);margin-top:8px}
+
+/* plans */
+.plans{max-width:620px;margin:30px auto 0;display:flex;flex-direction:column;gap:15px}
+.plan{background:linear-gradient(180deg,#0e1120,#0a0c16);border:1px solid var(--line);border-radius:18px;padding:24px 22px;position:relative;box-shadow:0 14px 34px -24px rgba(0,0,0,.8)}
+.plan--feat{border:1.5px solid var(--blue-l);box-shadow:0 0 46px rgba(111,96,236,.30)}
+.plan__badge{position:absolute;top:-16px;left:50%;transform:translateX(-50%);z-index:4;background:var(--grad-btn);color:#fff;font-size:12.5px;font-weight:900;padding:8px 24px;border-radius:999px;white-space:nowrap;box-shadow:0 0 0 6px var(--bg),0 10px 22px -8px rgba(74,63,200,.7)}
+.plan__no{font-family:"Poppins";font-weight:800;font-size:11px;color:var(--blue-l);letter-spacing:.08em}
+.plan__name{font-family:var(--serif);font-size:24px;font-weight:800;margin:4px 0;color:#fff;letter-spacing:.02em}
+.plan__lead{font-family:var(--serif);font-size:13.5px;color:var(--soft);min-height:34px}
+.plan__price{font-family:var(--serif);font-weight:800;font-size:44px;color:#fff;margin:14px 0 2px;line-height:1.1;letter-spacing:.01em}
+.plan__price span{font-size:24px;color:#fff}.plan__price sup{font-size:13px;color:var(--soft);font-weight:600;margin-left:2px}
+.plan ul{list-style:none;margin:14px 0 0}
+.plan li{font-family:var(--serif);font-size:14px;padding:11px 0;border-bottom:1px dashed var(--line);color:var(--soft);display:flex;gap:10px}
+.plan li::before{content:"✓";color:var(--cyan);font-weight:900}
+.plan li.off{color:var(--mut)}.plan li.off::before{content:"×";color:var(--mut)}
+.plan{padding-top:28px}
+.plan__top{position:absolute;top:0;left:0;right:0;height:4px;border-radius:18px 18px 0 0;background:linear-gradient(90deg,#2c2790,#6f60ec)}
+.plan--feat .plan__top{background:linear-gradient(90deg,#4a3fc8,#8a7cf5)}
+.plan--feat{margin-top:20px}
+.plan__cta{display:block;text-align:center;margin-top:20px;padding:20px;border-radius:999px;font-weight:900;font-size:16px;color:#fff;border:1px solid rgba(150,135,255,.32);background:var(--grad-btn);box-shadow:0 14px 32px -14px rgba(74,63,200,.7);transition:transform .2s,box-shadow .2s}
+.plan__cta:hover{transform:translateY(-2px);box-shadow:0 18px 40px -14px rgba(74,63,200,.9)}
+.plan__cta--feat{background:linear-gradient(135deg,#2c2790,#5b46d6 55%,#8a7cf5);box-shadow:0 16px 38px -12px rgba(111,96,236,.75)}
+
+/* guarantee */
+.guar{max-width:600px;margin:0 auto;text-align:center;background:linear-gradient(180deg,#0e1120,#0a0c16);border:1px solid rgba(224,86,86,.35);border-radius:20px;padding:28px 22px;box-shadow:0 14px 34px -24px rgba(0,0,0,.8)}
+.guar img{width:150px;margin:0 auto 6px}
+.guar h3{font-size:21px;font-weight:900;margin-bottom:8px;color:#fff}
+.guar p{font-size:13.5px;color:var(--soft)}
+
+/* voices */
+.voices{max-width:620px;margin:30px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.vcard{background:linear-gradient(180deg,#0e1120,#0a0c16);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 14px 34px -26px rgba(0,0,0,.8)}
+.vcard__h{display:flex;align-items:center;gap:11px;margin-bottom:10px}
+.vavatar{width:46px;height:46px;border-radius:50%;flex:none;display:grid;place-items:center;font-family:"Poppins";font-weight:900;font-size:18px;color:#fff;background:linear-gradient(135deg,#2f7bff,#56c8ff);box-shadow:0 0 16px rgba(47,123,255,.4)}
+.vcard__n{font-size:13.5px;font-weight:800;color:#fff}
+.vcard__n span{display:block;font-size:10.5px;color:var(--mut);font-weight:500;margin-top:1px}
+.vcard p{font-size:12.5px;color:var(--soft)}
+.vcard b{color:var(--gold)}
+@media(max-width:560px){.voices{grid-template-columns:1fr}}
+
+/* faq */
+.faq{max-width:620px;margin:30px auto 0}
+.faq details{background:linear-gradient(180deg,#0e1120,#0a0c16);border:1px solid var(--line);border-radius:14px;margin-bottom:11px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:16px 46px 16px 18px;font-weight:700;font-size:14px;position:relative;color:#fff}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font-size:23px;color:var(--cyan);transition:transform .25s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{padding:0 18px 17px;font-size:13.5px;color:var(--soft)}
+
+/* final cta */
+.final-cta{padding:50px 22px 56px;text-align:center;background:radial-gradient(120% 60% at 50% 0%, rgba(47,123,255,.18), transparent 55%),linear-gradient(180deg,#070a16,#04050d)}
+
+/* footer */
+.ftr{text-align:center;padding:40px 22px;border-top:1px solid var(--line);background:#03040a}
+.ftr img{height:22px;margin:0 auto 14px;filter:brightness(0) invert(1);opacity:.85}
+.ftr__links{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;font-size:11.5px;margin-bottom:14px}
+.ftr__links a{color:var(--mut)}.ftr__links a:hover{color:#fff}
+.ftr__copy{font-size:10.5px;color:var(--mut);font-family:"Poppins"}
+.ftr__legal{margin-top:10px}
+.ftr__legal a{font-size:10px;color:rgba(150,152,170,.5);text-decoration:underline;text-underline-offset:2px;letter-spacing:.02em}
+.ftr__legal a:hover{color:var(--mut)}
+
+/* 特商法 */
+.tokusho{max-width:680px;margin:26px auto 0;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,#0a0b16,#06070f);overflow:hidden;box-shadow:0 14px 34px -26px rgba(0,0,0,.8)}
+.tokusho .row{display:grid;grid-template-columns:180px 1fr;border-top:1px solid var(--line)}
+.tokusho .row:first-child{border-top:none}
+.tokusho dt{padding:14px 16px;font-size:12.5px;font-weight:700;color:var(--soft);background:rgba(112,100,214,.06);border-right:1px solid var(--line)}
+.tokusho dd{padding:14px 16px;font-size:12.5px;color:var(--mut);line-height:1.75}
+.tokusho dd a{color:var(--blue-l)}
+@media(max-width:560px){.tokusho .row{grid-template-columns:1fr}.tokusho dt{border-right:none;border-bottom:1px solid var(--line)}}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="stage">
+
+  <a class="urg" href="#plans">🔥 <b>1期生 残り<span class="n">50</span>名</b>限定 ／ 受講お申し込み受付中 <span class="urg__arw">▶</span></a>
+
+  <!-- HERO band -->
+  <img class="band reveal" src="assets/user/band_hero3.png" alt="もう一人の自分を、作る。AGI Worker Academy">
+
+  <!-- tool row -->
+  <div class="tools">
+    <span class="tools__lbl">POWERED BY</span>
+    <img src="assets/logos/claude_code.png" alt="Claude Code">
+    <img src="assets/logos/obsidian.png" alt="Obsidian">
+    <img src="assets/logos/hermes_agent.png" alt="Hermes Agent">
+    <img src="assets/logos/openclaw.png" alt="OpenClaw">
+    <img src="assets/logos/codex.png" alt="Codex">
+    <img src="assets/logos/cursor.png" alt="Cursor">
+  </div>
+
+  <div class="btn-wrap" style="padding-top:26px;padding-bottom:10px">
+    <a class="btn btn--enroll" href="#plans"><span class="btn__sub">あなたに合うプランを選んで</span><span class="btn__main">受講プランを見る →</span></a>
+    <p class="cta-note">1期生は生涯50名限定 ／ 14日間全額返金保証つき</p>
+  </div>
+
+  <!-- PROOF band -->
+  <img class="band reveal" src="assets/user/band_proof.png" alt="PROOF 3,600人が受講">
+
+  <!-- PAIN band（こんな状況に心当たりはありませんか？） -->
+  <img class="band reveal" src="assets/user/band_pain.png" alt="こんな5つの状況に心当たりはありませんか？">
+
+  <!-- SOLUTION band（答えは AI社員を作ること） -->
+  <img class="band reveal" src="assets/user/band_solution.png" alt="答えは、AI社員を作ること。このスクールで手に入る3つの力">
+
+  <!-- CURRICULUM bands -->
+  <img class="band reveal" src="assets/user/band_curriculum_12.png" alt="カリキュラム STEP 01-02">
+  <img class="band reveal" src="assets/user/band_curriculum_34.png" alt="カリキュラム STEP 03-04">
+
+  <!-- WHY ACADEMY bands -->
+  <img class="band reveal" src="assets/user/band_why_123.png" alt="なぜAGI Worker Academyが選ばれるのか 1〜3">
+  <img class="band reveal" src="assets/user/band_why_45.png" alt="なぜAGI Worker Academyが選ばれるのか 4〜5">
+
+  <!-- FOUNDERS STORY band -->
+  <img class="band reveal" src="assets/user/band_founders.png" alt="3年で気づいたこと。AIは『使う』より『作る』。市岡 直人">
+
+  <!-- プラン比較表 band -->
+  <img class="band reveal" src="assets/user/band_pre_plans.png" alt="プラン比較表 AGI Worker Academy">
+
+  <!-- ===== PLANS ===== -->
+  <section class="sec reveal" id="plans">
+    <p class="eyebrow">PLANS</p>
+    <h2 class="htitle">料金プラン</h2>
+    <p class="lead">「自走したい」から「丸ごと任せたい」まで。自分に合った一歩を選べる4プラン。<br>全プラン税抜・分割払い対応・14日間全額返金保証つき。</p>
+    <div class="plans">
+
+      <div class="plan">
+        <span class="plan__top"></span>
+        <span class="plan__no">PLAN 01</span>
+        <h3 class="plan__name">ベーシック</h3>
+        <p class="plan__lead">カリキュラムだけで自走したい人</p>
+        <p class="plan__price"><span>¥</span>168,000<sup>+税</sup></p>
+        <ul><li>15時間以上の動画カリキュラム</li><li>AI社員構築プロンプト集</li><li>Obsidian Vault テンプレ</li><li>Claude Code 環境構築キット</li><li class="off">質問サポートなし</li></ul>
+        <a class="plan__cta" href="https://line.me/R/ti/p/@244mztkv" target="_blank" rel="noopener">このプランで申し込む →</a>
+      </div>
+
+      <div class="plan plan--feat">
+        <span class="plan__badge">★ 一番人気</span>
+        <span class="plan__top"></span>
+        <span class="plan__no">PLAN 02</span>
+        <h3 class="plan__name">スタンダード</h3>
+        <p class="plan__lead">質問できる ＋ 月次更新を受け続けたい人</p>
+        <p class="plan__price"><span>¥</span>248,000<sup>+税</sup></p>
+        <ul><li>ベーシック内容すべて</li><li>2026年中の月次更新カリキュラム</li><li>質問サポート（Discord 24h以内）</li><li>月次オンライン質問会</li><li>新ツール解禁時の追加カリキュラム無料</li></ul>
+        <a class="plan__cta plan__cta--feat" href="https://line.me/R/ti/p/@244mztkv" target="_blank" rel="noopener">このプランで申し込む →</a>
+      </div>
+
+      <div class="plan">
+        <span class="plan__top"></span>
+        <span class="plan__no">PLAN 03</span>
+        <h3 class="plan__name">プレミアム</h3>
+        <p class="plan__lead">手を動かさず丸投げで構築してほしい人</p>
+        <p class="plan__price"><span>¥</span>1,980,000<sup>+税</sup></p>
+        <ul><li>スタンダード内容すべて</li><li>専用のAI社員チームを構築代行</li><li>専用の Obsidian Vault を構築代行</li><li>構築後の引き継ぎ研修</li><li>3ヶ月の運用伴走＋チャット</li></ul>
+        <a class="plan__cta" href="https://line.me/R/ti/p/@244mztkv" target="_blank" rel="noopener">このプランで申し込む →</a>
+      </div>
+
+      <div class="plan">
+        <span class="plan__top"></span>
+        <span class="plan__no">PLAN 04</span>
+        <h3 class="plan__name">法人プラン</h3>
+        <p class="plan__lead">組織にAI社員を導入したい法人向け</p>
+        <p class="plan__price"><span>¥</span>2,980,000<sup>+税〜</sup></p>
+        <ul><li>御社専用のAI社員／Vault構築（部署別）</li><li>組織研修（複数名向け配信）</li><li>ガバナンス／セキュリティ設計</li><li>内容により別途お見積り</li></ul>
+        <a class="plan__cta" href="https://line.me/R/ti/p/@244mztkv" target="_blank" rel="noopener">面談・お問い合わせを申し込む →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== GUARANTEE ===== -->
+  <section class="sec-tight reveal">
+    <div class="guar">
+      <img src="assets/gen-dark/warranty.png" alt="14日間 全額返金保証">
+      <h3>14日間 全額返金保証</h3>
+      <p>受講開始から14日以内であれば、理由を問わず全額返金いたします。「思っていたのと違った」その判断で結構です。<br><span style="font-size:11.5px;color:var(--mut)">※ プレミアム・法人プランは個別契約条項に従います。</span></p>
+    </div>
+  </section>
+
+  <!-- ===== VOICES band ===== -->
+  <img class="band reveal" src="assets/user/band_voices.png" alt="VOICE 受講生の声">
+
+  <!-- divider -->
+  <div style="height:30px"></div>
+
+  <!-- ===== FAQ ===== -->
+  <section class="sec reveal">
+    <p class="eyebrow">FAQ</p>
+    <h2 class="htitle">よくあるご質問</h2>
+    <div class="faq">
+      <details><summary>プログラミング未経験ですが受講できますか？</summary><p>大丈夫です。Claude Code / Hermes Agent は対話で動かせます。コードを「書く」のではなく「指示する」のが本講座の目的です。</p></details>
+      <details><summary>受講に必要な時間はどれくらい？</summary><p>合計15時間以上の動画。週6〜8時間で約8週間。集中すれば2〜3週間で完走される方もいます。</p></details>
+      <details><summary>ベーシックとスタンダードの違いは？</summary><p>ベーシックは買い切りで質問サポートなし。スタンダードは質問サポート＋2026年中の継続更新カリキュラムが含まれます。</p></details>
+      <details><summary>プレミアムの「丸投げ」とは？</summary><p>PLai側があなたの事業をヒアリングし、必要なAI社員とObsidian Vault（第二の脳）を構築してお渡しします。完成後3ヶ月の伴走付き。</p></details>
+      <details><summary>分割払いは可能ですか？</summary><p>可能です。決済プラットフォームの分割払い（3回／6回／12回）に対応しています。</p></details>
+      <details><summary>動画はいつまで視聴できますか？</summary><p>視聴期限はありません。買い切り後、永年視聴できます。スタンダード以上は2026年中の更新分も追加料金なしで視聴できます。</p></details>
+      <details><summary>過去にAIスクールで挫折しました。</summary><p>多くの受講生が同じ経験者です。本講座は「観るだけ」では終わらない設計（毎章ワーク＋プロンプト即流用）で抽象論を排しています。</p></details>
+    </div>
+  </section>
+
+  <!-- ===== MESSAGE band ===== -->
+  <img class="band reveal" src="assets/user/band_message.png" alt="MESSAGE 最後に｜市岡 直人 株式会社PLai代表">
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="final-cta reveal" id="final">
+    <p class="eyebrow">START HERE</p>
+    <h2 class="htitle">さあ、<span class="b">もう一人の自分</span>を作ろう。</h2>
+    <p class="lead">「AIに毎回説明する側」を卒業し、「指示するだけで結果が返ってくる側」へ。<br>1期生は生涯50名限定。まずは、あなたに合うプランと空き状況を確認してください。</p>
+    <div class="btn-wrap" style="margin-top:24px">
+      <a class="btn btn--enroll" href="#plans"><span class="btn__sub">受講条件・空き状況をチェック</span><span class="btn__main">受講できるか確認する →</span></a>
+      <p class="cta-note">14日間全額返金保証つき ／ 分割払い対応</p>
+    </div>
+  </section>
+
+  <footer class="ftr">
+    <img src="assets/img/plai-logo.png" alt="PLai">
+    <div class="ftr__links">
+      <a href="https://plai-ai.com/" target="_blank" rel="noopener">PLai 公式サイト</a>
+      <a href="https://plai-ai.com/academy-sales.html" target="_blank" rel="noopener">Academy</a>
+      <a href="https://plai-ai.com/contact.html" target="_blank" rel="noopener">Contact</a>
+    </div>
+    <p class="ftr__copy">&copy; PLai Inc. ALL RIGHTS RESERVED.</p>
+    <p class="ftr__legal"><a href="https://plai-ai.com/tokushoho.html" target="_blank" rel="noopener">特定商取引法に関する表記</a></p>
+  </footer>
+
+</div>
+
+<div class="sticky" id="sticky">
+  <div class="sticky__in">
+    <span class="sticky__txt"><b>1期生 残り50名限定</b>／受講お申し込み受付中</span>
+    <a class="sticky__btn" href="#plans">受講できるか確認 →</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+})();
+(function(){var s=document.getElementById('sticky');window.addEventListener('scroll',function(){if(window.scrollY>700)s.classList.add('show');else s.classList.remove('show');},{passive:true});})();
+document.querySelectorAll('.faq details').forEach(function(d){d.addEventListener('toggle',function(){if(d.open)document.querySelectorAll('.faq details').forEach(function(o){if(o!==d)o.open=false;});});});
+</script>
+</body>
+</html>
